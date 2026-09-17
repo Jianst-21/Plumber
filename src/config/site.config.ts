@@ -2,7 +2,7 @@ import { SiteConfig } from '@/types';
 
 export const SITE_CONFIG: SiteConfig = {
   business: {
-    name: 'ApexFlow Plumbing & Rooter',
+    name: 'Apex Plumbing',
     tagline: "Austin's Premier 24/7 Emergency & Residential Plumbing Contractor",
     phone: '(512) 555-7473',
     displayPhone: '(512) 555-PIPE',

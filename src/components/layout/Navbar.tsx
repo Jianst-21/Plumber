@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Flame, Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '@/config/site.config';
+import ApexLogo from '@/components/ui/ApexLogo';
 
 const NAV_ITEMS = [
   { label: 'Plumbing', href: '#services', hasDropdown: true },
@@ -38,20 +39,10 @@ export default function Navbar() {
           {/* Left: Apex Plumbing Logo */}
           <a
             href="#"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             aria-label={`${SITE_CONFIG.business.name} Home`}
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-amber-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <Flame className="w-6 h-6 fill-white text-white" aria-hidden="true" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
-                APEX
-              </span>
-              <span className="text-xs sm:text-sm font-extrabold tracking-widest text-slate-800 uppercase leading-tight mt-0.5">
-                PLUMBING
-              </span>
-            </div>
+            <ApexLogo size="md" variant="dark" />
           </a>
 
           {/* Center: Navigation Links (Matching Reference Style) */}

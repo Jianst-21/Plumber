@@ -16,6 +16,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site.config';
+import ApexLogo from '@/components/ui/ApexLogo';
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
@@ -136,20 +137,10 @@ export default function Footer() {
                   e.preventDefault();
                   scrollToTop();
                 }}
-                className="flex items-center gap-3 group inline-block"
+                className="inline-block group"
                 aria-label={`${SITE_CONFIG.business.name} home`}
               >
-                <div className="w-11 h-11 rounded-xl bg-navy-800 border border-navy-700 flex items-center justify-center text-amber-400 shadow-md group-hover:bg-navy-700 transition-colors">
-                  <Wrench className="w-6 h-6 -rotate-45" aria-hidden="true" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl sm:text-2xl font-black text-white tracking-tight leading-none">
-                    ApexFlow<span className="text-amber-500">.</span>
-                  </span>
-                  <span className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1">
-                    Plumbing &amp; Rooter
-                  </span>
-                </div>
+                <ApexLogo size="md" variant="light" />
               </a>
 
               <p className="text-sm text-slate-300 leading-relaxed font-normal">
