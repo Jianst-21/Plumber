@@ -18,6 +18,7 @@ dist/
 .opencode/
 
 # Environment / OS
+*.tsbuildinfo
 .env*.local
 .DS_Store
 Thumbs.db
