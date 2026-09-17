@@ -28,7 +28,7 @@ export default function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600" />
               </span>
-              <span>🚨 24/7 Rapid Emergency Response in Austin, TX</span>
+              <span>24/7 Rapid Emergency Response in Austin, TX</span>
             </div>
 
             {/* 2. Primary Headline (H1) */}

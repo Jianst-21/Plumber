@@ -108,7 +108,7 @@ export default function Footer() {
               aria-label={`Call emergency dispatch now at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-5 h-5 fill-amber-400 text-amber-400 animate-pulse flex-shrink-0" aria-hidden="true" />
-              <span>📞 Call {SITE_CONFIG.business.phone} Now</span>
+              <span>Call {SITE_CONFIG.business.phone} Now</span>
             </a>
 
             <a
@@ -118,7 +118,7 @@ export default function Footer() {
               aria-label="Get instant online quote"
             >
               <Zap className="w-5 h-5 fill-slate-950 text-slate-950 flex-shrink-0" aria-hidden="true" />
-              <span>⚡ Get Instant Online Quote</span>
+              <span>Get Instant Online Quote</span>
             </a>
           </div>
         </div>

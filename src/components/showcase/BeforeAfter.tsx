@@ -22,7 +22,7 @@ const SHOWCASE_METADATA = [
   {
     id: 'ba-galvanized-pex',
     category: 'Repiping & Pressure',
-    displayTitle: 'Corroded Galvanized Pipe Leak ➔ Clean PEX Manifold',
+    displayTitle: 'Corroded Galvanized Pipe Leak to Clean PEX Manifold',
     beforeDesc: 'Corroded rusty galvanized pipe with active water leak behind drywall, causing low water pressure and recurring pinhole leaks.',
     afterDesc: 'Clean commercial-grade cross-linked PEX manifold with lead-free brass quarter-turn ball valves and water pressure stabilization.',
     timeframe: '2 Hours on-site',
@@ -31,7 +31,7 @@ const SHOWCASE_METADATA = [
   {
     id: 'ba-root-drain',
     category: 'Main Drain & Sewer',
-    displayTitle: 'Severe Main Sewer Line Tree Root Blockage ➔ Restored Flow',
+    displayTitle: 'Severe Main Sewer Line Tree Root Blockage to Restored Flow',
     beforeDesc: 'Sewer backup overflowing with heavy aggressive live oak tree root infiltration completely obstructing the 4-inch lateral waste line.',
     afterDesc: 'Crystal-clear drain line restored to 100% original diameter using 4,000 PSI hydro-jetting with reciprocating root cutter head and HD camera verification.',
     timeframe: '90 Minutes on-site',
@@ -40,7 +40,7 @@ const SHOWCASE_METADATA = [
   {
     id: 'ba-tank-tankless',
     category: 'Emergency Water Heater',
-    displayTitle: '15-Year-Old Leaking Tank Water Heater ➔ Endless Tankless',
+    displayTitle: '15-Year-Old Leaking Tank Water Heater to Endless Tankless',
     beforeDesc: 'Rusty inefficient 50-gallon tank leaking from bottom seam, threatening catastrophic basement/garage flood and loss of hot water.',
     afterDesc: 'High-efficiency endless hot water tankless system with thermal expansion tank, automatic emergency shutoff valve, and direct outdoor venting.',
     timeframe: 'Same-day installation',

@@ -17,7 +17,7 @@ export default function TrustStrip() {
             </div>
             <div className="flex flex-col">
               <div className="flex items-center justify-center sm:justify-start gap-1">
-                <span className="text-sm sm:text-base font-extrabold text-slate-900">4.9 ★</span>
+                <span className="text-sm sm:text-base font-extrabold text-slate-900">4.9</span>
                 <div className="flex items-center" aria-label="5 out of 5 stars">
                   {[...Array(5)].map((_, i) => (
                     <Star

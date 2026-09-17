@@ -13,7 +13,7 @@ export default function EmergencyTopbar() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
           </span>
           <p className="font-bold tracking-wider text-[11px] sm:text-xs text-slate-200 truncate uppercase">
-            ● 24/7 EMERGENCY DISPATCH ACTIVE IN GREATER AUSTIN
+            24/7 EMERGENCY DISPATCH ACTIVE IN GREATER AUSTIN
           </p>
         </div>
 

@@ -262,7 +262,7 @@ export default function ServiceArea() {
                     </div>
                     <div>
                       <h4 className="text-base sm:text-lg font-black text-emerald-900 leading-snug">
-                        ✓ Service Available in {lastCheckedZip}!
+                        Service Available in {lastCheckedZip}!
                       </h4>
                       <p className="text-xs sm:text-sm text-emerald-800 mt-1 font-medium leading-relaxed">
                         Estimated response time: <strong>30–45 mins</strong>. Zero travel surcharge across your area.

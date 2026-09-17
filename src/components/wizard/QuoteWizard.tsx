@@ -293,7 +293,7 @@ export default function QuoteWizard() {
                         <div className="flex items-center gap-2">
                           <Tag className="w-4 h-4 text-amber-600 shrink-0" />
                           <span className="text-xs sm:text-sm font-bold">
-                            ✓ Promo Applied:{' '}
+                            Promo Applied:{' '}
                             <code className="font-mono bg-amber-200/70 px-1.5 py-0.5 rounded text-amber-900">
                               {couponCode}
                             </code>
@@ -435,7 +435,7 @@ export default function QuoteWizard() {
                         <div>
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <h4 className="font-extrabold text-navy-900 text-base">
-                              🚨 Emergency (Under 45 mins)
+                              Emergency (Under 45 mins)
                             </h4>
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white animate-pulse">
                               Immediate Priority
@@ -445,7 +445,7 @@ export default function QuoteWizard() {
                             Active pipe leak, overflowing toilet, sewer backup, or sudden loss of hot water.
                           </p>
                           <p className="text-xs font-bold text-red-700 mt-2 flex items-center gap-1">
-                            ✓ $0 Overtime Surcharge Guarantee (Nights &amp; Weekends Included)
+                            $0 Overtime Surcharge Guarantee (Nights &amp; Weekends Included)
                           </p>
                         </div>
                       </div>
@@ -489,7 +489,7 @@ export default function QuoteWizard() {
                         <div>
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <h4 className="font-extrabold text-navy-900 text-base">
-                              ⚡ Today (Flexible Same-Day Window)
+                              Today (Flexible Same-Day Window)
                             </h4>
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900">
                               Same-Day Arrival
@@ -540,7 +540,7 @@ export default function QuoteWizard() {
                         <div>
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <h4 className="font-extrabold text-navy-900 text-base">
-                              📅 Scheduled (Future Date or Renovation)
+                              Scheduled (Future Date or Renovation)
                             </h4>
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700">
                               Book in Advance
@@ -675,7 +675,7 @@ export default function QuoteWizard() {
                           />
                           <div>
                             <p className="font-extrabold text-sm sm:text-base text-emerald-950">
-                              ✓ Coverage Confirmed! 2 emergency technician vans active in {zipCode}.
+                              Coverage Confirmed! 2 emergency technician vans active in {zipCode}.
                             </p>
                             <p className="text-xs sm:text-sm text-emerald-900 mt-1 leading-relaxed">
                               Estimated arrival time: <strong>30–45 mins</strong>. Fully stocked warehouse truck on standby with zero overtime surcharge.
@@ -897,7 +897,7 @@ export default function QuoteWizard() {
 
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-3">
-                      ✓ Instant Quote Ready &bull; Priority Van Available
+                      Instant Quote Ready &bull; Priority Van Available
                     </span>
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-navy-900 tracking-tight">
                       Quote Calculated &amp; Dispatch Ticket Generated!
@@ -928,7 +928,7 @@ export default function QuoteWizard() {
                         {ticketCopied ? (
                           <>
                             <Check className="w-4 h-4 text-emerald-400" />
-                            <span className="text-emerald-400">✓ Ticket Copied!</span>
+                            <span className="text-emerald-400">Ticket Copied!</span>
                           </>
                         ) : (
                           <>
@@ -976,7 +976,7 @@ export default function QuoteWizard() {
                       )}
                       {estimate.couponBonus && (
                         <div className="p-2.5 rounded-lg bg-amber-100/60 border border-amber-200 text-amber-950 font-bold text-[11px] mt-2">
-                          ★ {estimate.couponBonus}
+                          {estimate.couponBonus}
                         </div>
                       )}
                     </div>
