@@ -1,12 +1,69 @@
+import EmergencyTopbar from '@/components/layout/EmergencyTopbar';
+import Navbar from '@/components/layout/Navbar';
+import HeroSection from '@/components/hero/HeroSection';
+import TrustStrip from '@/components/trust/TrustStrip';
+import CouponOffers from '@/components/coupons/CouponOffers';
+import ServicesGrid from '@/components/services/ServicesGrid';
+import QuoteWizard from '@/components/wizard/QuoteWizard';
+import PricingTable from '@/components/pricing/PricingTable';
+import BeforeAfter from '@/components/showcase/BeforeAfter';
+import WhyChooseUs from '@/components/trust/WhyChooseUs';
+import ServiceArea from '@/components/coverage/ServiceArea';
+import ReviewsSection from '@/components/reviews/ReviewsSection';
+import FaqAccordion from '@/components/faq/FaqAccordion';
+import Footer from '@/components/layout/Footer';
+import MobileFloatingBar from '@/components/layout/MobileFloatingBar';
+
 export default function Home() {
   return (
-    <main className="min-h-screen p-8 flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold text-navy-900">
-        ApexFlow Plumbing &amp; Rooter
-      </h1>
-      <p className="mt-2 text-slate-600">
-        High-converting lead-generation landing page scaffolded successfully.
-      </p>
-    </main>
+    <div className="relative min-h-screen w-full overflow-x-hidden pb-20 md:pb-0">
+      {/* 1. Top 24/7 notification bar */}
+      <EmergencyTopbar />
+
+      {/* 2. Sticky header with brand, nav links & call CTA */}
+      <Navbar />
+
+      {/* 3. Main Content Landmark */}
+      <main id="main-content">
+        {/* Hero Section with Dual CTAs and 45-Min Guarantee */}
+        <HeroSection />
+
+        {/* Credibility Trust Strip */}
+        <TrustStrip />
+
+        {/* Feature 1: Digital Perforated Discount Vouchers */}
+        <CouponOffers />
+
+        {/* Core Services Grid with Real Work Photos */}
+        <ServicesGrid />
+
+        {/* Interactive 4-Step Instant Lead Quote Wizard */}
+        <QuoteWizard />
+
+        {/* Feature 3: Upfront Flat-Rate Transparent Pricing Table */}
+        <PricingTable />
+
+        {/* Feature 2: High-Resolution Before & After Comparisons */}
+        <BeforeAfter />
+
+        {/* 4 Pillars of Contractor Advantage */}
+        <WhyChooseUs />
+
+        {/* Interactive Greater Austin Coverage Map & Real-time ZIP Checker */}
+        <ServiceArea />
+
+        {/* Verified Austin Homeowner Reviews & Social Proof */}
+        <ReviewsSection />
+
+        {/* Comprehensive Homeowner FAQ Accordion */}
+        <FaqAccordion />
+      </main>
+
+      {/* 4. Complete Legal/Regulatory Footer with Emergency Callout Strip */}
+      <Footer />
+
+      {/* 5. Fixed Mobile Bottom Action Bar (<768px viewports) */}
+      <MobileFloatingBar />
+    </div>
   );
 }
