@@ -274,7 +274,7 @@ export default function ServiceArea() {
                     <a
                       href={`#wizard?zip=${lastCheckedZip}`}
                       onClick={handleBookDispatch}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-extrabold text-sm shadow-sm hover:shadow transition-all text-center"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm shadow-sm hover:shadow transition-all text-center"
                       aria-label={`Book emergency dispatch for ZIP ${lastCheckedZip}`}
                     >
                       <span>Book Emergency Dispatch</span>
@@ -282,7 +282,7 @@ export default function ServiceArea() {
                     </a>
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-white hover:bg-emerald-100/60 text-emerald-900 border border-emerald-300 font-bold text-xs sm:text-sm transition-colors text-center"
+                      className="inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-full bg-white hover:bg-emerald-100/60 text-emerald-900 border border-emerald-300 font-bold text-xs sm:text-sm transition-colors text-center"
                       aria-label={`Call emergency phone at ${SITE_CONFIG.business.phone}`}
                     >
                       <Phone className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
@@ -324,7 +324,7 @@ export default function ServiceArea() {
                   <div className="flex-shrink-0">
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-extrabold text-sm shadow-sm transition-all"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-sm shadow-sm transition-all"
                       aria-label={`Call dispatch at ${SITE_CONFIG.business.phone} for ZIP ${lastCheckedZip}`}
                     >
                       <Phone className="w-4 h-4" aria-hidden="true" />

@@ -22,34 +22,33 @@ export default function ServicesGrid() {
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
+      className="py-20 sm:py-24 lg:py-28 bg-slate-50/50 relative overflow-hidden border-b border-slate-200/80"
       aria-label="Core Plumbing Services"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-200 text-navy-800 text-xs sm:text-sm font-bold shadow-xs mb-4">
-            <Wrench className="w-3.5 h-3.5 text-navy-700" aria-hidden="true" />
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-bold shadow-2xs mb-4">
+            <Wrench className="w-3.5 h-3.5 text-orange-600" aria-hidden="true" />
             <span>Master-Grade Workmanship</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
             Full-Service Residential &amp; Emergency Plumbing
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Available 24/7 with zero night/weekend surcharge. Every job handled by licensed master technicians.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
+            Available 24/7 with zero night or weekend overtime fees. Every call handled by state-licensed technicians.
           </p>
         </div>
 
         {/* 4 Core Services Grid (1 col mobile, 2 col tablet, 4 col desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {SITE_CONFIG.services.map((service: PlumbingService) => {
-            // Pick top 3 feature highlights
             const topFeatures = service.features.slice(0, 3);
 
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1"
+                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1.5"
               >
                 {/* Authentic Commercial Photo with Aspect 4/3 */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -63,53 +62,53 @@ export default function ServicesGrid() {
 
                   {/* Gradient overlay for text contrast */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none"
+                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none"
                     aria-hidden="true"
                   />
 
                   {/* Category Badge (Top Left) */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-navy-900/90 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-navy-700/60">
+                  <div className="absolute top-3.5 left-3.5 z-10">
+                    <span className="bg-slate-900/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm border border-slate-700/60">
                       {service.category}
                     </span>
                   </div>
 
                   {/* Highlight Badge (Top Right) */}
                   {service.badge && (
-                    <div className="absolute top-3 right-3 z-10">
-                      <span className="bg-amber-500 text-navy-950 text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-sm">
+                    <div className="absolute top-3.5 right-3.5 z-10">
+                      <span className="bg-orange-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-sm">
                         {service.badge}
                       </span>
                     </div>
                   )}
 
                   {/* Starting Price Badge (Bottom Right) */}
-                  <div className="absolute bottom-3 right-3 z-10 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-lg px-2.5 py-1 shadow-md">
+                  <div className="absolute bottom-3.5 right-3.5 z-10 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-xl px-3 py-1.5 shadow-md">
                     <span className="text-[9px] uppercase font-bold text-slate-500 block leading-none">
                       Starting at
                     </span>
-                    <span className="text-sm sm:text-base font-extrabold text-navy-900 leading-tight">
+                    <span className="text-base font-extrabold text-slate-900 leading-tight">
                       ${service.startingPrice}
                     </span>
                   </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-5 sm:p-6 flex flex-col flex-1">
+                <div className="p-6 flex flex-col flex-1">
                   {/* Service Title */}
-                  <h3 className="text-lg font-bold text-navy-900 mb-2 leading-snug group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug group-hover:text-orange-600 transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 mb-5 line-clamp-3 leading-relaxed font-normal">
                     {service.shortDesc}
                   </p>
 
                   {/* 3 Feature Checkmarks with Lucide icons */}
-                  <ul className="space-y-2 mb-5 text-xs sm:text-sm text-slate-700">
+                  <ul className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
                     {topFeatures.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                      <li key={idx} className="flex items-start gap-2.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                         <span className="leading-tight text-slate-700 font-medium">{feature}</span>
                       </li>
@@ -117,26 +116,26 @@ export default function ServicesGrid() {
                   </ul>
 
                   {/* Action Buttons */}
-                  <div className="mt-auto pt-4 border-t border-slate-100 flex flex-col gap-2">
+                  <div className="mt-auto pt-5 border-t border-slate-100 flex flex-col gap-2.5">
                     {/* Primary Button: Book This Service */}
                     <a
                       href={`#wizard?service=${service.id}`}
                       onClick={(e) => handleSelectService(e, service.id)}
-                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-navy-900 hover:bg-navy-800 active:bg-navy-950 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all min-h-[40px] text-center"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all min-h-[44px] text-center"
                       aria-label={`Book ${service.title} in quote wizard`}
                     >
-                      <Calendar className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" aria-hidden="true" />
+                      <Calendar className="w-4 h-4 text-orange-400 group-hover:text-white transition-colors" aria-hidden="true" />
                       <span>Book This Service</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                     </a>
 
                     {/* Secondary Link: Direct Call */}
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-slate-100 hover:bg-amber-50 hover:border-amber-300 hover:text-amber-900 text-slate-700 font-semibold text-xs border border-slate-200 transition-colors min-h-[36px] text-center"
+                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-100 hover:bg-orange-50 hover:border-orange-300 hover:text-orange-900 text-slate-700 font-bold text-xs border border-slate-200 transition-colors min-h-[40px] text-center"
                       aria-label={`Call ${SITE_CONFIG.business.phone} for ${service.title}`}
                     >
-                      <Phone className="w-3 h-3 text-amber-600 flex-shrink-0" aria-hidden="true" />
+                      <Phone className="w-3.5 h-3.5 text-orange-600 flex-shrink-0" aria-hidden="true" />
                       <span>Call {SITE_CONFIG.business.phone}</span>
                     </a>
                   </div>
@@ -147,25 +146,25 @@ export default function ServicesGrid() {
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="mt-12 rounded-2xl bg-slate-50 border border-slate-200/90 p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-700 flex-shrink-0">
-              <ShieldCheck className="w-5 h-5 text-emerald-600" aria-hidden="true" />
+        <div className="mt-14 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex items-center gap-4 text-left">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
+              <ShieldCheck className="w-6 h-6 text-emerald-600" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm sm:text-base font-bold text-navy-900">
-                100% Upfront Pricing Guarantee on Every Job
+              <p className="text-base sm:text-lg font-extrabold text-slate-900">
+                100% Upfront Pricing Guarantee on Every Service Call
               </p>
-              <p className="text-xs sm:text-sm text-slate-500 font-normal">
+              <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5">
                 No hidden dispatch travel fees, no surprises, and zero overtime surcharges on nights or weekends.
               </p>
             </div>
           </div>
           <a
             href={`tel:${SITE_CONFIG.business.phone}`}
-            className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-colors"
           >
-            <Phone className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+            <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
             <span>Speak With a Master Plumber</span>
           </a>
         </div>

@@ -309,19 +309,19 @@ export default function BeforeAfter() {
                     <a
                       href={`#wizard?service=${meta.serviceId}`}
                       onClick={(e) => handleBookRepair(e, meta.serviceId)}
-                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 active:bg-navy-950 text-white font-bold text-xs sm:text-sm shadow-xs transition-colors"
+                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white font-bold text-xs sm:text-sm shadow-2xs transition-colors"
                       aria-label={`Get quote for similar repair: ${meta.displayTitle}`}
                     >
                       <span>Fix Similar Issue</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+                      <ArrowRight className="w-3.5 h-3.5 text-orange-400 group-hover:text-white" aria-hidden="true" />
                     </a>
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="inline-flex items-center justify-center p-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 transition-colors"
+                      className="inline-flex items-center justify-center p-2.5 rounded-full bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 border border-slate-300 transition-colors"
                       aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
                       title="Call Dispatch"
                     >
-                      <Phone className="w-4 h-4 text-amber-600" aria-hidden="true" />
+                      <Phone className="w-4 h-4 text-orange-500" aria-hidden="true" />
                     </a>
                   </div>
                 </div>
@@ -331,9 +331,9 @@ export default function BeforeAfter() {
         </div>
 
         {/* Contractor Craftsmanship Guarantee Banner */}
-        <div className="mt-14 rounded-2xl bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-14 rounded-3xl bg-slate-900 text-white p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500 text-navy-950 flex items-center justify-center font-black flex-shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center font-bold shrink-0">
               <Sparkles className="w-6 h-6" aria-hidden="true" />
             </div>
             <div>
@@ -345,7 +345,7 @@ export default function BeforeAfter() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto flex-shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
             <a
               href="#wizard"
               onClick={(e) => {
@@ -355,7 +355,7 @@ export default function BeforeAfter() {
                   wizardEl.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-950 font-black text-sm shadow-md transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-md transition-colors"
               aria-label="Book a free-with-repair inspection"
             >
               <span>Schedule Inspection ($0 with Repair)</span>

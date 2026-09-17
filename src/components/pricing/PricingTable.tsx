@@ -148,7 +148,7 @@ export default function PricingTable() {
               <a
                 href="#wizard"
                 onClick={(e) => handleClaimQuote(e, 'leak-repair')}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-150 text-center"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 text-center"
                 aria-label="Claim flat-rate quote with waived diagnostic fee"
               >
                 <span>Claim Flat-Rate Quote</span>
@@ -156,10 +156,10 @@ export default function PricingTable() {
               </a>
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-navy-800/90 hover:bg-navy-700 text-slate-200 hover:text-white border border-navy-600/70 text-xs sm:text-sm font-bold transition-colors text-center"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center"
                 aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
               >
-                <Phone className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" aria-hidden="true" />
+                <Phone className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" aria-hidden="true" />
                 <span>Call {SITE_CONFIG.business.displayPhone}</span>
               </a>
             </div>
@@ -258,26 +258,26 @@ export default function PricingTable() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="mt-auto pt-4 border-t border-slate-100 space-y-2">
+                  <div className="mt-auto pt-5 border-t border-slate-100 space-y-2">
                     <a
                       href={`#wizard?service=${serviceId}`}
                       onClick={(e) => handleClaimQuote(e, serviceId)}
-                      className={`w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[40px] text-center ${
+                      className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full font-bold text-xs sm:text-sm shadow-2xs hover:shadow transition-all min-h-[44px] text-center ${
                         isDiagnostic
                           ? 'bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white'
-                          : 'bg-navy-900 hover:bg-navy-800 active:bg-navy-950 text-white'
+                          : 'bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white'
                       }`}
                       aria-label={`Claim flat-rate quote for ${item.service}`}
                     >
                       <span>Claim Flat-Rate Quote</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                      <ArrowRight className="w-3.5 h-3.5 text-orange-400 group-hover:text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                     </a>
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 text-xs text-slate-500 hover:text-navy-900 transition-colors font-medium text-center"
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 text-xs text-slate-500 hover:text-orange-600 transition-colors font-medium text-center"
                       aria-label={`Call ${SITE_CONFIG.business.displayPhone} for pricing on ${item.service}`}
                     >
-                      <Phone className="w-3 h-3 text-amber-600" aria-hidden="true" />
+                      <Phone className="w-3 h-3 text-orange-500" aria-hidden="true" />
                       <span>Or Call {SITE_CONFIG.business.phone}</span>
                     </a>
                   </div>
