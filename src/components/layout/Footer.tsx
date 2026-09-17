@@ -104,10 +104,10 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-150 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-base sm:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-150 text-center"
               aria-label={`Call emergency dispatch now at ${SITE_CONFIG.business.phone}`}
             >
-              <Phone className="w-5 h-5 fill-amber-400 text-amber-400 animate-pulse flex-shrink-0" aria-hidden="true" />
+              <Phone className="w-5 h-5 fill-amber-400 text-amber-400 flex-shrink-0" aria-hidden="true" />
               <span>Call {SITE_CONFIG.business.phone} Now</span>
             </a>
 

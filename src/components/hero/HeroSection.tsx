@@ -51,14 +51,12 @@ export default function HeroSection() {
               {/* Primary Safety Amber CTA */}
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="relative group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-900 font-extrabold text-base sm:text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-150 min-h-[48px] text-center"
+                className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-navy-900 font-extrabold text-base sm:text-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 min-h-[48px] text-center"
                 aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.displayPhone}`}
               >
-                {/* Pulsing micro-animation ring on the phone */}
-                <span className="relative flex h-5 w-5 items-center justify-center flex-shrink-0" aria-hidden="true">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-navy-900/30 opacity-75" />
-                  <Phone className="relative inline-flex w-5 h-5 fill-navy-900 text-navy-900 group-hover:rotate-12 transition-transform" />
-                </span>
+                <div className="w-8 h-8 rounded-lg bg-navy-900/10 flex items-center justify-center group-hover:rotate-12 transition-transform duration-200">
+                  <Phone className="w-4 h-4 fill-navy-900 text-navy-900" />
+                </div>
                 <span>Call {SITE_CONFIG.business.phone}</span>
               </a>
 
@@ -98,7 +96,7 @@ export default function HeroSection() {
               {/* Photo Frame Container */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/4.5]">
                 <Image
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/hero-plumber.jpg"
                   alt="ApexFlow licensed Texas master plumber contractor equipped with specialized tools ready for emergency service in Austin"
                   fill
                   priority

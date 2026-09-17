@@ -84,10 +84,10 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-900 font-extrabold px-4 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all text-sm"
+              className="group hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-navy-900 font-extrabold px-4 py-2.5 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-sm"
               aria-label={`Call ${SITE_CONFIG.business.displayPhone} now`}
             >
-              <Phone className="w-4 h-4 fill-navy-900 text-navy-900 animate-pulse" aria-hidden="true" />
+              <Phone className="w-4 h-4 fill-navy-900 text-navy-900 group-hover:rotate-12 transition-transform duration-200" aria-hidden="true" />
               <span>{SITE_CONFIG.business.displayPhone}</span>
             </a>
 
@@ -146,9 +146,9 @@ export default function Navbar() {
                 <a
                   href={`tel:${SITE_CONFIG.business.phone}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-900 font-extrabold rounded-xl shadow-md text-base transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-navy-900 font-extrabold rounded-xl shadow-sm text-base transition-colors"
                 >
-                  <Phone className="w-5 h-5 fill-navy-900 text-navy-900 animate-pulse" aria-hidden="true" />
+                  <Phone className="w-5 h-5 fill-navy-900 text-navy-900" aria-hidden="true" />
                   <span>Call Dispatch: {SITE_CONFIG.business.displayPhone}</span>
                 </a>
               </div>

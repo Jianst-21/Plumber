@@ -171,7 +171,7 @@ export default function FaqAccordion() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm sm:text-base shadow-lg hover:shadow-xl transition-all text-center"
                 aria-label={`Speak directly to a licensed master plumber at ${SITE_CONFIG.business.phone}`}
               >
-                <Phone className="w-4 h-4 fill-navy-950 text-navy-950 animate-pulse flex-shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 fill-navy-950 text-navy-950 flex-shrink-0" aria-hidden="true" />
                 <span>Speak Directly to a Licensed Master Plumber: {SITE_CONFIG.business.phone}</span>
               </a>
 

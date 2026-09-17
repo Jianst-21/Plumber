@@ -16,7 +16,7 @@ export default function MobileFloatingBar() {
           className="flex-1 min-h-[48px] h-12 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-900 font-extrabold px-3 py-2 rounded-xl shadow-lg transition-transform active:scale-95 text-sm sm:text-base leading-tight"
           aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.displayPhone}`}
         >
-          <PhoneCall className="w-5 h-5 flex-shrink-0 animate-pulse text-navy-900 fill-navy-900" aria-hidden="true" />
+          <PhoneCall className="w-5 h-5 flex-shrink-0 text-navy-900 fill-navy-900" aria-hidden="true" />
           <span className="truncate">Call {SITE_CONFIG.business.displayPhone}</span>
         </a>
 

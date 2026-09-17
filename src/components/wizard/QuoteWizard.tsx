@@ -986,11 +986,13 @@ export default function QuoteWizard() {
                   <div className="max-w-md mx-auto space-y-3 pt-2">
                     <a
                       href={`tel:${SITE_CONFIG.business.phone.replace(/\D/g, '')}`}
-                      className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-black text-base sm:text-lg shadow-xl shadow-red-600/30 active:scale-[0.99] transition-all tracking-tight animate-beacon"
+                      className="group w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-extrabold text-base sm:text-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 tracking-tight text-center"
                     >
-                      <Phone className="w-5 h-5 fill-white shrink-0" />
+                      <div className="w-8 h-8 rounded-lg bg-slate-950/10 flex items-center justify-center group-hover:rotate-12 transition-transform duration-200 shrink-0">
+                        <Phone className="w-4 h-4 fill-slate-950 text-slate-950" />
+                      </div>
                       <span>
-                        Call {SITE_CONFIG.business.phone} to Expedite Arrival (Reference {ticketId})
+                        Call {SITE_CONFIG.business.phone} to Expedite Arrival (Ref: {ticketId})
                       </span>
                     </a>
                     <p className="text-xs text-slate-500 font-medium">

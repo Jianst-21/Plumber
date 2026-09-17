@@ -35,7 +35,7 @@ export default function EmergencyTopbar() {
             className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-amber-400 hover:text-amber-300 transition-colors group"
             aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.displayPhone}`}
           >
-            <Phone className="w-3.5 h-3.5 fill-amber-400 text-amber-400 group-hover:scale-110 transition-transform animate-pulse flex-shrink-0" aria-hidden="true" />
+            <Phone className="w-3.5 h-3.5 fill-amber-400 text-amber-400 group-hover:rotate-12 transition-transform duration-150 flex-shrink-0" aria-hidden="true" />
             <span className="underline decoration-amber-400/40 hover:decoration-amber-300">
               <span className="hidden sm:inline">Call Dispatch: </span>
               {SITE_CONFIG.business.displayPhone}
