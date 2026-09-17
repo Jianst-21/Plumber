@@ -345,8 +345,16 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
       }
     };
 
+    const handleSelectZip = (event: Event) => {
+      const customEvent = event as CustomEvent<string>;
+      if (customEvent.detail) {
+        setZipCode(customEvent.detail);
+      }
+    };
+
     window.addEventListener('plumber-select-coupon', handleSelectCoupon);
     window.addEventListener('plumber-select-service', handleSelectService);
+    window.addEventListener('plumber-select-zip', handleSelectZip);
 
     const parseParams = () => {
       try {
@@ -354,12 +362,14 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
         const search = window.location.search;
         let couponParam: string | null = null;
         let serviceParam: string | null = null;
+        let zipParam: string | null = null;
 
         if (hash.includes('?')) {
           const hashQuery = hash.split('?')[1];
           const params = new URLSearchParams(hashQuery);
           couponParam = params.get('coupon');
           serviceParam = params.get('service');
+          zipParam = params.get('zip');
         }
 
         if (!couponParam && search) {
@@ -368,6 +378,9 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
           if (!serviceParam) {
             serviceParam = searchParams.get('service');
           }
+          if (!zipParam) {
+            zipParam = searchParams.get('zip');
+          }
         }
 
         if (couponParam) {
@@ -375,6 +388,9 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
         }
         if (serviceParam) {
           selectService(serviceParam);
+        }
+        if (zipParam) {
+          setZipCode(zipParam);
         }
       } catch {
         // Ignore URL parsing errors
@@ -387,9 +403,10 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
     return () => {
       window.removeEventListener('plumber-select-coupon', handleSelectCoupon);
       window.removeEventListener('plumber-select-service', handleSelectService);
+      window.removeEventListener('plumber-select-zip', handleSelectZip);
       window.removeEventListener('hashchange', parseParams);
     };
-  }, [applyCoupon, selectService]);
+  }, [applyCoupon, selectService, setZipCode]);
 
   return {
     step,

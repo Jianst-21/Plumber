@@ -103,6 +103,7 @@ export interface SiteConfig {
   pricing: PricingItem[];
   beforeAfter: BeforeAfterItem[];
   whyChooseUs: WhyChooseUsPillar[];
+  pillars?: WhyChooseUsPillar[];
   serviceArea: ServiceAreaConfig;
   testimonials: Testimonial[];
   faq: FaqItem[];

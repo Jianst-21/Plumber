@@ -163,26 +163,60 @@ export const SITE_CONFIG: SiteConfig = {
   whyChooseUs: [
     {
       id: 'pillar-licensed',
-      title: 'Licensed & Drug-Tested Technicians',
-      description: 'Every technician is background-checked, drug-tested, and holds Texas Master or Journeyman credentials.',
-      iconName: 'ShieldCheck',
+      title: 'Texas-Licensed & Drug-Tested',
+      description:
+        'All technicians are vetted, certified, background-checked, and hold active Texas Master or Journeyman credentials.',
+      iconName: 'BadgeCheck',
     },
     {
       id: 'pillar-inventory',
-      title: 'Warehouse On Wheels',
-      description: 'Fully stocked service vans carrying 1,200+ commercial-grade parts so 92% of repairs are finished in one visit.',
+      title: 'Fully Stocked "Warehouse On Wheels"',
+      description:
+        'Service vans carrying 1,500+ OEM replacement parts for an exceptional 94% first-visit fix rate with zero supply run delays.',
       iconName: 'Truck',
     },
     {
       id: 'pillar-diagnostics',
-      title: 'Advanced Diagnostics',
-      description: 'Non-invasive electronic leak detection and high-definition sewer cameras identify issues without tearing up walls.',
-      iconName: 'SearchCheck',
+      title: 'Cutting-Edge Diagnostic Gear',
+      description:
+        'HD in-pipe color cameras, acoustic ground sensors, and non-invasive thermal leak imaging isolate issues without tearing up walls.',
+      iconName: 'Video',
     },
     {
       id: 'pillar-clean',
       title: 'Clean Home Guarantee',
-      description: 'We protect your property with shoe covers, floor runners, and leave your bathroom or kitchen cleaner than we found it.',
+      description:
+        'Protective boot covers, heavy floor runners, and spotless workspace cleanup guaranteed on every single residential dispatch.',
+      iconName: 'Sparkles',
+    },
+  ],
+  pillars: [
+    {
+      id: 'pillar-licensed',
+      title: 'Texas-Licensed & Drug-Tested',
+      description:
+        'All technicians are vetted, certified, background-checked, and hold active Texas Master or Journeyman credentials.',
+      iconName: 'BadgeCheck',
+    },
+    {
+      id: 'pillar-inventory',
+      title: 'Fully Stocked "Warehouse On Wheels"',
+      description:
+        'Service vans carrying 1,500+ OEM replacement parts for an exceptional 94% first-visit fix rate with zero supply run delays.',
+      iconName: 'Truck',
+    },
+    {
+      id: 'pillar-diagnostics',
+      title: 'Cutting-Edge Diagnostic Gear',
+      description:
+        'HD in-pipe color cameras, acoustic ground sensors, and non-invasive thermal leak imaging isolate issues without tearing up walls.',
+      iconName: 'Video',
+    },
+    {
+      id: 'pillar-clean',
+      title: 'Clean Home Guarantee',
+      description:
+        'Protective boot covers, heavy floor runners, and spotless workspace cleanup guaranteed on every single residential dispatch.',
       iconName: 'Sparkles',
     },
   ],
@@ -192,17 +226,21 @@ export const SITE_CONFIG: SiteConfig = {
     neighborhoods: [
       'Downtown Austin',
       'South Congress (SoCo)',
+      'Round Rock',
+      'Cedar Park',
+      'Lakeway',
+      'Pflugerville',
+      'Buda',
+      'Kyle',
+      'West Lake Hills',
+      'Barton Creek',
       'Zilker & Barton Hills',
       'Travis Heights',
       'Hyde Park & Campus',
       'South Lamar (SoLa)',
-      'West Lake Hills',
       'Circle C Ranch',
       'Allandale & Crestview',
       'Anderson Mill',
-      'Round Rock',
-      'Pflugerville',
-      'Cedar Park',
     ],
     zipCodes: [
       '78701',
@@ -210,12 +248,17 @@ export const SITE_CONFIG: SiteConfig = {
       '78703',
       '78704',
       '78705',
+      '78734',
+      '78735',
+      '78738',
       '78745',
       '78746',
       '78748',
       '78750',
       '78759',
+      '78610',
       '78613',
+      '78640',
       '78660',
       '78664',
     ],
