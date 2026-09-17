@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-shadow ${
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-shadow duration-200 ${
         scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
     >

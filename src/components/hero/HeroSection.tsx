@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             {/* 2. Primary Headline (H1) */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-extrabold text-navy-900 tracking-tight leading-[1.18] sm:leading-[1.15] mb-5">
-              Fast, Licensed Emergency Plumbing in Austin —{' '}
+              Fast, Licensed Emergency Plumbing in Austin:{' '}
               <span className="text-amber-600 underline decoration-amber-400/50 decoration-wavy decoration-2">
                 At Your Door in 45 Minutes or Less!
               </span>

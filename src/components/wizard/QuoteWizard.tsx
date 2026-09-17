@@ -300,7 +300,7 @@ export default function QuoteWizard() {
                           </span>
                           {estimate.couponBonus && (
                             <span className="hidden sm:inline text-xs text-amber-800 font-medium">
-                              — {estimate.couponBonus}
+                              ({estimate.couponBonus})
                             </span>
                           )}
                         </div>

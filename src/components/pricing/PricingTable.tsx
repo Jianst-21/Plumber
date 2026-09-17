@@ -100,7 +100,7 @@ export default function PricingTable() {
             <span>100% Upfront Honest Rates</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
-            Transparent Flat-Rate Pricing — No Surprises
+            Transparent Flat-Rate Pricing: No Surprises
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             We quote the full price in writing before touching a tool. Zero overtime charges for nights, weekends, or holidays.

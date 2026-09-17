@@ -130,11 +130,11 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
     const calculatedMin = Math.max(0, base.min - discountAmount);
     const calculatedMax = Math.max(calculatedMin, base.max - discountAmount);
 
-    let urgencyNote = '24/7 Emergency Dispatch — $0 Overtime Surcharge Guarantee';
+    let urgencyNote = '24/7 Emergency Dispatch: $0 Overtime Surcharge Guarantee';
     if (urgency === 'today') {
-      urgencyNote = 'Same-Day Priority Window — Standard Rates Apply';
+      urgencyNote = 'Same-Day Priority Window: Standard Rates Apply';
     } else if (urgency === 'scheduled') {
-      urgencyNote = 'Flexible Scheduling — Upfront Flat Rate Guaranteed';
+      urgencyNote = 'Flexible Scheduling: Upfront Flat Rate Guaranteed';
     }
 
     return {
