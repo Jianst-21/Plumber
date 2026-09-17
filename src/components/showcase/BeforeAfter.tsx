@@ -20,31 +20,31 @@ import { BeforeAfterItem } from '@/types';
 // Enriched showcase metadata strictly adhering to brief specifications
 const SHOWCASE_METADATA = [
   {
-    id: 'ba-galvanized-pex',
-    category: 'Repiping & Pressure',
-    displayTitle: 'Corroded Galvanized Pipe Leak to Clean PEX Manifold',
-    beforeDesc: 'Corroded rusty galvanized pipe with active water leak behind drywall, causing low water pressure and recurring pinhole leaks.',
-    afterDesc: 'Clean commercial-grade cross-linked PEX manifold with lead-free brass quarter-turn ball valves and water pressure stabilization.',
-    timeframe: '2 Hours on-site',
+    id: 'ba-faucet-replacement',
+    category: 'Fixture & Faucets',
+    displayTitle: 'Broken Kitchen Faucet to Modern High-Arc Fixture',
+    beforeDesc: 'Cracked internal cartridge and damaged pull-out spray head leaking water over the kitchen counter basin.',
+    afterDesc: 'Installed commercial-grade high-arc brushed nickel pull-down faucet with ceramic disc valve and watertight braided supply lines.',
+    timeframe: '45 Minutes on-site',
     serviceId: 'fixture-pipe',
   },
   {
-    id: 'ba-root-drain',
-    category: 'Main Drain & Sewer',
-    displayTitle: 'Severe Main Sewer Line Tree Root Blockage to Restored Flow',
-    beforeDesc: 'Sewer backup overflowing with heavy aggressive live oak tree root infiltration completely obstructing the 4-inch lateral waste line.',
-    afterDesc: 'Crystal-clear drain line restored to 100% original diameter using 4,000 PSI hydro-jetting with reciprocating root cutter head and HD camera verification.',
+    id: 'ba-sink-ptrap',
+    category: 'Drainage & P-Trap',
+    displayTitle: 'Leaking Under-Sink P-Trap to Clean Sealed PVC Assembly',
+    beforeDesc: 'Severely leaking P-trap joint and deteriorating slip-gaskets causing standing wastewater pooling inside the cabinet.',
+    afterDesc: 'Rebuilt complete dual-sink PVC drainage assembly with watertight mechanical slip-joints, clean trap, and dedicated shutoff lines.',
     timeframe: '90 Minutes on-site',
     serviceId: 'drain-cleaning',
   },
   {
-    id: 'ba-tank-tankless',
-    category: 'Emergency Water Heater',
-    displayTitle: '15-Year-Old Leaking Tank Water Heater to Endless Tankless',
-    beforeDesc: 'Rusty inefficient 50-gallon tank leaking from bottom seam, threatening catastrophic basement/garage flood and loss of hot water.',
-    afterDesc: 'High-efficiency endless hot water tankless system with thermal expansion tank, automatic emergency shutoff valve, and direct outdoor venting.',
-    timeframe: 'Same-day installation',
-    serviceId: 'water-heater',
+    id: 'ba-toilet-installation',
+    category: 'Toilet & Sanitation',
+    displayTitle: 'Toilet Rough-In Flange to Precision Installed Commode',
+    beforeDesc: 'Cracked leaking commode removed, exposing unsealed floor flange and requiring wax ring replacement, leveling, and water hookup.',
+    afterDesc: 'Installed reinforced anti-leak wax ring seal, secured brass closet bolts, leveled dual-flush commode, and connected braided water line.',
+    timeframe: '1 Hour on-site',
+    serviceId: 'fixture-pipe',
   },
 ];
 
@@ -53,9 +53,9 @@ type ViewMode = 'both' | 'before' | 'after';
 export default function BeforeAfter() {
   // Interactive view toggle per showcase card: 'both' | 'before' | 'after'
   const [activeViews, setActiveViews] = useState<Record<string, ViewMode>>({
-    'ba-galvanized-pex': 'both',
-    'ba-root-drain': 'both',
-    'ba-tank-tankless': 'both',
+    'ba-faucet-replacement': 'both',
+    'ba-sink-ptrap': 'both',
+    'ba-toilet-installation': 'both',
   });
 
   const handleSetView = (id: string, mode: ViewMode) => {
