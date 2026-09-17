@@ -46,106 +46,44 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full bg-slate-950 overflow-hidden" aria-label="Hero">
-      {/* ============================================================ */}
-      {/* DESKTOP / TABLET HERO: 100% EXACT ULTRA-HD 4K MASTER BANNER */}
-      {/* ============================================================ */}
-      <div className="hidden md:block relative w-full aspect-[3129/1476] max-w-[1920px] mx-auto overflow-hidden select-none">
-        {/* Full-Bleed 4K Ultra-HD Master Hero Image with Natural Kitchen Shadow */}
+    <section className="relative w-full min-h-[600px] sm:min-h-[660px] lg:min-h-[720px] flex items-center bg-[#0d141e] overflow-hidden">
+      {/* 1. Fullscreen / Full-Bleed Clean Photography (ZERO baked-in text, ZERO baked-in buttons) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Image
-          src="/images/hero-apex.jpg"
-          alt="Austin's Trusted Plumbing & Heating Experts - Apex Plumbing"
+          src="/images/hero-clean-bg.jpg"
+          alt="Austin luxury home residential plumbing and kitchen"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top pointer-events-none"
+          className="object-cover object-center lg:object-right"
         />
 
-        {/* 1. Interactive Button Hotspot: Schedule an Appointment */}
-        <a
-          href="#wizard"
-          onClick={(e) => handleScrollTo(e, 'wizard')}
-          className="absolute z-30 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-orange-400"
-          style={{
-            left: '4.17%',
-            top: '72.79%',
-            width: '16.48%',
-            height: '6.08%',
-          }}
-          aria-label="Schedule an Appointment in quote wizard"
-          title="Schedule an Appointment"
-        >
-          <span className="sr-only">Schedule an Appointment</span>
-        </a>
-
-        {/* 2. Interactive Button Hotspot: Have an Emergency? */}
-        <a
-          href={`tel:${SITE_CONFIG.business.phone}`}
-          className="absolute z-30 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-orange-400"
-          style={{
-            left: '21.5%',
-            top: '72.79%',
-            width: '14.2%',
-            height: '6.08%',
-          }}
-          aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
-          title="Have an Emergency? Call 24/7"
-        >
-          <span className="sr-only">Have an Emergency? Call Now</span>
-        </a>
-
-        {/* 3. Crisp, Interactive HTML Floating Badge: Google Reviews 4.9 */}
-        <a
-          href="#reviews"
-          onClick={(e) => handleScrollTo(e, 'reviews')}
-          className="group absolute z-30 bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl shadow-xl hover:shadow-2xl border border-slate-100 hover:border-slate-200 transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-3.5 px-4 py-3"
-          style={{
-            left: '81.8%',
-            top: '66.2%',
-            width: '15.6%',
-            height: '25.0%',
-          }}
-          aria-label="View verified Google customer reviews"
-          title="Google Reviews 4.9/5 - Click to read reviews"
-        >
-          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-            <GoogleLogo className="w-6 h-6" />
-          </div>
-          <div className="min-w-0 text-left">
-            <div className="flex items-center gap-1.5 leading-none">
-              <span className="text-base font-extrabold text-slate-950">4.9</span>
-              <Star className="w-4 h-4 fill-amber-400 text-amber-400 -mt-0.5" aria-hidden="true" />
-            </div>
-            <p className="text-[11px] text-slate-600 font-medium leading-tight mt-1 truncate">
-              Rated 4.9 based on 500+ Google Reviews
-            </p>
-          </div>
-        </a>
+        {/* 2. Soft, Translucent Left Gradient Shadow (Natural Shading, NOT Solid Black!) */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent lg:w-3/5"
+          aria-hidden="true"
+        />
+        {/* Subtle ground shadow for smooth transition to the trust strip */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/20"
+          aria-hidden="true"
+        />
       </div>
 
-      {/* ============================================================ */}
-      {/* MOBILE HERO (< md): DEDICATED TOUCH-FRIENDLY VIEWPORT        */}
-      {/* ============================================================ */}
-      <div className="md:hidden relative min-h-[580px] flex flex-col justify-between py-10 px-5 text-white overflow-hidden">
-        <div className="absolute inset-0 w-full h-full pointer-events-none">
-          <Image
-            src="/images/hero-apex.jpg"
-            alt="Apex Plumbing Technician in Austin"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[72%_center] opacity-45"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/60" />
-        </div>
-
-        {/* Mobile Content */}
-        <div className="relative z-10 space-y-4 pt-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-xs font-bold">
-            <span>24/7 Emergency Dispatch Available</span>
+      {/* 3. Main Hero Content Landmark: 100% Real Next.js HTML/Tailwind */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-14 sm:py-20 lg:py-24">
+        <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
+          {/* Dispatch Status Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-xs sm:text-sm font-bold mb-5 backdrop-blur-xs">
+            <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
+            </span>
+            <span>24/7 Rapid Emergency Response in Austin, TX</span>
           </div>
 
-          <h1 className="text-3xl font-extrabold text-white tracking-tight leading-[1.15]">
+          {/* Primary Headline (H1) for Austin, TX */}
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-white tracking-tight leading-[1.12] mb-5">
             Austin&apos;s Trusted
             <br />
             Plumbing &amp; Heating
@@ -153,66 +91,75 @@ export default function HeroSection() {
             Experts
           </h1>
 
-          <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-            Fast, reliable plumbing, drain cleaning, heating &amp; cooling services available <strong className="text-white font-bold">24/7</strong> in Austin, TX.
+          {/* Subtitle / Value Proposition */}
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-7 max-w-lg font-normal">
+            Fast, reliable plumbing, drain cleaning, heating &amp; cooling services available{' '}
+            <strong className="text-white font-bold">24/7</strong> across Greater Austin.
           </p>
 
-          {/* 5 Service Bullets */}
-          <div className="flex flex-wrap gap-x-4 gap-y-2 pt-1 pb-2">
-            {HERO_SERVICES.map((s) => (
-              <div key={s} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200">
-                <div className="w-4 h-4 rounded-full bg-orange-500/20 border border-orange-500 flex items-center justify-center">
+          {/* 5 Service Bullet Checkmarks */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 mb-8 max-w-xl">
+            {HERO_SERVICES.map((item) => (
+              <div key={item} className="inline-flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full border border-orange-500 flex items-center justify-center text-orange-400 bg-orange-500/20 shrink-0">
                   <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                 </div>
-                <span>{s}</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
 
-          {/* Mobile Buttons */}
-          <div className="flex flex-col gap-3 pt-2">
+          {/* Dual Action Buttons (Real HTML/React interactive buttons) */}
+          <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+            {/* Button 1: Schedule an Appointment (Vibrant Orange Pill) */}
             <a
               href="#wizard"
               onClick={(e) => handleScrollTo(e, 'wizard')}
-              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-sm shadow-lg shadow-orange-500/30 text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] text-center"
+              aria-label="Schedule an appointment in quote wizard"
             >
-              <Calendar className="w-4 h-4 text-white" />
+              <Calendar className="w-4 h-4 text-white" aria-hidden="true" />
               <span>Schedule an Appointment</span>
             </a>
 
+            {/* Button 2: Have an Emergency? (White Pill with Orange Border) */}
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-white hover:bg-orange-50 text-orange-600 border border-orange-500 font-bold text-sm shadow-md text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white hover:bg-orange-50 active:bg-orange-100 text-orange-600 border border-orange-500 font-bold text-sm sm:text-base shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] text-center"
+              aria-label={`Call emergency team at ${SITE_CONFIG.business.phone}`}
             >
-              <Navigation className="w-4 h-4 text-orange-500 rotate-45" />
+              <Navigation className="w-4 h-4 text-orange-500 rotate-45" aria-hidden="true" />
               <span>Have an Emergency?</span>
             </a>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Google Review Card */}
-        <div className="relative z-10 pt-6">
-          <a
-            href="#reviews"
-            onClick={(e) => handleScrollTo(e, 'reviews')}
-            className="block bg-white rounded-2xl p-3.5 shadow-xl border border-slate-100 max-w-xs"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0">
-                <GoogleLogo className="w-5 h-5" />
-              </div>
-              <div className="min-w-0 text-left">
-                <div className="flex items-center gap-1 leading-none">
-                  <span className="text-base font-extrabold text-slate-950">4.9</span>
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400 -mt-0.5" />
-                </div>
-                <p className="text-[11px] text-slate-600 font-medium leading-tight mt-1 truncate">
-                  Rated 4.9 based on 500+ Google Reviews
-                </p>
-              </div>
+      {/* Floating Google Review Badge (Clean Interactive HTML Component in Bottom Right) */}
+      <div className="hidden sm:block absolute bottom-6 right-6 lg:bottom-8 lg:right-10 z-20">
+        <a
+          href="#reviews"
+          onClick={(e) => handleScrollTo(e, 'reviews')}
+          className="group block bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl p-3.5 px-4 shadow-2xl border border-slate-100 hover:border-slate-200 hover:-translate-y-0.5 transition-all duration-200 max-w-[280px]"
+          aria-label="View Google customer reviews"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+              <GoogleLogo className="w-6 h-6" />
             </div>
-          </a>
-        </div>
+            <div className="min-w-0 text-left">
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="text-base font-extrabold text-slate-950">4.9</span>
+                <Star className="w-4 h-4 fill-amber-400 text-amber-400 -mt-0.5" aria-hidden="true" />
+              </div>
+              <p className="text-[11px] text-slate-600 font-medium leading-tight mt-1 truncate">
+                Rated 4.9 based on 500+ Google Reviews
+              </p>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   );

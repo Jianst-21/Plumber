@@ -1,3 +1,4 @@
+import EmergencyTopbar from '@/components/layout/EmergencyTopbar';
 import Navbar from '@/components/layout/Navbar';
 import HeroSection from '@/components/hero/HeroSection';
 import TrustStrip from '@/components/trust/TrustStrip';
@@ -15,12 +16,15 @@ import MobileFloatingBar from '@/components/layout/MobileFloatingBar';
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-x-clip pb-20 md:pb-0">
-      {/* 1. Sticky header with brand, nav links & call CTA */}
+      {/* 1. Top 24/7 emergency notification warning bar */}
+      <EmergencyTopbar />
+
+      {/* 2. Sticky header with brand, license & navigation */}
       <Navbar />
 
-      {/* 2. Main Content Landmark */}
+      {/* 3. Main Content Landmark */}
       <main id="main-content">
-        {/* Hero Section with Dual CTAs and 45-Min Guarantee */}
+        {/* Hero Section with Fullscreen background, left text & CTA buttons */}
         <HeroSection />
 
         {/* Credibility Trust Strip */}
@@ -32,29 +36,29 @@ export default function Home() {
         {/* Interactive 4-Step Instant Lead Quote Wizard */}
         <QuoteWizard />
 
-        {/* Feature 3: Upfront Flat-Rate Transparent Pricing Table */}
+        {/* Upfront Flat-Rate Transparent Pricing Table */}
         <PricingTable />
 
-        {/* Feature 2: High-Resolution Before & After Comparisons */}
+        {/* Real Work Before & After Comparisons */}
         <BeforeAfter />
 
         {/* 4 Pillars of Contractor Advantage */}
         <WhyChooseUs />
 
-        {/* Interactive Greater Austin Coverage Map & Real-time ZIP Checker */}
+        {/* Service Area Metro Coverage Map & Live ZIP Checker */}
         <ServiceArea />
 
-        {/* Verified Austin Homeowner Reviews & Social Proof */}
+        {/* Verified Homeowner Reviews */}
         <ReviewsSection />
 
-        {/* Comprehensive Homeowner FAQ Accordion */}
+        {/* Expandable FAQ Accordion */}
         <FaqAccordion />
       </main>
 
-      {/* 4. Complete Legal/Regulatory Footer with Emergency Callout Strip */}
+      {/* 4. Emergency Callout Strip & Comprehensive Footer */}
       <Footer />
 
-      {/* 5. Fixed Mobile Bottom Action Bar (<768px viewports) */}
+      {/* 5. Mobile Floating Action Bar */}
       <MobileFloatingBar />
     </div>
   );
