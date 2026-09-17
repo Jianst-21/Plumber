@@ -1,4 +1,3 @@
-import EmergencyTopbar from '@/components/layout/EmergencyTopbar';
 import Navbar from '@/components/layout/Navbar';
 import HeroSection from '@/components/hero/HeroSection';
 import TrustStrip from '@/components/trust/TrustStrip';
@@ -16,13 +15,10 @@ import MobileFloatingBar from '@/components/layout/MobileFloatingBar';
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-x-clip pb-20 md:pb-0">
-      {/* 1. Top 24/7 notification bar */}
-      <EmergencyTopbar />
-
-      {/* 2. Sticky header with brand, nav links & call CTA */}
+      {/* 1. Sticky header with brand, nav links & call CTA */}
       <Navbar />
 
-      {/* 3. Main Content Landmark */}
+      {/* 2. Main Content Landmark */}
       <main id="main-content">
         {/* Hero Section with Dual CTAs and 45-Min Guarantee */}
         <HeroSection />

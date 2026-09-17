@@ -1,16 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Wrench, Phone, Menu, X, ShieldCheck } from 'lucide-react';
+import { Flame, Phone, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '@/config/site.config';
 
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Service Area', href: '#areas' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'FAQ', href: '#faq' },
+const NAV_ITEMS = [
+  { label: 'Plumbing', href: '#services', hasDropdown: true },
+  { label: 'Cleaning', href: '#services', hasDropdown: true },
+  { label: 'Heating', href: '#services', hasDropdown: true },
+  { label: 'Cooling', href: '#services', hasDropdown: true },
+  { label: 'About Us', href: '#why-us', hasDropdown: false },
+  { label: 'Contact', href: '#faq', hasDropdown: false },
 ];
 
 export default function Navbar() {
@@ -29,72 +30,65 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-shadow duration-200 ${
-        scrolled ? 'shadow-md' : 'shadow-sm'
+        scrolled ? 'shadow-md' : 'shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Left: Brand Logo & License Badge */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            <a
-              href="#"
-              className="flex items-center gap-2.5 group"
-              aria-label={`${SITE_CONFIG.business.name} Home`}
-            >
-              <div className="w-10 h-10 rounded-xl bg-navy-900 flex items-center justify-center text-amber-400 shadow-md group-hover:bg-navy-800 transition-colors">
-                <Wrench className="w-5 h-5 -rotate-45" aria-hidden="true" />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg sm:text-xl font-extrabold tracking-tight text-navy-900">
-                    ApexFlow<span className="text-amber-500">.</span>
-                  </span>
-                </div>
-                <span className="text-[11px] text-slate-500 font-semibold tracking-wide uppercase leading-none">
-                  Plumbing &amp; Rooter
-                </span>
-              </div>
-            </a>
-
-            {/* Official License Pill Badge */}
-            <div className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200/90 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" aria-hidden="true" />
-              <span>TX Lic #MP-41982</span>
+          {/* Left: Apex Plumbing Logo */}
+          <a
+            href="#"
+            className="flex items-center gap-3 group"
+            aria-label={`${SITE_CONFIG.business.name} Home`}
+          >
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-amber-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+              <Flame className="w-6 h-6 fill-white text-white" aria-hidden="true" />
             </div>
-          </div>
+            <div className="flex flex-col">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                APEX
+              </span>
+              <span className="text-xs sm:text-sm font-extrabold tracking-widest text-slate-800 uppercase leading-tight mt-0.5">
+                PLUMBING
+              </span>
+            </div>
+          </a>
 
-          {/* Center: Anchor Navigation Links (Hidden on mobile, visible on tablet/desktop) */}
+          {/* Center: Navigation Links (Matching Reference Style) */}
           <nav
-            className="hidden md:flex items-center gap-1 lg:gap-2"
+            className="hidden lg:flex items-center gap-6 xl:gap-8"
             aria-label="Primary Navigation"
           >
-            {NAV_LINKS.map((link) => (
+            {NAV_ITEMS.map((item) => (
               <a
-                key={link.href}
-                href={link.href}
-                className="px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-navy-900 hover:bg-slate-100/80 transition-colors"
+                key={item.label}
+                href={item.href}
+                className="group flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-orange-600 transition-colors"
               >
-                {link.label}
+                <span>{item.label}</span>
+                {item.hasDropdown && (
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-orange-600 transition-colors" />
+                )}
               </a>
             ))}
           </nav>
 
-          {/* Right: High-Contrast Safety Amber Call Button & Mobile Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right: Orange Pill Call Button & Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="group hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-navy-900 font-extrabold px-4 py-2.5 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-sm"
+              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold px-5 sm:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-sm"
               aria-label={`Call ${SITE_CONFIG.business.displayPhone} now`}
             >
-              <Phone className="w-4 h-4 fill-navy-900 text-navy-900 group-hover:rotate-12 transition-transform duration-200" aria-hidden="true" />
-              <span>{SITE_CONFIG.business.displayPhone}</span>
+              <Phone className="w-4 h-4 fill-white text-white" aria-hidden="true" />
+              <span>+{SITE_CONFIG.business.phone}</span>
             </a>
 
             {/* Mobile Menu Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-colors"
+              className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none transition-colors"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -108,47 +102,37 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="md:hidden border-t border-slate-200 bg-white shadow-xl overflow-hidden"
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden shadow-xl"
           >
-            <div className="px-4 pt-3 pb-6 space-y-1">
-              {/* License identifier for mobile */}
-              <div className="flex items-center justify-between px-3 py-2 mb-2 rounded-md bg-slate-50 border border-slate-200 text-xs">
-                <span className="text-slate-500 font-medium">State Credential</span>
-                <span className="font-bold text-slate-800 flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-                  TX Lic #MP-41982
-                </span>
-              </div>
-
-              {/* Links */}
-              {NAV_LINKS.map((link) => (
+            <div className="px-4 pt-3 pb-6 space-y-2">
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={link.href}
-                  href={link.href}
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:text-navy-900 hover:bg-slate-100 transition-colors"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-xl text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
                 >
-                  {link.label}
+                  <span>{item.label}</span>
+                  {item.hasDropdown && <ChevronDown className="w-4 h-4 text-slate-400" />}
                 </a>
               ))}
 
-              {/* Mobile Drawer Call CTA */}
               <div className="pt-3 mt-2 border-t border-slate-100">
                 <a
                   href={`tel:${SITE_CONFIG.business.phone}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-navy-900 font-extrabold rounded-xl shadow-sm text-base transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full shadow-md text-base transition-colors"
                 >
-                  <Phone className="w-5 h-5 fill-navy-900 text-navy-900" aria-hidden="true" />
-                  <span>Call Dispatch: {SITE_CONFIG.business.displayPhone}</span>
+                  <Phone className="w-5 h-5 fill-white text-white" aria-hidden="true" />
+                  <span>Call Us: +{SITE_CONFIG.business.phone}</span>
                 </a>
               </div>
             </div>
