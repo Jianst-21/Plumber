@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Calendar, Navigation, Star } from 'lucide-react';
+import { Calendar, Navigation, Star, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site.config';
 
 function GoogleLogo({ className = 'w-6 h-6' }: { className?: string }) {
@@ -101,9 +101,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 mb-8 max-w-xl">
             {HERO_SERVICES.map((item) => (
               <div key={item} className="inline-flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full border border-orange-500 flex items-center justify-center text-orange-400 bg-orange-500/20 shrink-0">
-                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                </div>
+                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" aria-hidden="true" />
                 <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
                   {item}
                 </span>
