@@ -8,6 +8,15 @@ dist/
 # Superpowers scratch
 .superpowers/
 
+# Agent caches and skills
+.agent/
+.agents/
+.claude/
+.codex/
+.gemini/
+.impeccable/
+.opencode/
+
 # Environment / OS
 .env*.local
 .DS_Store
