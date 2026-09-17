@@ -50,15 +50,15 @@ export default function HeroSection() {
       {/* ============================================================ */}
       {/* DESKTOP / TABLET HERO (md:block): EXACT PIXEL-PERFECT MASTER */}
       {/* ============================================================ */}
-      <div className="hidden md:block relative w-full aspect-[1518/772] max-w-[1920px] mx-auto overflow-hidden select-none">
-        {/* High-Resolution Master Hero Banner */}
+      <div className="hidden md:block relative w-full aspect-[1535/724] max-w-[1920px] mx-auto overflow-hidden select-none">
+        {/* High-Resolution Master Hero Banner (Cleaned with ZERO bottom van / border artifacts) */}
         <Image
           src="/images/hero-apex.jpg"
           alt="Melbourne's Trusted Plumbing & Heating Experts - Apex Plumbing"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center pointer-events-none"
+          className="object-cover object-top pointer-events-none"
         />
 
         {/* 1. Interactive Button Hotspot: Schedule an Appointment */}
@@ -67,10 +67,10 @@ export default function HeroSection() {
           onClick={(e) => handleScrollTo(e, 'wizard')}
           className="absolute z-30 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-orange-400"
           style={{
-            left: '4.28%',
-            top: '67.8%',
-            width: '16.7%',
-            height: '6.0%',
+            left: '4.1%',
+            top: '72.5%',
+            width: '16.6%',
+            height: '6.2%',
           }}
           aria-label="Schedule an Appointment in quote wizard"
           title="Schedule an Appointment"
@@ -83,10 +83,10 @@ export default function HeroSection() {
           href={`tel:${SITE_CONFIG.business.phone}`}
           className="absolute z-30 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-orange-400"
           style={{
-            left: '22.1%',
-            top: '67.8%',
-            width: '14.7%',
-            height: '6.0%',
+            left: '21.6%',
+            top: '72.5%',
+            width: '14.0%',
+            height: '6.2%',
           }}
           aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
           title="Have an Emergency? Call 24/7"
@@ -100,10 +100,10 @@ export default function HeroSection() {
           onClick={(e) => handleScrollTo(e, 'reviews')}
           className="absolute z-30 rounded-2xl transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400"
           style={{
-            left: '78.2%',
-            top: '64.5%',
-            width: '19.0%',
-            height: '14.5%',
+            left: '77.2%',
+            top: '71.5%',
+            width: '18.6%',
+            height: '15.5%',
           }}
           aria-label="View verified Google customer reviews"
           title="Google Reviews 4.9/5 - Click to read reviews"
