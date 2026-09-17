@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
+          950: "#080D1A",
           900: "#0F172A",
           800: "#1E293B",
           700: "#1E3A8A",
@@ -19,6 +20,23 @@ const config: Config = {
           500: "#F59E0B",
           600: "#D97706",
           700: "#B45309",
+        },
+      },
+      boxShadow: {
+        '2xs': '0 1px 1px 0 rgba(0, 0, 0, 0.03)',
+        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+      },
+      backdropBlur: {
+        'xs': '2px',
+      },
+      animation: {
+        'fadeIn': 'fadeIn 0.25s ease-in-out',
+        'fade-in': 'fadeIn 0.25s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       fontFamily: {
