@@ -51,7 +51,7 @@ export default function HeroSection() {
       {/* DESKTOP / TABLET HERO (md:block): EXACT PIXEL-PERFECT MASTER */}
       {/* ============================================================ */}
       <div className="hidden md:block relative w-full aspect-[1535/724] max-w-[1920px] mx-auto overflow-hidden select-none">
-        {/* High-Resolution Master Hero Banner (Cleaned with ZERO bottom van / border artifacts) */}
+        {/* Full HD Master Hero Banner (Cleaned with ZERO baked-in badge and ZERO van artifacts) */}
         <Image
           src="/images/hero-apex.jpg"
           alt="Melbourne's Trusted Plumbing & Heating Experts - Apex Plumbing"
@@ -94,21 +94,32 @@ export default function HeroSection() {
           <span className="sr-only">Have an Emergency? Call Now</span>
         </a>
 
-        {/* 3. Interactive Badge Hotspot: Google Reviews 4.9 */}
+        {/* 3. Real Interactive Crisp HTML Floating Badge: Google Reviews 4.9 */}
         <a
           href="#reviews"
           onClick={(e) => handleScrollTo(e, 'reviews')}
-          className="absolute z-30 rounded-2xl transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400"
+          className="group absolute z-30 bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl shadow-xl hover:shadow-2xl border border-slate-100 hover:border-slate-200 transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-3 px-4 py-2.5"
           style={{
             left: '77.2%',
-            top: '71.5%',
-            width: '18.6%',
-            height: '15.5%',
+            top: '67.0%',
+            width: '19.0%',
+            minHeight: '74px',
           }}
           aria-label="View verified Google customer reviews"
           title="Google Reviews 4.9/5 - Click to read reviews"
         >
-          <span className="sr-only">View Google Reviews</span>
+          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+            <GoogleLogo className="w-5 h-5" />
+          </div>
+          <div className="min-w-0 text-left">
+            <div className="flex items-center gap-1.5 leading-none">
+              <span className="text-base font-extrabold text-slate-950">4.9</span>
+              <Star className="w-4 h-4 fill-amber-400 text-amber-400 -mt-0.5" aria-hidden="true" />
+            </div>
+            <p className="text-[11px] text-slate-600 font-medium leading-tight mt-1 truncate">
+              Rated 4.9 based on 500+ Google Reviews
+            </p>
+          </div>
         </a>
       </div>
 
