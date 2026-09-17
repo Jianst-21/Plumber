@@ -19,7 +19,6 @@ import { SITE_CONFIG } from '@/config/site.config';
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
-  { label: 'Coupons', href: '#coupons' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Service Area', href: '#areas' },
   { label: 'Reviews', href: '#reviews' },

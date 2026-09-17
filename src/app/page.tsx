@@ -2,7 +2,6 @@ import EmergencyTopbar from '@/components/layout/EmergencyTopbar';
 import Navbar from '@/components/layout/Navbar';
 import HeroSection from '@/components/hero/HeroSection';
 import TrustStrip from '@/components/trust/TrustStrip';
-import CouponOffers from '@/components/coupons/CouponOffers';
 import ServicesGrid from '@/components/services/ServicesGrid';
 import QuoteWizard from '@/components/wizard/QuoteWizard';
 import PricingTable from '@/components/pricing/PricingTable';
@@ -30,9 +29,6 @@ export default function Home() {
 
         {/* Credibility Trust Strip */}
         <TrustStrip />
-
-        {/* Feature 1: Digital Perforated Discount Vouchers */}
-        <CouponOffers />
 
         {/* Core Services Grid with Real Work Photos */}
         <ServicesGrid />

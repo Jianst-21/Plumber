@@ -37,42 +37,6 @@
 }
 
 /* Perforated Coupon & Voucher Styling */
-.coupon-border-dashed {
-  border: 2px dashed #d97706;
-}
-
-.coupon-ticket-notch-l {
-  position: relative;
-}
-.coupon-ticket-notch-l::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background-color: #f8fafc;
-  border-radius: 9999px;
-  box-shadow: inset -2px 0 3px rgba(0, 0, 0, 0.08);
-}
-
-.coupon-ticket-notch-r {
-  position: relative;
-}
-.coupon-ticket-notch-r::after {
-  content: '';
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background-color: #f8fafc;
-  border-radius: 9999px;
-  box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.08);
-}
-
 /* Custom Modern Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
