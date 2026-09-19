@@ -14,8 +14,8 @@ import {
   Quote,
   MapPin,
   Calendar,
-  Award,
 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 import { Testimonial } from '@/types';
 
@@ -79,21 +79,17 @@ export default function ReviewsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm font-bold shadow-xs mb-4">
-            <Award className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
-            <span>Austin&apos;s Top-Rated Plumbing Fleet</span>
-          </div>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
             Verified Austin Customer Reviews &amp; Ratings
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             Real homeowners sharing their honest experiences with our 24/7 emergency and residential plumbing services.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Overall Score Showcase Banner */}
-        <div className="mb-14 rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
+        <ScrollReveal delay={0.08} className="mb-14 rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle Ambient Light Glows */}
           <div
             className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -175,37 +171,37 @@ export default function ReviewsSection() {
               ))}
             </div>
 
-            {/* Right Column: 3 Trust Pillars */}
-            <div className="lg:col-span-4 space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
-                Our 3 Ironclad Trust Pillars
-              </span>
-              {REVIEW_PILLARS.map((pillar) => {
-                const IconComponent = pillar.icon;
-                return (
-                  <div key={pillar.title} className="flex items-start gap-3 text-left">
-                    <div className="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-400/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <IconComponent className="w-4 h-4" aria-hidden="true" />
+              {/* Right Column: 3 Trust Pillars */}
+              <div className="lg:col-span-4 space-y-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
+                  Our 3 Ironclad Trust Pillars
+                </span>
+                {REVIEW_PILLARS.map((pillar) => {
+                  const IconComponent = pillar.icon;
+                  return (
+                    <div key={pillar.title} className="flex items-start gap-3 text-left">
+                      <div className="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-400/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <IconComponent className="w-4 h-4" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white leading-tight">
+                          {pillar.title}
+                        </h4>
+                        <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">
+                          {pillar.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white leading-tight">
-                        {pillar.title}
-                      </h4>
-                      <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* 3 Authentic Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14">
           {testimonials.map((review: Testimonial) => (
-            <div
+            <StaggerItem
               key={review.id}
               className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative"
             >
@@ -284,12 +280,12 @@ export default function ReviewsSection() {
                   Job Completed
                 </span>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Section Action Banner */}
-        <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+        <ScrollReveal delay={0.1} className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0 shadow-xs">
               <Star className="w-6 h-6 fill-amber-400 text-amber-500" aria-hidden="true" />
@@ -324,7 +320,7 @@ export default function ReviewsSection() {
               <span>Call {SITE_CONFIG.business.displayPhone}</span>
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  HelpCircle,
   ChevronDown,
   Phone,
   ArrowRight,
@@ -12,6 +11,7 @@ import {
   Sparkles,
   MessageCircleQuestion,
 } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 import { FaqItem } from '@/types';
 
@@ -51,23 +51,19 @@ export default function FaqAccordion() {
         aria-hidden="true"
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs sm:text-sm font-bold shadow-xs mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-blue-600" aria-hidden="true" />
-            <span>Got Questions? We Have Answers</span>
-          </div>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             Clear, upfront answers about our plumbing pricing, emergency dispatch times, warranties, and procedures.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 6 FAQ Accordion Items */}
-        <div className="space-y-4 mb-14">
+        <ScrollReveal delay={0.08} className="space-y-4 mb-14 w-full">
           {faqs.map((item: FaqItem, index: number) => {
             const isOpen = openId === item.id;
             const questionNumber = String(index + 1).padStart(2, '0');
@@ -88,7 +84,7 @@ export default function FaqAccordion() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${item.id}`}
                   onClick={() => toggleItem(item.id)}
-                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 sm:px-8 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   <div className="flex items-center gap-3.5 sm:gap-4 flex-1">
                     {/* Number Badge */}
@@ -129,10 +125,10 @@ export default function FaqAccordion() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100/90">
+                      <div className="px-5 pb-5 sm:px-8 sm:pb-6 pt-1 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100/90">
                         <p className="font-normal">{item.answer}</p>
                       </div>
                     </motion.div>
@@ -141,10 +137,10 @@ export default function FaqAccordion() {
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
 
-        {/* Still Have Questions Box */}
-        <div className="rounded-3xl bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-2 border-navy-700 p-6 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
+        {/* Still Have Questions Box (Aligned to Image 2) */}
+        <ScrollReveal delay={0.12} className="rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle Glow Accent */}
           <div
             className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -153,8 +149,8 @@ export default function FaqAccordion() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
-                <MessageCircleQuestion className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-3.5 backdrop-blur-xs">
+                <MessageCircleQuestion className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                 <span>Immediate Expert Help</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2">
@@ -168,25 +164,25 @@ export default function FaqAccordion() {
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto flex-shrink-0">
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm sm:text-base shadow-lg hover:shadow-xl transition-all text-center"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all text-center"
                 aria-label={`Speak directly to a licensed master plumber at ${SITE_CONFIG.business.phone}`}
               >
-                <Phone className="w-4 h-4 fill-navy-950 text-navy-950 flex-shrink-0" aria-hidden="true" />
-                <span>Speak Directly to a Licensed Master Plumber: {SITE_CONFIG.business.phone}</span>
+                <Phone className="w-4 h-4 fill-white text-white flex-shrink-0" aria-hidden="true" />
+                <span>Call Dispatch: {SITE_CONFIG.business.displayPhone}</span>
               </a>
 
               <a
                 href="#wizard"
                 onClick={handleScrollToWizard}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-200 hover:text-white border border-navy-600 text-xs sm:text-sm font-bold transition-colors text-center"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center"
                 aria-label="Launch 60-second online quote wizard"
               >
                 <span>Launch 60-Second Quote Wizard</span>
-                <ArrowRight className="w-4 h-4 text-amber-400" aria-hidden="true" />
+                <ArrowRight className="w-4 h-4 text-orange-400" aria-hidden="true" />
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

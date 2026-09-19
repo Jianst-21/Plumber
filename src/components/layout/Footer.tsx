@@ -69,7 +69,7 @@ export default function Footer() {
     <footer className="w-full" aria-label="Site Footer">
       {/* 1. Urgent Emergency Callout Strip (Section 14 in page hierarchy) */}
       <section
-        className="bg-amber-500 text-slate-950 py-10 sm:py-12 px-4 relative overflow-hidden border-t-4 border-amber-600 shadow-inner"
+        className="bg-amber-500 text-slate-950 py-10 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t-4 border-amber-600 shadow-inner"
         aria-label="Urgent Emergency Plumbing Dispatch Callout"
       >
         {/* Subtle patterned background circles */}

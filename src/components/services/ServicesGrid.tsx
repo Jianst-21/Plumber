@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Wrench, CheckCircle2, Phone, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Phone, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 import { PlumbingService } from '@/types';
 
@@ -27,26 +28,22 @@ export default function ServicesGrid() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-xs sm:text-sm font-bold shadow-2xs mb-4">
-            <Wrench className="w-3.5 h-3.5 text-orange-600" aria-hidden="true" />
-            <span>Master-Grade Workmanship</span>
-          </div>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
             Full-Service Residential &amp; Emergency Plumbing
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
             Available 24/7 with zero night or weekend overtime fees. Every call handled by state-licensed technicians.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 4 Core Services Grid (1 col mobile, 2 col tablet, 4 col desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {SITE_CONFIG.services.map((service: PlumbingService) => {
             const topFeatures = service.features.slice(0, 3);
 
             return (
-              <div
+              <StaggerItem
                 key={service.id}
                 className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1.5"
               >
@@ -140,13 +137,13 @@ export default function ServicesGrid() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
 
         {/* Bottom Guarantee Banner */}
-        <div className="mt-14 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+        <ScrollReveal delay={0.1} className="mt-14 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex items-center gap-4 text-left">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
               <ShieldCheck className="w-6 h-6 text-emerald-600" aria-hidden="true" />
@@ -167,7 +164,7 @@ export default function ServicesGrid() {
             <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
             <span>Speak With a Master Plumber</span>
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

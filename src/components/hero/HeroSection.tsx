@@ -2,12 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Calendar, Navigation, Star, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Calendar, Phone, Star, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site.config';
 
-function GoogleLogo({ className = 'w-6 h-6' }: { className?: string }) {
+function GoogleLogo({ className = 'w-5 h-5' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
+    <svg className={className} viewBox="0 0 24 24" width="20" height="20">
       <path
         fill="#4285F4"
         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -28,13 +29,8 @@ function GoogleLogo({ className = 'w-6 h-6' }: { className?: string }) {
   );
 }
 
-const HERO_SERVICES = [
-  'Plumbing',
-  'Cleaning',
-  'Heating Systems',
-  'Air Conditioning',
-  'Water Heaters',
-];
+const HERO_SERVICES_ROW_1 = ['Plumbing', 'Drain Cleaning', 'Heating Systems'];
+const HERO_SERVICES_ROW_2 = ['Air Conditioning', 'Water Heaters'];
 
 export default function HeroSection() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -46,8 +42,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-[600px] sm:min-h-[660px] lg:min-h-[720px] flex items-center bg-[#0d141e] overflow-hidden">
-      {/* 1. Fullscreen / Full-Bleed Clean Photography (ZERO baked-in text, ZERO baked-in buttons) */}
+    <section className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] flex items-center bg-[#090e17] overflow-hidden">
+      {/* 1. Fullscreen Clean Residential Kitchen Photography */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Image
           src="/images/hero-clean-bg.jpg"
@@ -58,107 +54,148 @@ export default function HeroSection() {
           className="object-cover object-center lg:object-right"
         />
 
-        {/* 2. Soft, Translucent Left Gradient Shadow (Natural Shading, NOT Solid Black!) */}
+        {/* 2. Refined Left Contrast Gradient (Natural Shading for 100% Text Readability) */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent lg:w-3/5"
+          className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent lg:w-[60%] xl:w-[56%]"
           aria-hidden="true"
         />
-        {/* Subtle ground shadow for smooth transition to the trust strip */}
+
+        {/* Subtle ground shadow for seamless transition into the trust strip below */}
         <div
           className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/20"
           aria-hidden="true"
         />
       </div>
 
-      {/* 3. Main Hero Content Landmark: 100% Real Next.js HTML/Tailwind */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-14 sm:py-20 lg:py-24">
+      {/* 3. Main Hero Content Landmark */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 sm:py-16 lg:py-20">
         <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-          {/* Dispatch Status Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-xs sm:text-sm font-bold mb-5 backdrop-blur-xs">
-            <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
-            </span>
-            <span>24/7 Rapid Emergency Response in Austin, TX</span>
-          </div>
-
-          {/* Primary Headline (H1) for Austin, TX */}
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-extrabold text-white tracking-tight leading-[1.12] mb-5">
+          {/* Primary Dominant Headline (H1) */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.75rem] font-black text-white tracking-tight leading-[1.08] mb-6 sm:mb-8"
+          >
             Austin&apos;s Trusted
             <br />
             Plumbing &amp; Heating
             <br />
             Experts
-          </h1>
+          </motion.h1>
 
-          {/* Subtitle / Value Proposition */}
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-7 max-w-lg font-normal">
+          {/* Supporting Value Proposition */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="text-base sm:text-lg lg:text-[1.125rem] text-slate-200/90 leading-relaxed mb-7 sm:mb-8 max-w-lg font-normal"
+          >
             Fast, reliable plumbing, drain cleaning, heating &amp; cooling services available{' '}
-            <strong className="text-white font-bold">24/7</strong> across Greater Austin.
-          </p>
+            <strong className="text-white font-semibold">24/7</strong> across Greater Austin.
+          </motion.p>
 
-          {/* 5 Service Bullet Checkmarks */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 mb-8 max-w-xl">
-            {HERO_SERVICES.map((item) => (
-              <div key={item} className="inline-flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" aria-hidden="true" />
-                <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
+          {/* Service List (Balanced 2-Line Structure — Zero Orphans) */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-2.5 mb-8 sm:mb-9 max-w-lg"
+          >
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {HERO_SERVICES_ROW_1.map((item) => (
+                <div key={item} className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {HERO_SERVICES_ROW_2.map((item) => (
+                <div key={item} className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
+                  <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-          {/* Dual Action Buttons (Real HTML/React interactive buttons) */}
-          <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
-            {/* Button 1: Schedule an Appointment (Vibrant Orange Pill) */}
-            <a
+          {/* Dual Action Buttons (Primary CTA Dominant, Secondary Visually Lighter) */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5"
+          >
+            {/* Primary Action Button: Schedule an Appointment */}
+            <motion.a
+              whileHover={{ scale: 1.025 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
               href="#wizard"
               onClick={(e) => handleScrollTo(e, 'wizard')}
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-shadow duration-300 min-h-[48px] text-center"
               aria-label="Schedule an appointment in quote wizard"
             >
               <Calendar className="w-4 h-4 text-white" aria-hidden="true" />
               <span>Schedule an Appointment</span>
-            </a>
+            </motion.a>
 
-            {/* Button 2: Have an Emergency? (White Pill with Orange Border) */}
-            <a
+            {/* Secondary Action Button: Have an Emergency? (Visually lighter glassmorphic button) */}
+            <motion.a
+              whileHover={{ scale: 1.025 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white hover:bg-orange-50 active:bg-orange-100 text-orange-600 border border-orange-500 font-bold text-sm sm:text-base shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 active:bg-white/20 text-white border border-white/20 hover:border-white/35 font-bold text-sm sm:text-base backdrop-blur-sm transition-colors duration-300 min-h-[48px] text-center"
               aria-label={`Call emergency team at ${SITE_CONFIG.business.phone}`}
             >
-              <Navigation className="w-4 h-4 text-orange-500 rotate-45" aria-hidden="true" />
+              <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
               <span>Have an Emergency?</span>
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </div>
 
-      {/* Floating Google Review Badge (Clean Interactive HTML Component in Bottom Right) */}
-      <div className="hidden sm:block absolute bottom-6 right-6 lg:bottom-8 lg:right-10 z-20">
+      {/* 4. Subtle Floating Google Review Badge (Quiet Social Proof in Bottom Right) */}
+      <motion.div
+        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden sm:block absolute bottom-6 right-6 lg:bottom-8 lg:right-10 z-20"
+      >
         <a
           href="#reviews"
           onClick={(e) => handleScrollTo(e, 'reviews')}
-          className="group block bg-white/95 hover:bg-white backdrop-blur-md rounded-2xl p-3.5 px-4 shadow-2xl border border-slate-100 hover:border-slate-200 hover:-translate-y-0.5 transition-all duration-200 max-w-[280px]"
+          className="group block bg-white/90 hover:bg-white backdrop-blur-md rounded-xl p-2.5 px-3.5 shadow-xl border border-white/40 hover:border-white hover:-translate-y-0.5 transition-all duration-200 max-w-[260px]"
           aria-label="View Google customer reviews"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-              <GoogleLogo className="w-6 h-6" />
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <GoogleLogo className="w-4.5 h-4.5" />
             </div>
             <div className="min-w-0 text-left">
-              <div className="flex items-center gap-1.5 leading-none">
-                <span className="text-base font-extrabold text-slate-950">4.9</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400 -mt-0.5" aria-hidden="true" />
+              <div className="flex items-center gap-1 leading-none">
+                <span className="text-sm font-extrabold text-slate-950">4.9</span>
+                <div className="flex items-center text-amber-400">
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                  <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
+                </div>
               </div>
-              <p className="text-[11px] text-slate-600 font-medium leading-tight mt-1 truncate">
-                Rated 4.9 based on 500+ Google Reviews
+              <p className="text-[10.5px] text-slate-600 font-medium leading-tight mt-0.5 truncate">
+                500+ Austin Google Reviews
               </p>
             </div>
           </div>
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/images/apex-logo-icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/images/apex-logo-icon.svg",
+    apple: "/images/apex-logo-icon.svg",
+  },
   keywords: [
     "Austin Emergency Plumber",
     "24/7 Plumber Austin TX",

@@ -2,19 +2,13 @@
 
 import React from 'react';
 import {
-  DollarSign,
   ShieldCheck,
   CheckCircle2,
-  Clock,
-  FileCheck,
   Phone,
   ArrowRight,
   Sparkles,
-  Award,
-  CalendarCheck,
-  HelpCircle,
-  Zap,
 } from 'lucide-react';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 import { PricingItem } from '@/types';
 
@@ -88,57 +82,53 @@ export default function PricingTable() {
     >
       {/* Subtle Background Lighting Accent */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-100/20 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-xs mb-4">
-            <DollarSign className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-            <span>100% Upfront Honest Rates</span>
-          </div>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
             Transparent Flat-Rate Pricing: No Surprises
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             We quote the full price in writing before touching a tool. Zero overtime charges for nights, weekends, or holidays.
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Diagnostic Fee Waiver Callout Banner */}
-        <div className="mb-12 rounded-2xl bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-2 border-emerald-500/80 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+        {/* Diagnostic Fee Waiver Callout Banner (Styled matching Image 2) */}
+        <ScrollReveal delay={0.08} className="mb-12 rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle Decorative Background Glow */}
           <div
-            className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"
+            className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
             aria-hidden="true"
           />
 
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3.5 backdrop-blur-xs">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                 <span>Special Homeowner Policy</span>
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-2">
-                Diagnostic Fee: $0 <span className="text-emerald-400">(100% Waived with Any Approved Repair)</span>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-2.5">
+                Diagnostic Fee: $0 <span className="text-orange-400 font-black">(100% Waived with Any Approved Repair)</span>
               </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-4">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-5">
                 Our licensed technician diagnoses the exact root cause. If you authorize the repair, the inspection fee is completely free.
               </p>
               {/* Feature Pills */}
-              <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-200">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-navy-800/90 border border-navy-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                   Written quote before touching tools
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-navy-800/90 border border-navy-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                   $0 dispatch fee with repair
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-navy-800/90 border border-navy-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                   Zero overtime night/weekend fees
                 </span>
               </div>
@@ -164,10 +154,10 @@ export default function PricingTable() {
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* 4 Pricing Benchmark Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {SITE_CONFIG.pricing.map((item: PricingItem, index: number) => {
             const isDiagnostic = index === 0;
             const badgeText = PRICING_BADGES[index] || 'Flat-Rate Quote';
@@ -175,31 +165,25 @@ export default function PricingTable() {
             const serviceId = SERVICE_ID_MAP[index] || 'leak-repair';
 
             return (
-              <div
+              <StaggerItem
                 key={item.service}
                 className={`bg-white rounded-2xl border flex flex-col overflow-hidden transition-all duration-300 relative group hover:-translate-y-1 ${
                   isDiagnostic
-                    ? 'border-emerald-500 shadow-md ring-1 ring-emerald-500/20'
+                    ? 'border-slate-300 shadow-md ring-1 ring-orange-500/20'
                     : 'border-slate-200/90 shadow-sm hover:shadow-xl'
                 }`}
               >
-                {/* Top Badge Banner */}
-                <div
-                  className={`px-4 py-2 text-xs font-extrabold flex items-center justify-between ${
-                    isDiagnostic
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-navy-900 text-slate-200'
-                  }`}
-                >
-                  <span className="tracking-wide uppercase text-[11px] flex items-center gap-1.5">
+                {/* Top Badge Banner (Clean Dark Navy matching Image 2) */}
+                <div className="px-4 py-2.5 text-xs font-extrabold flex items-center justify-between bg-navy-950 text-slate-200 border-b border-navy-800">
+                  <span className={`tracking-wide uppercase text-[11px] flex items-center gap-1.5 ${isDiagnostic ? 'text-amber-400 font-extrabold' : 'text-slate-200'}`}>
                     {isDiagnostic ? (
-                      <Sparkles className="w-3.5 h-3.5 text-amber-300" aria-hidden="true" />
+                      <Sparkles className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
                     ) : (
                       <ShieldCheck className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
                     )}
                     {badgeText}
                   </span>
-                  <span className="text-[10px] text-slate-300 font-mono">Austin, TX</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Austin, TX</span>
                 </div>
 
                 {/* Card Main Body */}
@@ -213,9 +197,9 @@ export default function PricingTable() {
                   <div className="mb-4 pb-4 border-b border-slate-100">
                     {isDiagnostic ? (
                       <div>
-                        <div className="flex items-baseline gap-1.5">
-                          <span className="text-4xl font-black text-emerald-600 tracking-tight">$0</span>
-                          <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-4xl font-black text-slate-900 tracking-tight">$0</span>
+                          <span className="text-xs font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded-md border border-orange-200/80">
                             Waived with Repair
                           </span>
                         </div>
@@ -228,8 +212,8 @@ export default function PricingTable() {
                         <div className="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">
                           {item.standardRange}
                         </div>
-                        <div className="inline-flex items-center gap-1 mt-1 text-xs font-semibold text-emerald-700">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600" aria-hidden="true" />
+                        <div className="inline-flex items-center gap-1.5 mt-1 text-xs font-semibold text-slate-600">
+                          <CheckCircle2 className="w-3 h-3 text-orange-500" aria-hidden="true" />
                           <span>Diagnostic fee waived with service</span>
                         </div>
                       </div>
@@ -249,7 +233,7 @@ export default function PricingTable() {
                     {perks.map((perk, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-2">
                         <CheckCircle2
-                          className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5"
+                          className="w-3.5 h-3.5 text-orange-500 flex-shrink-0 mt-0.5"
                           aria-hidden="true"
                         />
                         <span className="leading-snug text-slate-600 font-medium">{perk}</span>
@@ -264,8 +248,8 @@ export default function PricingTable() {
                       onClick={(e) => handleClaimQuote(e, serviceId)}
                       className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full font-bold text-xs sm:text-sm shadow-2xs hover:shadow transition-all min-h-[44px] text-center ${
                         isDiagnostic
-                          ? 'bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white'
-                          : 'bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white'
+                          ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white shadow-md shadow-orange-500/20'
+                          : 'bg-navy-950 hover:bg-orange-500 active:bg-orange-600 text-white'
                       }`}
                       aria-label={`Claim flat-rate quote for ${item.service}`}
                     >
@@ -282,102 +266,10 @@ export default function PricingTable() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
-
-        {/* 3 Core Pricing Guarantees */}
-        <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 lg:p-10 mb-12">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 block mb-1">
-              Contractor Code of Honesty
-            </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 tracking-tight">
-              Our 3 Ironclad Pricing Guarantees
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
-              Every Austin homeowner is protected by our transparent quote policy.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Guarantee 1: Upfront Written Quotes */}
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700 mb-4 flex-shrink-0">
-                <FileCheck className="w-5 h-5 text-blue-600" aria-hidden="true" />
-              </div>
-              <h4 className="text-base font-bold text-navy-900 mb-2">
-                Upfront Written Quotes
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Fixed flat rate before work begins. We present the exact bottom line in writing. No clock-watching and zero hidden supply-run fees.
-              </p>
-            </div>
-
-            {/* Guarantee 2: No Overtime Surcharge */}
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 mb-4 flex-shrink-0">
-                <Clock className="w-5 h-5 text-amber-600" aria-hidden="true" />
-              </div>
-              <h4 className="text-base font-bold text-navy-900 mb-2">
-                No Overtime or Holiday Surcharge
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Same low rate 24/7/365. Whether a pipe bursts at 2 AM on a Sunday or during Thanksgiving dinner, you never pay after-hours penalties.
-              </p>
-            </div>
-
-            {/* Guarantee 3: 1-Year Workmanship Warranty */}
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-4 flex-shrink-0">
-                <ShieldCheck className="w-5 h-5 text-emerald-600" aria-hidden="true" />
-              </div>
-              <h4 className="text-base font-bold text-navy-900 mb-2">
-                1-Year 100% Workmanship Warranty
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Free return fix if the repaired issue recurs within 12 months. Every repair is performed to strict Texas plumbing code standards.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA Banner */}
-        <div className="rounded-2xl bg-slate-100 border border-slate-200/80 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-navy-900 text-amber-400 flex items-center justify-center flex-shrink-0 font-bold">
-              <Award className="w-5 h-5" aria-hidden="true" />
-            </div>
-            <div>
-              <p className="text-sm sm:text-base font-extrabold text-navy-900">
-                Need an immediate flat-rate price for an urgent repair?
-              </p>
-              <p className="text-xs text-slate-500 font-normal">
-                Use our 60-second online quote wizard or speak with our Austin dispatch coordinator now.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
-            <a
-              href="#wizard"
-              onClick={(e) => handleClaimQuote(e)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm shadow-xs transition-colors"
-              aria-label="Launch instant flat-rate quote wizard"
-            >
-              <span>Claim Flat-Rate Quote</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" aria-hidden="true" />
-            </a>
-            <a
-              href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm transition-colors shadow-xs"
-              aria-label={`Call emergency phone at ${SITE_CONFIG.business.phone}`}
-            >
-              <Phone className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
-              <span>{SITE_CONFIG.business.phone}</span>
-            </a>
-          </div>
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

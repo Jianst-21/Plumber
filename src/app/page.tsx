@@ -33,9 +33,6 @@ export default function Home() {
         {/* Core Services Grid with Real Work Photos */}
         <ServicesGrid />
 
-        {/* Interactive 4-Step Instant Lead Quote Wizard */}
-        <QuoteWizard />
-
         {/* Upfront Flat-Rate Transparent Pricing Table */}
         <PricingTable />
 
@@ -47,6 +44,9 @@ export default function Home() {
 
         {/* Service Area Metro Coverage Map & Live ZIP Checker */}
         <ServiceArea />
+
+        {/* Interactive 4-Step Instant Lead Quote Wizard */}
+        <QuoteWizard />
 
         {/* Verified Homeowner Reviews */}
         <ReviewsSection />

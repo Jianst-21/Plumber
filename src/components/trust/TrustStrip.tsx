@@ -1,17 +1,18 @@
 import React from 'react';
 import { Star, ShieldCheck, BadgeCheck, Lock } from 'lucide-react';
+import { StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 
 export default function TrustStrip() {
   return (
     <section
       aria-label="Trust and Credibility Verification"
-      className="bg-slate-100/80 border-y border-slate-200 py-6 px-4"
+      className="bg-slate-100/80 border-y border-slate-200 py-6 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-stretch">
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-stretch">
           {/* Badge 1: Google Reviews */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
+          <StaggerItem className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
             <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center flex-shrink-0 text-amber-500 shadow-xs">
               <span className="font-extrabold text-lg text-amber-600">G</span>
             </div>
@@ -32,10 +33,10 @@ export default function TrustStrip() {
                 350+ Verified Homeowner Reviews
               </span>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Badge 2: BBB Accredited */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
+          <StaggerItem className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
             <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center flex-shrink-0 text-blue-700 shadow-xs">
               <ShieldCheck className="w-6 h-6 text-blue-700" aria-hidden="true" />
             </div>
@@ -47,10 +48,10 @@ export default function TrustStrip() {
                 Highest Trust &amp; Ethics Standard
               </span>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Badge 3: State Licensed */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
+          <StaggerItem className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
             <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 flex items-center justify-center flex-shrink-0 text-emerald-700 shadow-xs">
               <BadgeCheck className="w-6 h-6 text-emerald-600" aria-hidden="true" />
             </div>
@@ -62,10 +63,10 @@ export default function TrustStrip() {
                 TSBPE State Board Regulated
               </span>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Badge 4: Insured Protection */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
+          <StaggerItem className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 p-3 rounded-xl bg-white/70 sm:bg-transparent shadow-xs sm:shadow-none border border-slate-200/50 sm:border-0">
             <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-800 shadow-xs">
               <Lock className="w-5 h-5 text-slate-800" aria-hidden="true" />
             </div>
@@ -77,8 +78,8 @@ export default function TrustStrip() {
                 Fully Bonded &amp; Property Protected
               </span>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </div>
     </section>
   );
