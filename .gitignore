@@ -4,11 +4,17 @@ node_modules/
 out/
 build/
 dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Superpowers scratch
+# Superpowers and internal documentation
 .superpowers/
+docs/superpowers/
+docs/
 
-# Agent caches and skills
+# Agent caches, skills, and CLI tools
 .agent/
 .agents/
 .claude/
@@ -16,9 +22,17 @@ dist/
 .gemini/
 .impeccable/
 .opencode/
+.antigravity/
 
-# Environment / OS
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / OS / TypeScript
 *.tsbuildinfo
 .env*.local
+.env
 .DS_Store
 Thumbs.db
