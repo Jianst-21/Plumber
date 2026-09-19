@@ -157,7 +157,7 @@ export default function FaqAccordion() {
                 Can&apos;t find the answer you&apos;re looking for?
               </h3>
               <p className="text-sm sm:text-base text-slate-300 max-w-xl font-normal leading-relaxed">
-                Our Austin dispatch coordinators and master plumbers are on standby 24/7/365 to answer your questions with zero obligation.
+                Our London dispatch coordinators and Gas Safe engineers are on standby 24/7/365 to answer your questions with zero obligation.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ export default function FaqAccordion() {
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all text-center"
-                aria-label={`Speak directly to a licensed master plumber at ${SITE_CONFIG.business.phone}`}
+                aria-label={`Speak directly to a Gas Safe registered engineer at ${SITE_CONFIG.business.phone}`}
               >
                 <Phone className="w-4 h-4 fill-white text-white flex-shrink-0" aria-hidden="true" />
                 <span>Call Dispatch: {SITE_CONFIG.business.displayPhone}</span>

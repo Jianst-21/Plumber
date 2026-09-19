@@ -177,7 +177,7 @@ export default function BeforeAfter() {
             Real Results: Before &amp; After Showcase
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Real photographic proof from certified Texas master plumbers dispatched across Greater Austin homes. Click any image to view in fullscreen.
+            Real photographic proof from certified Gas Safe registered plumbing &amp; heating engineers dispatched across Greater London homes. Click any image to view in fullscreen.
           </p>
         </ScrollReveal>
 
@@ -418,13 +418,13 @@ export default function BeforeAfter() {
                 </div>
 
                 {/* 4. Action / CTA Bar (Natural Conclusion) */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 text-xs text-slate-600">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" aria-hidden="true" />
-                    <span>
-                      Performed by <strong className="font-semibold text-slate-800">Licensed Master Plumber</strong> • Fixed Flat-Rate Quoted
-                    </span>
-                  </div>
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" aria-hidden="true" />
+                      <span>
+                        Performed by <strong className="font-semibold text-slate-800">Gas Safe Registered Engineer</strong> • Fixed Flat-Rate Quoted
+                      </span>
+                    </div>
 
                   <div className="flex items-center gap-2.5 w-full sm:w-auto">
                     <a
@@ -465,14 +465,14 @@ export default function BeforeAfter() {
           <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center shrink-0">
             <Sparkles className="w-6 h-6" aria-hidden="true" />
           </div>
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold text-white">
-              Every Job Backed by Our Clean Home &amp; 1-Year Workmanship Guarantee
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 font-normal mt-1">
-              Authentic photographic records of master-grade plumbing craftsmanship across Austin.
-            </p>
-          </div>
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-white">
+                Every Job Backed by Our Clean Home &amp; 1-Year Workmanship Guarantee
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 font-normal mt-1">
+                Authentic photographic records of master-grade plumbing craftsmanship across London.
+              </p>
+            </div>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0 relative z-10">
@@ -488,7 +488,7 @@ export default function BeforeAfter() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm shadow-md transition-colors"
             aria-label="Book a free-with-repair inspection"
           >
-            <span>Schedule Inspection ($0 with Repair)</span>
+              <span>Schedule Inspection (£0 with Repair)</span>
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
 

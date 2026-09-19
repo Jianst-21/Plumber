@@ -33,7 +33,7 @@ export default function ServicesGrid() {
             Full-Service Residential &amp; Emergency Plumbing
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
-            Available 24/7 with zero night or weekend overtime fees. Every call handled by state-licensed technicians.
+            Available 24/7 with zero night or weekend overtime fees. Every call handled by Gas Safe &amp; City &amp; Guilds qualified engineers.
           </p>
         </ScrollReveal>
 
@@ -51,7 +51,7 @@ export default function ServicesGrid() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                   <Image
                     src={service.image}
-                    alt={`${service.title} by ApexFlow licensed Texas plumbers`}
+                    alt={`${service.title} by ApexFlow Gas Safe certified London plumbers`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
@@ -85,7 +85,7 @@ export default function ServicesGrid() {
                       Starting at
                     </span>
                     <span className="text-base font-extrabold text-slate-900 leading-tight">
-                      ${service.startingPrice}
+                      £{service.startingPrice}
                     </span>
                   </div>
                 </div>

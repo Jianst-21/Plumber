@@ -22,9 +22,9 @@ import { WhyChooseUsPillar } from '@/types';
 // Concrete proof bullets for each pillar
 const PILLAR_PROOF_POINTS: Record<string, string[]> = {
   'pillar-licensed': [
-    '100% background-checked & drug-tested',
-    'Texas Master Plumber Lic #MP-41982',
-    'Strict adherence to Uniform Plumbing Code',
+    '100% background-checked & insured',
+    'Gas Safe Registered Lic #629148',
+    'Strict adherence to British Standards (WRAS / BS 6700)',
   ],
   'pillar-inventory': [
     '1,500+ OEM replacement parts stocked per van',
@@ -33,12 +33,12 @@ const PILLAR_PROOF_POINTS: Record<string, string[]> = {
   ],
   'pillar-diagnostics': [
     'HD fiberoptic in-pipe color camera inspection',
-    'Acoustic ground microphones & ultrasonic probes',
-    'Infrared thermal imaging isolates slab leaks',
+    'Acoustic listening sticks & ultrasonic probes',
+    'Infrared thermal imaging isolates hidden leaks',
   ],
   'pillar-clean': [
-    'Heavy-duty slip-resistant boot covers indoors',
-    'Padded floor runners & protective workspace drop cloths',
+    'Heavy-duty slip-resistant overshoes indoors',
+    'Padded floor runners & protective workspace dust sheets',
     'Spotless, sanitized post-service cleanup',
   ],
 };
@@ -59,7 +59,7 @@ const PILLAR_THEMES: Record<
     borderClass: 'border-emerald-200/80',
     iconClass: 'text-emerald-700',
     accentClass: 'text-emerald-800',
-    badgeText: 'Texas Certified',
+    badgeText: 'Gas Safe UK',
   },
   'pillar-inventory': {
     bgClass: 'bg-blue-50/80',
@@ -135,10 +135,10 @@ export default function WhyChooseUs() {
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-            Why Austin Homeowners Trust Apex Plumbing
+            Why London Homeowners Trust Apex Plumbing
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Over a decade of dependable emergency service, licensed master craftsmanship, and transparent pricing.
+            Over a decade of dependable emergency service, Gas Safe certified engineering, and transparent pricing.
           </p>
         </ScrollReveal>
 
@@ -256,7 +256,7 @@ export default function WhyChooseUs() {
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-6">
-                  Austin&apos;s Top-Rated Emergency Plumbing Fleet
+                  London&apos;s Top-Rated Emergency Plumbing Fleet
                 </h3>
 
                 {/* 3 Core Stats */}
@@ -271,10 +271,10 @@ export default function WhyChooseUs() {
                         10,000+
                       </div>
                       <div className="text-sm font-bold text-orange-400">
-                        Austin Homes Restored
+                        London Properties Restored
                       </div>
                       <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                        Trusted locally across Travis, Williamson &amp; Hays counties.
+                        Trusted locally across Central, North, South &amp; West London.
                       </p>
                     </div>
                   </div>

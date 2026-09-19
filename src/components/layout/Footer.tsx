@@ -37,14 +37,14 @@ const SERVICE_LINKS = [
 ];
 
 const PRIMARY_CITIES = [
-  'Austin, TX (Downtown, SoCo, Zilker)',
-  'Round Rock, TX',
-  'Cedar Park, TX',
-  'Lakeway & West Lake Hills, TX',
-  'Pflugerville, TX',
-  'Buda & Kyle, TX',
-  'Circle C Ranch & South Lamar, TX',
-  'Hyde Park & Central Austin, TX',
+  'Central London (Westminster & Soho)',
+  'Kensington & Chelsea',
+  'Camden & Islington',
+  'Richmond & Twickenham',
+  'Clapham & Battersea',
+  'Hampstead & Highgate',
+  'Canary Wharf & Docklands',
+  'Wimbledon & Putney',
 ];
 
 export default function Footer() {
@@ -89,7 +89,7 @@ export default function Footer() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
-            <span>Active Rapid Emergency Dispatch Across Central Texas</span>
+            <span>Active Rapid Emergency Dispatch Across Greater London</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-3">
@@ -97,7 +97,7 @@ export default function Footer() {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-semibold leading-relaxed mb-8">
-            Our master plumbers are in their trucks right now across Austin. Call immediately for 45-minute dispatch.
+            Our certified engineers are in their mobile units right now across London. Call immediately for 45-minute dispatch.
           </p>
 
           {/* Big CTA Action Buttons */}
@@ -249,14 +249,14 @@ export default function Footer() {
           <div className="border-t border-navy-800 pt-8 pb-8 mb-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Primary Austin Metro Service Coverage
+                Primary Greater London Service Coverage
               </h4>
               <a
                 href="#areas"
                 onClick={(e) => handleScrollTo(e, '#areas')}
                 className="text-xs font-semibold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1"
               >
-                <span>Check Your ZIP Code</span>
+                <span>Check Your Postcode</span>
                 <ArrowRight className="w-3 h-3" />
               </a>
             </div>
@@ -272,32 +272,31 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Texas State Board of Plumbing Examiners (TSBPE) Regulatory Disclosure */}
+          {/* UK Gas Safe Register & Regulatory Disclosure */}
           <div className="rounded-2xl bg-navy-900/90 border border-navy-800 p-5 sm:p-6 mb-10 text-xs text-slate-400 leading-relaxed">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-2.5">
               <span className="font-bold text-slate-200 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
-                Texas State Regulatory Disclosure
+                UK Industry &amp; Safety Regulatory Disclosure
               </span>
               <a
-                href="https://tsbpe.texas.gov"
+                href="https://www.gassaferegister.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 font-semibold"
               >
-                <span>TSBPE Official Portal</span>
+                <span>Gas Safe Official Register</span>
                 <ExternalLink className="w-3 h-3" aria-hidden="true" />
               </a>
             </div>
             <p>
-              Plumbing contractors in the state of Texas are regulated by the{' '}
+              Plumbing and gas heating engineers in the United Kingdom are regulated under the{' '}
               <strong className="text-slate-300">
-                Texas State Board of Plumbing Examiners (TSBPE)
+                Gas Safe Register and British Standards (BS 6700 / WRAS)
               </strong>
-              , 929 E. 41st Street, P.O. Box 4200, Austin, TX 78765-4200. Phone: (512) 936-5200.
-              License held by Responsible Master Plumber:{' '}
+              . Registration held by Qualified Heating Engineer:{' '}
               <strong className="text-slate-200">{SITE_CONFIG.business.licenseNumber}</strong>. Fully insured
-              under policy with {SITE_CONFIG.business.insuranceAmount}.
+              with {SITE_CONFIG.business.insuranceAmount}. Registered office: {SITE_CONFIG.business.fullAddress}.
             </p>
           </div>
 

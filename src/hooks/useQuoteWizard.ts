@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { SITE_CONFIG } from '@/config/site.config';
 
 export type WizardStep = 1 | 2 | 3 | 4 | 5;
@@ -23,33 +23,37 @@ export const BASE_SERVICE_RATES: Record<
   { min: number; max: number; title: string }
 > = {
   'leak-repair': {
-    min: 149,
-    max: 299,
-    title: 'Emergency Leak Detection & Repair',
+    min: 129,
+    max: 269,
+    title: 'Emergency Leak Detection & Pipe Repair',
   },
   'drain-cleaning': {
-    min: 99,
-    max: 189,
-    title: 'Drain Cleaning & Hydro-Jetting',
+    min: 89,
+    max: 169,
+    title: 'Drain Unblocking & Hydro-Jetting',
   },
   'water-heater': {
-    min: 189,
-    max: 450,
-    title: 'Water Heater Repair & Replacement',
+    min: 169,
+    max: 389,
+    title: 'Boiler & Hot Water Cylinder Servicing',
   },
   'fixture-pipe': {
-    min: 129,
-    max: 280,
-    title: 'Fixture & Whole-House Piping Installation',
+    min: 99,
+    max: 220,
+    title: 'Taps, Toilets & Waste Pipe Installation',
   },
 };
 
 export function formatPhoneNumber(value: string): string {
-  const digits = value.replace(/\D/g, '').slice(0, 10);
+  const digits = value.replace(/\D/g, '').slice(0, 11);
   if (digits.length === 0) return '';
-  if (digits.length <= 3) return `(${digits}`;
-  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  if (digits.startsWith('020')) {
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 7) return `${digits.slice(0, 3)} ${digits.slice(3)}`;
+    return `${digits.slice(0, 3)} ${digits.slice(3, 7)} ${digits.slice(7)}`;
+  }
+  if (digits.length <= 5) return digits;
+  return `${digits.slice(0, 5)} ${digits.slice(5)}`;
 }
 
 export interface UseQuoteWizardReturn {
@@ -96,10 +100,13 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // Verify coverage against covered Austin ZIP codes
+  // Verify coverage against covered London postcodes
   const isZipValid = useMemo(() => {
-    const cleanZip = zipCode.trim();
-    return SITE_CONFIG.serviceArea.zipCodes.includes(cleanZip);
+    const cleanCode = zipCode.trim().toUpperCase().replace(/\s+/g, '');
+    if (!cleanCode) return false;
+    return SITE_CONFIG.serviceArea.zipCodes.some((prefix) =>
+      cleanCode.startsWith(prefix.replace(/\s+/g, ''))
+    );
   }, [zipCode]);
 
   // Calculate instant transparent cost range estimate
@@ -111,26 +118,26 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
     let couponBonus: string | null = null;
     const normalizedCode = couponCode?.trim().toUpperCase() || null;
 
-    if (normalizedCode === 'FIRST50') {
-      discountAmount = 50;
-      couponBonus = '$50 Instant Repair Discount Applied';
-    } else if (normalizedCode === 'HEATER100') {
+    if (normalizedCode === 'FIRST30') {
+      discountAmount = 30;
+      couponBonus = '£30 Instant Repair Discount Applied';
+    } else if (normalizedCode === 'BOILER80') {
       if (serviceId === 'water-heater') {
-        discountAmount = 100;
-        couponBonus = '$100 Water Heater Replacement Discount Applied';
+        discountAmount = 80;
+        couponBonus = '£80 Boiler Replacement Discount Applied';
       } else {
         discountAmount = 0;
-        couponBonus = 'Coupon HEATER100 applies to Water Heater services';
+        couponBonus = 'Coupon BOILER80 applies to Boiler & Heating services';
       }
     } else if (normalizedCode === 'CAMFREE') {
       discountAmount = 0;
-      couponBonus = 'FREE Video Camera Sewer Inspection Included ($150 Value)';
+      couponBonus = 'FREE CCTV Drain Camera Inspection Included (£120 Value)';
     }
 
     const calculatedMin = Math.max(0, base.min - discountAmount);
     const calculatedMax = Math.max(calculatedMin, base.max - discountAmount);
 
-    let urgencyNote = '24/7 Emergency Dispatch: $0 Overtime Surcharge Guarantee';
+    let urgencyNote = '24/7 Emergency Dispatch: £0 Overtime Surcharge Guarantee';
     if (urgency === 'today') {
       urgencyNote = 'Same-Day Priority Window: Standard Rates Apply';
     } else if (urgency === 'scheduled') {
@@ -173,8 +180,8 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
   }, []);
 
   const setZipCode = useCallback((val: string) => {
-    const numeric = val.replace(/\D/g, '').slice(0, 5);
-    setZipCodeState(numeric);
+    const clean = val.toUpperCase().replace(/[^A-Z0-9 ]/g, '').slice(0, 8);
+    setZipCodeState(clean);
     setErrors((prev) => {
       const copy = { ...prev };
       delete copy.zipCode;
@@ -215,11 +222,7 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
   );
 
   const applyCoupon = useCallback((code: string | null) => {
-    if (!code) {
-      setCouponCode(null);
-      return;
-    }
-    setCouponCode(code.trim().toUpperCase());
+    setCouponCode(code);
   }, []);
 
   const removeCoupon = useCallback(() => {
@@ -228,29 +231,29 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
 
   const validateStep = useCallback(
     (stepToCheck?: WizardStep): boolean => {
-      const current = stepToCheck ?? step;
+      const current = stepToCheck !== undefined ? stepToCheck : step;
       const newErrors: Record<string, string> = {};
 
       if (current === 1) {
         if (!serviceId) {
-          newErrors.serviceId = 'Please select a service to continue.';
+          newErrors.serviceId = 'Please select a plumbing service.';
         }
       } else if (current === 2) {
         if (!urgency) {
-          newErrors.urgency = 'Please select your urgency timeline.';
+          newErrors.urgency = 'Please select an arrival urgency timeframe.';
         }
       } else if (current === 3) {
-        const cleanZip = zipCode.trim();
-        if (!cleanZip || cleanZip.length !== 5) {
-          newErrors.zipCode = 'Please enter a 5-digit Austin area ZIP code.';
+        const clean = zipCode.trim();
+        if (!clean || clean.length < 2) {
+          newErrors.zipCode = 'Please enter a valid London postal code (e.g. SW1A, NW1, W1D).';
         }
       } else if (current === 4) {
         if (!name.trim() || name.trim().length < 2) {
-          newErrors.name = 'Please provide your full name for dispatch.';
+          newErrors.name = 'Please enter your full name.';
         }
-        const digits = phone.replace(/\D/g, '');
-        if (digits.length < 10) {
-          newErrors.phone = 'Please enter a valid 10-digit phone number.';
+        const cleanPhone = phone.replace(/\D/g, '');
+        if (!cleanPhone || cleanPhone.length < 10) {
+          newErrors.phone = 'Please enter a valid phone number (at least 10 digits).';
         }
       }
 
@@ -267,51 +270,27 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
     if (step < 4) {
       setStepState((prev) => (prev + 1) as WizardStep);
       return true;
-    } else if (step === 4) {
-      return submitQuote();
     }
     return true;
   }, [step, validateStep]);
 
   const prevStep = useCallback(() => {
-    setErrors({});
-    setStepState((prev) => (Math.max(1, prev - 1) as WizardStep));
-  }, []);
+    if (step > 1) {
+      setStepState((prev) => (prev - 1) as WizardStep);
+    }
+  }, [step]);
 
   const submitQuote = useCallback((): boolean => {
-    const isValidStep3 = zipCode.trim().length === 5;
-    const digits = phone.replace(/\D/g, '');
-    const isValidStep4 = name.trim().length >= 2 && digits.length >= 10;
-
-    const newErrors: Record<string, string> = {};
-    if (!isValidStep3) {
-      newErrors.zipCode = 'Please provide a valid 5-digit ZIP code.';
-    }
-    if (!name.trim() || name.trim().length < 2) {
-      newErrors.name = 'Please provide your full name.';
-    }
-    if (digits.length < 10) {
-      newErrors.phone = 'Please enter a valid 10-digit phone number.';
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      if (!isValidStep3 && step !== 3) {
-        setStepState(3);
-      } else if (!isValidStep4 && step !== 4) {
-        setStepState(4);
-      }
-      return false;
-    }
+    const isValid = validateStep(4);
+    if (!isValid) return false;
 
     const randomNum = Math.floor(1000 + Math.random() * 9000);
     const newTicket = `#APX-${randomNum}`;
     setTicketId(newTicket);
     setIsSubmitted(true);
-    setErrors({});
     setStepState(5);
     return true;
-  }, [zipCode, name, phone, step]);
+  }, [validateStep]);
 
   const resetForm = useCallback(() => {
     setStepState(1);
@@ -326,87 +305,6 @@ export function useQuoteWizard(): UseQuoteWizardReturn {
     setIsSubmitted(false);
     setErrors({});
   }, []);
-
-  // Listen to custom dispatch events and URL parameters
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const handleSelectCoupon = (event: Event) => {
-      const customEvent = event as CustomEvent<string>;
-      if (customEvent.detail) {
-        applyCoupon(customEvent.detail);
-      }
-    };
-
-    const handleSelectService = (event: Event) => {
-      const customEvent = event as CustomEvent<string>;
-      if (customEvent.detail) {
-        selectService(customEvent.detail);
-      }
-    };
-
-    const handleSelectZip = (event: Event) => {
-      const customEvent = event as CustomEvent<string>;
-      if (customEvent.detail) {
-        setZipCode(customEvent.detail);
-      }
-    };
-
-    window.addEventListener('plumber-select-coupon', handleSelectCoupon);
-    window.addEventListener('plumber-select-service', handleSelectService);
-    window.addEventListener('plumber-select-zip', handleSelectZip);
-
-    const parseParams = () => {
-      try {
-        const hash = window.location.hash;
-        const search = window.location.search;
-        let couponParam: string | null = null;
-        let serviceParam: string | null = null;
-        let zipParam: string | null = null;
-
-        if (hash.includes('?')) {
-          const hashQuery = hash.split('?')[1];
-          const params = new URLSearchParams(hashQuery);
-          couponParam = params.get('coupon');
-          serviceParam = params.get('service');
-          zipParam = params.get('zip');
-        }
-
-        if (!couponParam && search) {
-          const searchParams = new URLSearchParams(search);
-          couponParam = searchParams.get('coupon');
-          if (!serviceParam) {
-            serviceParam = searchParams.get('service');
-          }
-          if (!zipParam) {
-            zipParam = searchParams.get('zip');
-          }
-        }
-
-        if (couponParam) {
-          applyCoupon(couponParam);
-        }
-        if (serviceParam) {
-          selectService(serviceParam);
-        }
-        if (zipParam) {
-          setZipCode(zipParam);
-        }
-      } catch {
-        // Ignore URL parsing errors
-      }
-    };
-
-    parseParams();
-    window.addEventListener('hashchange', parseParams);
-
-    return () => {
-      window.removeEventListener('plumber-select-coupon', handleSelectCoupon);
-      window.removeEventListener('plumber-select-service', handleSelectService);
-      window.removeEventListener('plumber-select-zip', handleSelectZip);
-      window.removeEventListener('hashchange', parseParams);
-    };
-  }, [applyCoupon, selectService, setZipCode]);
 
   return {
     step,

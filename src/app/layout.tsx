@@ -9,10 +9,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.business.name} | Emergency Plumber Austin TX - 24/7 Rapid Dispatch`,
+  title: `${SITE_CONFIG.business.name} | Emergency Plumber London - 24/7 Rapid Dispatch`,
   description:
-    "Austin's #1 Emergency & Residential Plumbing Contractor. Burst pipes, drain clogs, water heaters. 45-minute response, upfront pricing, licensed & insured.",
-  metadataBase: new URL("https://apexflowplumbing.com"),
+    "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
+  metadataBase: new URL("https://apexflowplumbing.co.uk"),
   alternates: {
     canonical: "/",
   },
@@ -24,42 +24,44 @@ export const metadata: Metadata = {
     apple: "/images/apex-logo-icon.svg",
   },
   keywords: [
-    "Austin Emergency Plumber",
-    "24/7 Plumber Austin TX",
-    "Burst Pipe Repair Austin",
-    "Drain Cleaning Austin",
-    "Hydro-Jetting Austin",
-    "Water Heater Replacement Austin",
-    "Licensed Texas Plumber",
-    "Slab Leak Detection Austin",
+    "London Emergency Plumber",
+    "24/7 Plumber London",
+    "Burst Pipe Repair London",
+    "Drain Unblocking London",
+    "Boiler Repair London",
+    "Gas Safe Registered Plumber",
+    "Central Heating Engineers London",
+    "CCTV Drain Survey London",
   ],
   authors: [{ name: SITE_CONFIG.business.name }],
   creator: SITE_CONFIG.business.name,
   publisher: SITE_CONFIG.business.name,
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://apexflowplumbing.com",
+    locale: "en_GB",
+    url: "https://apexflowplumbing.co.uk",
     siteName: SITE_CONFIG.business.name,
-    title: `${SITE_CONFIG.business.name} | Emergency Plumber Austin TX - 24/7 Rapid Dispatch`,
+    title: `${SITE_CONFIG.business.name} | Emergency Plumber London - 24/7 Rapid Dispatch`,
     description:
-      "Austin's #1 Emergency & Residential Plumbing Contractor. Burst pipes, drain clogs, water heaters. 45-minute response, upfront pricing, licensed & insured.",
+      "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&h=630&q=80",
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.business.name} Austin Emergency Plumbing Service`,
+        alt: `${SITE_CONFIG.business.name} London Emergency Plumbing Service`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_CONFIG.business.name} | Emergency Plumber Austin TX - 24/7 Rapid Dispatch`,
+    title: `${SITE_CONFIG.business.name} | Emergency Plumber London - 24/7 Rapid Dispatch`,
     description:
-      "Austin's #1 Emergency & Residential Plumbing Contractor. Burst pipes, drain clogs, water heaters. 45-minute response, upfront pricing, licensed & insured.",
+      "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
     images: [
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&h=630&q=80",
+      {
+        url: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&h=630&q=80",
+      },
     ],
   },
   robots: {
@@ -81,30 +83,30 @@ const plumbingServiceJsonLd = {
   name: SITE_CONFIG.business.name,
   legalName: SITE_CONFIG.business.name,
   description:
-    "Austin's #1 Emergency & Residential Plumbing Contractor. Burst pipes, drain clogs, water heaters. 45-minute response, upfront pricing, licensed & insured.",
-  url: "https://apexflowplumbing.com",
+    "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
+  url: "https://apexflowplumbing.co.uk",
   telephone: SITE_CONFIG.business.phone,
   email: SITE_CONFIG.business.email,
   license: SITE_CONFIG.business.licenseNumber,
-  priceRange: "$$",
+  priceRange: "££",
   image:
     "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&h=630&q=80",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1021 E 7th St",
-    addressLocality: SITE_CONFIG.business.city,
-    addressRegion: SITE_CONFIG.business.state,
-    postalCode: "78702",
-    addressCountry: "US",
+    streetAddress: "48 Baker Street",
+    addressLocality: "London",
+    addressRegion: "Greater London",
+    postalCode: "W1U 7BB",
+    addressCountry: "GB",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 30.2647,
-    longitude: -97.7314,
+    latitude: 51.5194,
+    longitude: -0.1585,
   },
   areaServed: SITE_CONFIG.serviceArea.neighborhoods.map((name) => ({
     "@type": "AdministrativeArea",
-    name: `${name}, TX`,
+    name: `${name}, London`,
   })),
   openingHoursSpecification: [
     {
@@ -135,7 +137,7 @@ const plumbingServiceJsonLd = {
       },
       priceSpecification: {
         "@type": "PriceSpecification",
-        priceCurrency: "USD",
+        priceCurrency: "GBP",
         price: service.startingPrice,
       },
     })),
@@ -155,7 +157,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en-GB" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"

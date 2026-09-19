@@ -112,10 +112,10 @@ export default function PricingTable() {
                 <span>Special Homeowner Policy</span>
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-2.5">
-                Diagnostic Fee: $0 <span className="text-orange-400 font-black">(100% Waived with Any Approved Repair)</span>
+                Diagnostic Fee: £0 <span className="text-orange-400 font-black">(100% Waived with Any Approved Repair)</span>
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-5">
-                Our licensed technician diagnoses the exact root cause. If you authorize the repair, the inspection fee is completely free.
+                Our Gas Safe registered engineer diagnoses the exact root cause. If you authorize the repair, the inspection fee is completely free.
               </p>
               {/* Feature Pills */}
               <div className="flex flex-wrap gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-200">
@@ -125,7 +125,7 @@ export default function PricingTable() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
-                  $0 dispatch fee with repair
+                  £0 call-out fee with repair
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
@@ -183,7 +183,7 @@ export default function PricingTable() {
                     )}
                     {badgeText}
                   </span>
-                  <span className="text-[10px] text-slate-400 font-mono">Austin, TX</span>
+                  <span className="text-[10px] text-slate-400 font-mono">London, UK</span>
                 </div>
 
                 {/* Card Main Body */}
@@ -198,13 +198,13 @@ export default function PricingTable() {
                     {isDiagnostic ? (
                       <div>
                         <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-black text-slate-900 tracking-tight">$0</span>
+                          <span className="text-4xl font-black text-slate-900 tracking-tight">£0</span>
                           <span className="text-xs font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded-md border border-orange-200/80">
                             Waived with Repair
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 mt-1 font-medium">
-                          ($49 stand-alone inspection if no repair is authorized)
+                          (£49 stand-alone inspection if no repair is authorized)
                         </p>
                       </div>
                     ) : (

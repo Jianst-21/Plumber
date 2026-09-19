@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
   Search,
@@ -9,7 +10,6 @@ import {
   Clock,
   Phone,
   ArrowRight,
-  Navigation,
   ShieldCheck,
   Sparkles,
   RotateCcw,
@@ -17,129 +17,135 @@ import {
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 
-// Primary ZIP mapping and hub association for interactive map targeting
+// Primary postcode mapping and hub association for interactive map targeting in London
 const NEIGHBORHOOD_DATA: Record<
   string,
-  { zip: string; hubId: string; eta: string; hubName: string; query: string }
+  {
+    zip: string;
+    hubId: string;
+    eta: string;
+    hubName: string;
+    query: string;
+  }
 > = {
-  'Downtown Austin': {
-    zip: '78701',
+  'Central London (Westminster & Soho)': {
+    zip: 'SW1A',
     hubId: 'central',
     eta: '15–25 min',
-    hubName: 'Central Austin HQ',
-    query: 'Downtown Austin, TX',
+    hubName: 'Central London HQ',
+    query: 'Westminster, London, UK',
   },
-  'South Congress (SoCo)': {
-    zip: '78704',
-    hubId: 'central',
-    eta: '15–25 min',
-    hubName: 'Central Austin HQ',
-    query: 'South Congress, Austin, TX',
-  },
-  'Round Rock': {
-    zip: '76864',
-    hubId: 'north',
-    eta: '25–35 min',
-    hubName: 'North Williamson Fleet',
-    query: 'Round Rock, TX',
-  },
-  'Cedar Park': {
-    zip: '78613',
-    hubId: 'north',
-    eta: '25–35 min',
-    hubName: 'North Williamson Fleet',
-    query: 'Cedar Park, TX',
-  },
-  'Lakeway': {
-    zip: '78734',
-    hubId: 'west',
-    eta: '25–40 min',
-    hubName: 'Lake Travis West Mobile',
-    query: 'Lakeway, TX',
-  },
-  'Pflugerville': {
-    zip: '78660',
-    hubId: 'north',
-    eta: '25–35 min',
-    hubName: 'North Williamson Fleet',
-    query: 'Pflugerville, TX',
-  },
-  'Buda': {
-    zip: '78610',
-    hubId: 'south',
-    eta: '25–40 min',
-    hubName: 'South Hays Rapid Unit',
-    query: 'Buda, TX',
-  },
-  'Kyle': {
-    zip: '78640',
-    hubId: 'south',
-    eta: '25–40 min',
-    hubName: 'South Hays Rapid Unit',
-    query: 'Kyle, TX',
-  },
-  'West Lake Hills': {
-    zip: '78746',
+  'Kensington & Chelsea': {
+    zip: 'SW3',
     hubId: 'west',
     eta: '20–30 min',
-    hubName: 'Lake Travis West Mobile',
-    query: 'West Lake Hills, TX',
+    hubName: 'West London Mobile Fleet',
+    query: 'Kensington, London, UK',
   },
-  'Barton Creek': {
-    zip: '78735',
+  'Camden & Islington': {
+    zip: 'NW1',
+    hubId: 'north',
+    eta: '20–30 min',
+    hubName: 'North London Hub',
+    query: 'Camden Town, London, UK',
+  },
+  'Richmond & Twickenham': {
+    zip: 'TW9',
     hubId: 'west',
-    eta: '20–35 min',
-    hubName: 'Lake Travis West Mobile',
-    query: 'Barton Creek, Austin, TX',
+    eta: '25–40 min',
+    hubName: 'West London Mobile Fleet',
+    query: 'Richmond, London, UK',
   },
-  'Zilker & Barton Hills': {
-    zip: '78704',
-    hubId: 'central',
-    eta: '15–30 min',
-    hubName: 'Central Austin HQ',
-    query: 'Zilker, Austin, TX',
-  },
-  'Travis Heights': {
-    zip: '78704',
-    hubId: 'central',
-    eta: '15–25 min',
-    hubName: 'Central Austin HQ',
-    query: 'Travis Heights, Austin, TX',
-  },
-  'Hyde Park & Campus': {
-    zip: '78705',
-    hubId: 'central',
-    eta: '15–25 min',
-    hubName: 'Central Austin HQ',
-    query: 'Hyde Park, Austin, TX',
-  },
-  'South Lamar (SoLa)': {
-    zip: '78704',
-    hubId: 'central',
-    eta: '15–30 min',
-    hubName: 'Central Austin HQ',
-    query: 'South Lamar, Austin, TX',
-  },
-  'Circle C Ranch': {
-    zip: '78749',
+  'Clapham & Battersea': {
+    zip: 'SW11',
     hubId: 'south',
     eta: '20–35 min',
-    hubName: 'South Hays Rapid Unit',
-    query: 'Circle C Ranch, Austin, TX',
+    hubName: 'South London Rapid Unit',
+    query: 'Clapham, London, UK',
   },
-  'Allandale & Crestview': {
-    zip: '78757',
-    hubId: 'central',
-    eta: '20–30 min',
-    hubName: 'Central Austin HQ',
-    query: 'Allandale, Austin, TX',
-  },
-  'Anderson Mill': {
-    zip: '78750',
+  'Hampstead & Highgate': {
+    zip: 'NW3',
     hubId: 'north',
     eta: '20–30 min',
-    hubName: 'North Williamson Fleet',
-    query: 'Anderson Mill, Austin, TX',
+    hubName: 'North London Hub',
+    query: 'Hampstead, London, UK',
+  },
+  'Canary Wharf & Docklands': {
+    zip: 'E14',
+    hubId: 'central',
+    eta: '25–35 min',
+    hubName: 'Central London HQ',
+    query: 'Canary Wharf, London, UK',
+  },
+  'Wimbledon & Merton': {
+    zip: 'SW19',
+    hubId: 'south',
+    eta: '25–40 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Wimbledon, London, UK',
+  },
+  'Fulham & Hammersmith': {
+    zip: 'SW6',
+    hubId: 'west',
+    eta: '20–30 min',
+    hubName: 'West London Mobile Fleet',
+    query: 'Fulham, London, UK',
+  },
+  'Greenwich & Blackheath': {
+    zip: 'SE10',
+    hubId: 'south',
+    eta: '25–40 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Greenwich, London, UK',
+  },
+  'Shoreditch & Hackney': {
+    zip: 'E1',
+    hubId: 'central',
+    eta: '20–30 min',
+    hubName: 'Central London HQ',
+    query: 'Shoreditch, London, UK',
+  },
+  'Dulwich & Southwark': {
+    zip: 'SE1',
+    hubId: 'south',
+    eta: '20–35 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Southwark, London, UK',
+  },
+  'Chiswick & Brentford': {
+    zip: 'W4',
+    hubId: 'west',
+    eta: '25–35 min',
+    hubName: 'West London Mobile Fleet',
+    query: 'Chiswick, London, UK',
+  },
+  'Ealing & Acton': {
+    zip: 'W5',
+    hubId: 'west',
+    eta: '25–40 min',
+    hubName: 'West London Mobile Fleet',
+    query: 'Ealing, London, UK',
+  },
+  'Kingston upon Thames': {
+    zip: 'KT1',
+    hubId: 'south',
+    eta: '30–45 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Kingston upon Thames, London, UK',
+  },
+  'Bromley & Beckenham': {
+    zip: 'BR1',
+    hubId: 'south',
+    eta: '30–45 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Bromley, London, UK',
+  },
+  'Wandsworth & Putney': {
+    zip: 'SW18',
+    hubId: 'south',
+    eta: '20–35 min',
+    hubName: 'South London Rapid Unit',
+    query: 'Wandsworth, London, UK',
   },
 };
 
@@ -147,51 +153,51 @@ const NEIGHBORHOOD_ZIP_MAP: Record<string, string> = Object.fromEntries(
   Object.entries(NEIGHBORHOOD_DATA).map(([name, data]) => [name, data.zip])
 );
 
-// Popular Austin Metro ZIP codes for fast 1-click checking
+// Popular London Metro postcodes for fast 1-click checking
 const POPULAR_ZIPS = [
-  { zip: '78701', label: 'Downtown' },
-  { zip: '78704', label: 'SoCo / Zilker' },
-  { zip: '78613', label: 'Cedar Park' },
-  { zip: '78664', label: 'Round Rock' },
-  { zip: '78746', label: 'West Lake Hills' },
-  { zip: '78734', label: 'Lakeway' },
-  { zip: '78660', label: 'Pflugerville' },
-  { zip: '78610', label: 'Buda' },
-  { zip: '78640', label: 'Kyle' },
-  { zip: '78745', label: 'South Austin' },
+  { zip: 'SW1A', label: 'Westminster' },
+  { zip: 'W1D', label: 'Soho / West End' },
+  { zip: 'SW3', label: 'Chelsea' },
+  { zip: 'NW1', label: 'Camden' },
+  { zip: 'NW3', label: 'Hampstead' },
+  { zip: 'EC1A', label: 'City of London' },
+  { zip: 'SW11', label: 'Battersea' },
+  { zip: 'SW19', label: 'Wimbledon' },
+  { zip: 'TW9', label: 'Richmond' },
+  { zip: 'SE10', label: 'Greenwich' },
 ];
 
-// Zoned Dispatch Hubs
+// Zoned Dispatch Hubs across Greater London
 const DISPATCH_HUBS = [
   {
     id: 'central',
-    name: 'Central Austin HQ',
-    area: 'Downtown, SoCo, UT, Central',
-    query: 'Downtown Austin, TX',
+    name: 'Central London HQ',
+    area: 'Westminster, Soho, Mayfair, City',
+    query: 'Central London, UK',
     eta: '15–30 min',
     badge: 'HQ Station',
   },
   {
     id: 'north',
-    name: 'North Williamson Fleet',
-    area: 'Round Rock, Cedar Park, Pflugerville',
-    query: 'Round Rock, TX',
+    name: 'North London Hub',
+    area: 'Camden, Islington, Hampstead, Highgate',
+    query: 'Camden, London, UK',
     eta: '25–35 min',
     badge: 'North Hub',
   },
   {
     id: 'south',
-    name: 'South Hays Rapid Unit',
-    area: 'Buda, Kyle, South Austin, Manchaca',
-    query: 'Buda, TX',
+    name: 'South London Rapid Unit',
+    area: 'Clapham, Battersea, Wimbledon, Southwark',
+    query: 'Clapham, London, UK',
     eta: '25–40 min',
     badge: 'South Hub',
   },
   {
     id: 'west',
-    name: 'Lake Travis West Mobile',
-    area: 'Lakeway, West Lake Hills, Barton Creek',
-    query: 'Lakeway, TX',
+    name: 'West London Mobile Fleet',
+    area: 'Kensington, Chelsea, Richmond, Chiswick',
+    query: 'Kensington, London, UK',
     eta: '25–40 min',
     badge: 'West Fleet',
   },
@@ -205,19 +211,22 @@ export default function ServiceArea() {
   const [checkStatus, setCheckStatus] = useState<CheckStatus>('idle');
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<string | null>(null);
   const [selectedHubId, setSelectedHubId] = useState<string | null>(null);
+  const [isMapTargeting, setIsMapTargeting] = useState(false);
 
   const coveredZipList = SITE_CONFIG.serviceArea.zipCodes;
 
   const performZipCheck = (zipToCheck: string) => {
-    const cleanZip = zipToCheck.trim().replace(/\D/g, '').slice(0, 5);
-    if (!cleanZip || cleanZip.length !== 5) {
+    const cleanZip = zipToCheck.trim().toUpperCase().replace(/\s+/g, '');
+    if (!cleanZip || cleanZip.length < 2) {
       setCheckStatus('invalid');
       setLastCheckedZip(cleanZip);
       return;
     }
 
-    setLastCheckedZip(cleanZip);
-    const isCovered = coveredZipList.includes(cleanZip);
+    setLastCheckedZip(zipToCheck.trim().toUpperCase());
+    const isCovered = coveredZipList.some((prefix) =>
+      cleanZip.startsWith(prefix.replace(/\s+/g, ''))
+    );
 
     if (isCovered) {
       setCheckStatus('covered');
@@ -234,14 +243,19 @@ export default function ServiceArea() {
   const handleQuickZipClick = (zip: string) => {
     setZipInput(zip);
     performZipCheck(zip);
-    // Find matching neighborhood if any
     const match = Object.entries(NEIGHBORHOOD_DATA).find(([, d]) => d.zip === zip);
     if (match) {
       setSelectedNeighborhood(match[0]);
       setSelectedHubId(match[1].hubId);
+      triggerSmoothTarget();
     } else {
       setSelectedNeighborhood(null);
     }
+  };
+
+  const triggerSmoothTarget = () => {
+    setIsMapTargeting(true);
+    setTimeout(() => setIsMapTargeting(false), 500);
   };
 
   const handleNeighborhoodClick = (name: string) => {
@@ -251,19 +265,18 @@ export default function ServiceArea() {
       setSelectedHubId(data.hubId);
       setZipInput(data.zip);
       performZipCheck(data.zip);
+      triggerSmoothTarget();
     }
   };
 
   const handleHubClick = (hubId: string) => {
     setSelectedHubId(hubId);
     setSelectedNeighborhood(null);
-    const hub = DISPATCH_HUBS.find((h) => h.id === hubId);
-    if (hub) {
-      const match = Object.entries(NEIGHBORHOOD_DATA).find(([, d]) => d.hubId === hubId);
-      if (match) {
-        setZipInput(match[1].zip);
-        performZipCheck(match[1].zip);
-      }
+    triggerSmoothTarget();
+    const match = Object.entries(NEIGHBORHOOD_DATA).find(([, d]) => d.hubId === hubId);
+    if (match) {
+      setZipInput(match[1].zip);
+      performZipCheck(match[1].zip);
     }
   };
 
@@ -281,13 +294,14 @@ export default function ServiceArea() {
     setZipInput('');
     setLastCheckedZip('');
     setCheckStatus('idle');
+    triggerSmoothTarget();
   };
 
   // Compute active location info for live map targeting
-  let activeTitle = 'Austin Metroplex (All Zones)';
+  let activeTitle = 'Greater London (All Boroughs)';
   let activeEta = '30–45 min';
   let activeHubName = '4 Zoned Mobile Fleets';
-  let mapUrl = SITE_CONFIG.serviceArea.mapEmbedUrl;
+  let mapUrl = SITE_CONFIG.serviceArea.mapEmbedUrl || 'https://maps.google.com/maps?q=London%2C%20UK&t=&z=11&ie=UTF8&iwloc=&output=embed';
   const isLocationFocused = Boolean(selectedNeighborhood || selectedHubId);
 
   if (selectedNeighborhood && NEIGHBORHOOD_DATA[selectedNeighborhood]) {
@@ -326,7 +340,7 @@ export default function ServiceArea() {
     <section
       id="areas"
       className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden border-b border-slate-200/80"
-      aria-label="Greater Austin Plumbing Service Area & Coverage"
+      aria-label="Greater London Plumbing Service Area & Coverage"
     >
       {/* Background Decorative Accents */}
       <div
@@ -342,17 +356,17 @@ export default function ServiceArea() {
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
-            Greater Austin Service Area &amp; Emergency Coverage
+            Greater London Service Area &amp; Emergency Coverage
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Prompt 24/7 emergency dispatch across Austin and surrounding Travis, Williamson, and Hays counties.
+            Prompt 24/7 emergency dispatch across Central, North, South, and West London boroughs.
           </p>
         </ScrollReveal>
 
-        {/* Top Interactive ZIP Code Checker Card */}
+        {/* Top Interactive Postcode Checker Card */}
         <ScrollReveal delay={0.08} className="w-full mb-10 sm:mb-12">
           <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 lg:p-10 relative overflow-hidden">
-            {/* Subtle Gradient Header Bar */}
+            {/* Header Bar */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-100">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center flex-shrink-0 shadow-xs">
@@ -360,10 +374,10 @@ export default function ServiceArea() {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-extrabold text-navy-900">
-                    Live Emergency Response ZIP Checker
+                    Live Emergency Response Postcode Checker
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 font-normal">
-                    Check your Austin address for instant coverage and arrival time.
+                    Check your London address or postcode for instant coverage and arrival time.
                   </p>
                 </div>
               </div>
@@ -383,27 +397,25 @@ export default function ServiceArea() {
                   </div>
                   <input
                     type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                    maxLength={5}
+                    maxLength={8}
                     value={zipInput}
                     onChange={(e) => {
-                      const numeric = e.target.value.replace(/\D/g, '').slice(0, 5);
-                      setZipInput(numeric);
+                      const val = e.target.value.toUpperCase();
+                      setZipInput(val);
                       if (checkStatus !== 'idle') {
                         setCheckStatus('idle');
                       }
                     }}
-                    placeholder="Enter 5-digit Austin ZIP code (e.g. 78701)"
+                    placeholder="Enter London Postcode (e.g. SW1A, NW1, W1D)"
                     className="w-full pl-11 pr-4 py-3.5 rounded-2xl border-2 border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 text-navy-900 placeholder:text-slate-400 font-medium text-base sm:text-lg transition-all outline-none"
-                    aria-label="Austin 5-digit ZIP code"
+                    aria-label="London Postcode"
                   />
                   {zipInput && (
                     <button
                       type="button"
                       onClick={handleResetCheck}
                       className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 text-xs font-bold"
-                      aria-label="Clear ZIP code input"
+                      aria-label="Clear postcode input"
                     >
                       <RotateCcw className="w-4 h-4" />
                     </button>
@@ -434,31 +446,31 @@ export default function ServiceArea() {
                     </div>
                     <div>
                       <h4 className="text-base sm:text-lg font-black text-emerald-900 leading-snug">
-                        Service Available in {lastCheckedZip}!
+                        Coverage Confirmed for {lastCheckedZip}!
                       </h4>
                       <p className="text-xs sm:text-sm text-emerald-800 mt-1 font-medium leading-relaxed">
-                        Estimated response time: <strong>30–45 mins</strong>. Zero travel surcharge across your area.
+                        We have rapid mobile units active in your area. Average arrival time is <strong>30–45 minutes</strong> with zero out-of-hours fees.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-2.5 flex-shrink-0">
+                  <div className="flex items-center gap-2.5 self-end sm:self-auto flex-shrink-0">
                     <a
                       href={`#wizard?zip=${lastCheckedZip}`}
                       onClick={handleBookDispatch}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm shadow-sm hover:shadow transition-all text-center"
-                      aria-label={`Book emergency dispatch for ZIP ${lastCheckedZip}`}
+                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm shadow-xs transition-colors"
+                      aria-label={`Book emergency dispatch for Postcode ${lastCheckedZip}`}
                     >
-                      <span>Book Emergency Dispatch</span>
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                      <span>Book Engineer Now</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-full bg-white hover:bg-emerald-100/60 text-emerald-900 border border-emerald-300 font-bold text-xs sm:text-sm transition-colors text-center"
+                      className="inline-flex items-center justify-center p-2.5 rounded-xl bg-white hover:bg-emerald-100 text-emerald-800 border border-emerald-300 transition-colors shadow-2xs"
                       aria-label={`Call emergency phone at ${SITE_CONFIG.business.phone}`}
+                      title="Call Dispatch Immediately"
                     >
-                      <Phone className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
-                      <span>{SITE_CONFIG.business.phone}</span>
+                      <Phone className="w-4 h-4 text-emerald-700" />
                     </a>
                   </div>
                 </div>
@@ -468,62 +480,49 @@ export default function ServiceArea() {
             {checkStatus === 'out-of-area' && (
               <div
                 className="mb-6 rounded-2xl bg-amber-50 border-2 border-amber-300 p-5 sm:p-6 text-amber-950 transition-all duration-200 animate-fadeIn"
-                role="status"
-                aria-live="polite"
+                role="alert"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500 text-navy-950 flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
-                      <AlertCircle className="w-6 h-6 text-navy-950" aria-hidden="true" />
+                    <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
+                      <AlertCircle className="w-6 h-6" aria-hidden="true" />
                     </div>
                     <div>
-                      <h4 className="text-base sm:text-lg font-black text-amber-900 leading-snug">
-                        Extended Service Perimeter
+                      <h4 className="text-base sm:text-lg font-black text-amber-950 leading-snug">
+                        Extended Greater London Perimeter ({lastCheckedZip})
                       </h4>
-                      <p className="text-xs sm:text-sm text-amber-800 mt-1 font-medium leading-relaxed max-w-xl">
-                        ZIP <strong>{lastCheckedZip}</strong> is outside our primary 45-min rapid response perimeter, but our regional dispatch team may still assist you. Call{' '}
-                        <a
-                          href={`tel:${SITE_CONFIG.business.phone}`}
-                          className="font-bold underline text-amber-950 hover:text-navy-900"
-                        >
-                          {SITE_CONFIG.business.phone}
-                        </a>{' '}
-                        for availability.
+                      <p className="text-xs sm:text-sm text-amber-900 mt-1 font-medium leading-relaxed">
+                        Postcode {lastCheckedZip} is just outside our primary rapid zone. We still dispatch engineers to home counties! Call our dispatch team directly.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0">
-                    <a
-                      href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-sm shadow-sm transition-all"
-                      aria-label={`Call dispatch at ${SITE_CONFIG.business.phone} for ZIP ${lastCheckedZip}`}
-                    >
-                      <Phone className="w-4 h-4" aria-hidden="true" />
-                      <span>Call {SITE_CONFIG.business.phone}</span>
-                    </a>
-                  </div>
+                  <a
+                    href={`tel:${SITE_CONFIG.business.phone}`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-bold text-xs sm:text-sm shadow-xs transition-all self-end sm:self-auto flex-shrink-0"
+                    aria-label={`Call dispatch at ${SITE_CONFIG.business.phone} for Postcode ${lastCheckedZip}`}
+                  >
+                    <Phone className="w-4 h-4 fill-navy-950 text-navy-950" />
+                    <span>Call Live Dispatch</span>
+                  </a>
                 </div>
               </div>
             )}
 
             {checkStatus === 'invalid' && (
-              <div
-                className="mb-6 rounded-2xl bg-red-50 border border-red-200 p-4 text-red-900 flex items-center gap-3 animate-fadeIn"
-                role="alert"
-              >
+              <div className="mb-6 rounded-2xl bg-red-50 border-2 border-red-200 p-4 text-red-800 flex items-center gap-3">
                 <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
                 <p className="text-xs sm:text-sm font-medium">
-                  Please enter a valid 5-digit Austin area postal code (e.g. 78701, 78704, 78613).
+                  Please enter a valid London postal district (e.g. SW1A, NW1, W1D).
                 </p>
               </div>
             )}
 
-            {/* Popular Covered ZIP Pills for One-Click Quick Check */}
+            {/* Popular Covered London Postcode Pills */}
             <div>
               <div className="flex items-center justify-between mb-2.5">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Quick Select Common Austin Metro ZIPs:
+                  Quick Select Common London Postcodes:
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
                   Click to test instantly
@@ -542,7 +541,7 @@ export default function ServiceArea() {
                           ? 'bg-blue-600 text-white shadow-xs'
                           : 'bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-800 border border-slate-200/80 hover:border-blue-200'
                       }`}
-                      aria-label={`Quick check ZIP code ${item.zip} for ${item.label}`}
+                      aria-label={`Quick check postcode ${item.zip} for ${item.label}`}
                     >
                       <span className="font-mono font-bold">{item.zip}</span>
                       <span className="text-[11px] opacity-80">({item.label})</span>
@@ -554,38 +553,60 @@ export default function ServiceArea() {
           </div>
         </ScrollReveal>
 
-        {/* 2-Column Visual Coverage Layout: Map View & Zoned Hubs (Left) + Serviced Neighborhoods (Right) */}
+        {/* 2-Column Visual Coverage Layout: Interactive Map View (Left) + Serviced Neighborhoods (Right) */}
         <ScrollReveal delay={0.12} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: Embedded Visual Map & Hub Grid */}
+          {/* Left Column: Interactive Map View & Zoned Hub Grid */}
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-between space-y-6">
-            {/* Visual Metro Coverage Map Graphic */}
+            {/* Visual Metro Coverage Map Card */}
             <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-4 sm:p-5 relative overflow-hidden flex flex-col">
               <div className="flex items-center justify-between gap-3 mb-3.5 px-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-xs font-extrabold uppercase tracking-wider text-navy-900">
-                    Live GPS Coverage: Greater Austin Metroplex
+                    Live GPS Coverage: Greater London Metro
                   </span>
                 </div>
                 <span className="text-xs font-mono font-semibold text-slate-500">
-                  Travis • Williamson • Hays
+                  Inner • West • North • South London
                 </span>
               </div>
 
-              {/* Styled Map Container with Live Interactive Radar Target */}
-              <div className="relative w-full h-[320px] sm:h-[380px] rounded-2xl overflow-hidden border border-slate-200/90 shadow-inner bg-slate-100">
+              {/* Clean Official Google Map with Smooth Radar Transition */}
+              <div className="relative w-full h-[340px] sm:h-[400px] rounded-2xl overflow-hidden border border-slate-200/90 shadow-inner bg-slate-100">
                 <iframe
-                  key={mapUrl}
                   src={mapUrl}
-                  title={`Austin Plumbing Coverage: ${activeTitle}`}
-                  className="w-full h-full border-0 filter grayscale-[15%] contrast-[105%] transition-opacity duration-300"
+                  title={`London Plumbing Coverage: ${activeTitle}`}
+                  className="w-full h-full border-0 filter grayscale-[10%] contrast-[105%]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
 
+                {/* Subtle Radar Scanning Transition Overlay when switching locations */}
+                <AnimatePresence>
+                  {isMapTargeting && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute inset-0 bg-slate-950/20 backdrop-blur-xs flex items-center justify-center pointer-events-none z-20"
+                    >
+                      <div className="bg-slate-950/90 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-white/20 shadow-xl">
+                        <span className="w-2 h-2 rounded-full bg-orange-400 animate-ping" />
+                        <span>Targeting {activeTitle}...</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 {/* Map Floating Interactive Dispatch Overlay */}
                 {isLocationFocused ? (
-                  <div className="absolute top-3 left-3 right-3 sm:right-auto bg-slate-950/95 backdrop-blur-md text-white p-3 sm:px-4 rounded-xl shadow-xl border border-orange-500/50 text-xs flex items-center justify-between gap-3 z-10 animate-fadeIn">
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute top-3 left-3 right-3 sm:right-auto bg-slate-950/95 backdrop-blur-md text-white p-3 sm:px-4 rounded-xl shadow-xl border border-orange-500/50 text-xs flex items-center justify-between gap-3 z-10"
+                  >
                     <div className="flex items-center gap-2.5">
                       <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -599,7 +620,7 @@ export default function ServiceArea() {
                           </span>
                         </div>
                         <p className="text-[11px] text-slate-300 mt-0.5">
-                          Dispatched from <strong className="text-white">{activeHubName}</strong> • $0 Travel Fee
+                          Dispatched from <strong className="text-white">{activeHubName}</strong> • £0 Travel Fee
                         </p>
                       </div>
                     </div>
@@ -607,18 +628,18 @@ export default function ServiceArea() {
                       type="button"
                       onClick={handleResetToMetro}
                       className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-1.5 rounded-lg transition-colors shrink-0 ml-2"
-                      title="Reset map to full Greater Austin view"
+                      title="Reset map to full Greater London view"
                     >
                       <RotateCcw className="w-3 h-3 text-orange-400" />
                       <span>Reset</span>
                     </button>
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div className="absolute top-3 left-3 bg-navy-900/90 backdrop-blur-xs text-white px-3.5 py-2 rounded-xl shadow-lg border border-navy-700/80 text-xs flex items-center gap-2 pointer-events-none">
+                  <div className="absolute top-3 left-3 bg-navy-900/90 backdrop-blur-xs text-white px-3.5 py-2 rounded-xl shadow-lg border border-navy-700/80 text-xs flex items-center gap-2 pointer-events-none z-10">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                     <div>
                       <span className="font-bold block leading-tight">4 Zoned Mobile Fleets</span>
-                      <span className="text-[11px] text-slate-300">Click any neighborhood or hub to view location</span>
+                      <span className="text-[11px] text-slate-300">Click any neighborhood to focus live radar</span>
                     </div>
                   </div>
                 )}
@@ -680,7 +701,8 @@ export default function ServiceArea() {
                     Click any neighborhood to test instant availability &amp; focus map.
                   </p>
                 </div>
-                <span className="text-xs font-extrabold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                {/* 1-line strictly formatted badge */}
+                <span className="whitespace-nowrap shrink-0 text-xs font-extrabold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 shadow-2xs">
                   {SITE_CONFIG.serviceArea.neighborhoods.length}+ Zones
                 </span>
               </div>
@@ -745,10 +767,10 @@ export default function ServiceArea() {
               <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="text-left">
                   <p className="text-xs font-extrabold text-navy-900">
-                    Not seeing your Austin neighborhood?
+                    Not seeing your London borough?
                   </p>
                   <p className="text-[11px] text-slate-500">
-                    Our team covers extended Travis &amp; Williamson areas.
+                    Our team covers extended Greater London &amp; M25 perimeter.
                   </p>
                 </div>
                 <a

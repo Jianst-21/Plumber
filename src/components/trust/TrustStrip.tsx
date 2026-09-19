@@ -57,10 +57,10 @@ export default function TrustStrip() {
             </div>
             <div className="flex flex-col">
               <span className="text-sm sm:text-base font-extrabold text-slate-900">
-                Texas Master Plumber #MP-41982
+                Gas Safe Registered #629148
               </span>
               <span className="text-xs font-semibold text-emerald-700">
-                TSBPE State Board Regulated
+                CIPHE &amp; Gas Safe UK Regulated
               </span>
             </div>
           </StaggerItem>
@@ -72,10 +72,10 @@ export default function TrustStrip() {
             </div>
             <div className="flex flex-col">
               <span className="text-sm sm:text-base font-extrabold text-slate-900">
-                $2,000,000 Liability Coverage
+                £5,000,000 Liability Cover
               </span>
               <span className="text-xs font-medium text-slate-600">
-                Fully Bonded &amp; Property Protected
+                Fully Insured &amp; Property Protected
               </span>
             </div>
           </StaggerItem>

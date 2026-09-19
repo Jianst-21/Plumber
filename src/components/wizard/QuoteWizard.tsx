@@ -37,7 +37,7 @@ const SERVICE_ICONS: Record<string, React.ReactNode> = {
 const STEP_TITLES = [
   { id: 1, label: 'Service', desc: 'Choose Issue' },
   { id: 2, label: 'Urgency', desc: 'Arrival Time' },
-  { id: 3, label: 'Location', desc: 'ZIP Verification' },
+  { id: 3, label: 'Location', desc: 'Postcode Check' },
   { id: 4, label: 'Contact', desc: 'Dispatch Info' },
 ];
 
@@ -285,7 +285,7 @@ export default function QuoteWizard() {
                                 isSelected ? 'text-orange-600' : 'text-navy-900'
                               }`}
                             >
-                              From ${svc.startingPrice}
+                              From £{svc.startingPrice}
                             </span>
                           </div>
                         </div>
@@ -322,7 +322,7 @@ export default function QuoteWizard() {
                       Step 2: How quickly do you need our technician?
                     </h3>
                     <p className="text-sm text-slate-600">
-                      Austin 24/7 guarantee: We maintain honest flat-rate pricing with zero night or weekend overtime charges.
+                      London 24/7 guarantee: We maintain honest flat-rate pricing with zero night or weekend overtime charges.
                     </p>
                   </div>
 
@@ -370,7 +370,7 @@ export default function QuoteWizard() {
                             Active pipe leak, overflowing toilet, sewer backup, or sudden loss of hot water.
                           </p>
                           <p className="text-xs font-bold text-red-700 mt-2 flex items-center gap-1">
-                            $0 Overtime Surcharge Guarantee (Nights &amp; Weekends Included)
+                            £0 Overtime Surcharge Guarantee (Nights &amp; Weekends Included)
                           </p>
                         </div>
                       </div>
@@ -514,7 +514,7 @@ export default function QuoteWizard() {
                 </motion.div>
               )}
 
-              {/* STEP 3: Location & ZIP Verification */}
+              {/* STEP 3: Location & Postcode Verification */}
               {step === 3 && (
                 <motion.div
                   key="step-3"
@@ -526,10 +526,10 @@ export default function QuoteWizard() {
                 >
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-1">
-                      Step 3: Verify Technician Coverage in Your ZIP Code
+                      Step 3: Verify Engineer Coverage in Your Postcode
                     </h3>
                     <p className="text-sm text-slate-600">
-                      ApexFlow operates zoned mobile service units across Greater Austin for rapid under-45-minute dispatch.
+                      ApexFlow operates zoned mobile service units across Greater London for rapid under-45-minute dispatch.
                     </p>
                   </div>
 
@@ -540,13 +540,13 @@ export default function QuoteWizard() {
                     </div>
                   )}
 
-                  {/* ZIP Input Field */}
+                  {/* Postcode Input Field */}
                   <div className="max-w-md">
                     <label
                       htmlFor="zipCode"
                       className="block text-sm font-bold text-navy-900 mb-2"
                     >
-                      Austin Area ZIP Code:
+                      London Area Postcode:
                     </label>
                     <div className="relative">
                       <MapPin
@@ -556,23 +556,23 @@ export default function QuoteWizard() {
                       <input
                         id="zipCode"
                         type="text"
-                        maxLength={5}
+                        maxLength={8}
                         value={zipCode}
                         onChange={(e) => setZipCode(e.target.value)}
-                        placeholder="e.g. 78701"
+                        placeholder="e.g. SW1A, NW1, W1D"
                         className="w-full pl-12 pr-4 py-3.5 text-lg font-mono font-bold tracking-wider rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-navy-900 placeholder:text-slate-400"
                         autoFocus
                       />
                     </div>
                   </div>
 
-                  {/* Quick Select Popular Austin ZIPs */}
+                  {/* Quick Select Popular London Postcodes */}
                   <div>
                     <span className="text-xs font-semibold text-slate-500 block mb-2">
-                      Quick Austin Area Selection:
+                      Quick London Area Selection:
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {['78701', '78704', '78745', '78759', '78660', '78613'].map((code) => (
+                      {['SW1A', 'W1D', 'NW1', 'SW7', 'SE1', 'TW9'].map((code) => (
                         <button
                           key={code}
                           type="button"
@@ -590,7 +590,7 @@ export default function QuoteWizard() {
                   </div>
 
                   {/* Coverage Verification Status Boxes */}
-                  {zipCode.length === 5 && (
+                  {zipCode.length >= 2 && (
                     <div>
                       {isZipValid ? (
                         <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-start gap-3 shadow-xs">
@@ -600,10 +600,10 @@ export default function QuoteWizard() {
                           />
                           <div>
                             <p className="font-extrabold text-sm sm:text-base text-emerald-950">
-                              Coverage Confirmed! 2 emergency technician vans active in {zipCode}.
+                              Coverage Confirmed! Rapid response engineer vans active in {zipCode}.
                             </p>
                             <p className="text-xs sm:text-sm text-emerald-900 mt-1 leading-relaxed">
-                              Estimated arrival time: <strong>30–45 mins</strong>. Fully stocked warehouse truck on standby with zero overtime surcharge.
+                              Estimated arrival time: <strong>30–45 mins</strong>. Fully stocked mobile workshop on standby with zero out-of-hours surcharge.
                             </p>
                           </div>
                         </div>
@@ -615,10 +615,10 @@ export default function QuoteWizard() {
                           />
                           <div>
                             <p className="font-bold text-sm sm:text-base text-amber-950">
-                              Surrounding Service Region
+                              Surrounding London Perimeter
                             </p>
                             <p className="text-xs sm:text-sm text-amber-900 mt-1 leading-relaxed">
-                              ZIP {zipCode} is in our extended Central Texas service perimeter. We can still dispatch our mobile team! Call{' '}
+                              Postcode {zipCode} is in our extended Home Counties service perimeter. We can still dispatch our mobile team! Call{' '}
                               <a
                                 href={`tel:${SITE_CONFIG.business.phone.replace(/\D/g, '')}`}
                                 className="underline font-bold text-navy-900 hover:text-amber-700"
@@ -681,12 +681,12 @@ export default function QuoteWizard() {
                         Estimated Transparent Cost Range
                       </span>
                       <div className="text-2xl sm:text-3xl font-black text-white mt-0.5">
-                        ${estimate.min} – ${estimate.max}
+                        £{estimate.min} – £{estimate.max}
                       </div>
                       <p className="text-xs text-slate-300 mt-0.5">
                         Service: <strong className="text-white">{estimate.serviceTitle}</strong>
                         {estimate.discountAmount > 0 && (
-                          <span className="text-orange-400 font-bold"> (Includes -${estimate.discountAmount} promo discount)</span>
+                          <span className="text-orange-400 font-bold"> (Includes -£{estimate.discountAmount} promo discount)</span>
                         )}
                       </p>
                     </div>
@@ -743,7 +743,7 @@ export default function QuoteWizard() {
                           type="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="(512) 000-0000"
+                          placeholder="020 7946 0992"
                           className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-navy-900 ${
                             errors.phone
                               ? 'border-red-400 bg-red-50/20'
@@ -828,7 +828,7 @@ export default function QuoteWizard() {
                       Quote Calculated &amp; Dispatch Ticket Generated!
                     </h3>
                     <p className="text-slate-600 text-sm sm:text-base max-w-lg mx-auto mt-2">
-                      Your priority dispatch request has been logged. Our dispatch team is ready to route a licensed Austin technician to your address.
+                      Your priority dispatch request has been logged. Our dispatch team is ready to route a Gas Safe registered London engineer to your address.
                     </p>
                   </div>
 
@@ -877,7 +877,7 @@ export default function QuoteWizard() {
                     </div>
 
                     <div className="text-3xl sm:text-4xl font-black text-navy-900 tracking-tight">
-                      ${estimate.min} – ${estimate.max}
+                      £{estimate.min} – £{estimate.max}
                     </div>
 
                     <div className="space-y-1.5 text-xs text-slate-600 pt-1">
@@ -886,17 +886,17 @@ export default function QuoteWizard() {
                         <strong className="text-navy-900">{estimate.serviceTitle}</strong>
                       </div>
                       <div className="flex justify-between">
-                        <span>Location / ZIP:</span>
-                        <strong className="text-navy-900">{zipCode || 'Austin Area'}</strong>
+                        <span>Location / Postcode:</span>
+                        <strong className="text-navy-900">{zipCode || 'London Area'}</strong>
                       </div>
                       <div className="flex justify-between">
                         <span>Urgency Surcharge:</span>
-                        <strong className="text-emerald-600 font-bold">$0.00 (Guaranteed Flat Rate)</strong>
+                        <strong className="text-emerald-600 font-bold">£0.00 (Guaranteed Flat Rate)</strong>
                       </div>
                       {estimate.discountAmount > 0 && (
                         <div className="flex justify-between text-amber-700 font-bold">
                           <span>Applied Promo ({estimate.couponCode}):</span>
-                          <span>-${estimate.discountAmount}.00</span>
+                          <span>-£{estimate.discountAmount}.00</span>
                         </div>
                       )}
                       {estimate.couponBonus && (
@@ -921,7 +921,7 @@ export default function QuoteWizard() {
                       </span>
                     </a>
                     <p className="text-xs text-slate-500 font-medium">
-                      Mention Reference <strong className="text-navy-900">{ticketId}</strong> to skip the queue and dispatch technician immediately.
+                      Mention Reference <strong className="text-navy-900">{ticketId}</strong> to skip the queue and dispatch engineer immediately.
                     </p>
                   </div>
 

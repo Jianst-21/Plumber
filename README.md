@@ -1,6 +1,6 @@
 # ApexFlow Plumbing & Rooter - Landing Page
 
-Website profil bisnis dan perolehan prospek (lead generation) modern untuk jasa kontraktor pipa residensial dan darurat 24 jam di wilayah Austin, Texas. Dibangun menggunakan Next.js 15, TypeScript, Tailwind CSS, dan Framer Motion dengan arsitektur static export tanpa ketergantungan server runtime.
+Website profil bisnis dan perolehan prospek (lead generation) modern untuk jasa kontraktor pipa residensial dan darurat 24 jam di wilayah Greater London, Inggris (UK). Dibangun menggunakan Next.js 15, TypeScript, Tailwind CSS, dan Framer Motion dengan arsitektur static export tanpa ketergantungan server runtime.
 
 ---
 
@@ -21,27 +21,27 @@ Website profil bisnis dan perolehan prospek (lead generation) modern untuk jasa 
 
 ## Ringkasan Proyek
 
-ApexFlow Plumbing dirancang dengan pendekatan konversi tinggi (conversion-first) yang mengutamakan kecepatan akses, kejelasan informasi biaya, dan pembuktian kredibilitas teknisi berlisensi resmi (Texas Master Plumber License #MP-41982). Antarmuka mengadopsi prinsip desain modern, tipografi tegas, ruang bernapas luas, serta animasi mikro yang terukur dan tidak berlebihan.
+ApexFlow Plumbing dirancang dengan pendekatan konversi tinggi (conversion-first) yang mengutamakan kecepatan akses, kejelasan informasi biaya, dan pembuktian kredibilitas teknisi resmi (Gas Safe Register #629148 & City-Guilds / CIPHE). Antarmuka mengadopsi prinsip desain modern, tipografi tegas, ruang bernapas luas, serta animasi mikro yang terukur dan tidak berlebihan.
 
 ---
 
 ## Fitur Utama
 
 ### 1. Hero Section Terarah
-- Tipografi judul dominan dengan proposisi nilai layanan darurat 24/7.
+- Tipografi judul dominan dengan proposisi nilai layanan darurat 24/7 di Greater London.
 - Tombol aksi utama langsung menuju form reservasi dan tombol sekunder panggilan darurat langsung.
 - Latar belakang foto residensial berkualitas tinggi dengan gradasi kontras alami untuk keterbacaan teks maksimal.
 - Lencana pembuktian sosial Google Reviews 4.9 bintang terintegrasi secara ringkas di sudut kanan bawah.
 
 ### 2. Jalur Verifikasi Kredibilitas (Trust Strip)
-- Menampilkan empat metrik kepercayaan: ulasan Google terverifikasi, akreditasi BBB (A+), lisensi Master Plumber resmi negara bagian Texas, dan proteksi asuransi senilai $2.000.000.
+- Menampilkan empat metrik kepercayaan: ulasan Google terverifikasi, akreditasi standar etika, registrasi resmi Gas Safe Register UK (#629148), dan proteksi asuransi tanggung jawab publik senilai £5.000.000.
 
 ### 3. Katalog Layanan Inti (Core Services Grid)
-- Empat kartu layanan komprehensif: Emergency Leak Detection, Drain Cleaning & Hydro-Jetting, Water Heater Servicing, dan Fixture Installation.
-- Dilengkapi detail spesifikasi pekerjaan, patokan harga awal transparan, dan tombol pemesanan langsung.
+- Empat kartu layanan komprehensif: Emergency Leak Detection, Drain Unblocking & Hydro-Jetting, Boiler & Hot Water Cylinder Servicing, dan Taps & Fixture Installation.
+- Dilengkapi detail spesifikasi pekerjaan, patokan harga awal transparan dalam GBP (£), dan tombol pemesanan langsung.
 
 ### 4. Tabel Transparansi Biaya (Flat-Rate Pricing Table)
-- Penjelasan kebijakan bebas biaya inspeksi diagnostik ($0 Diagnostic Fee) apabila perbaikan disetujui.
+- Penjelasan kebijakan bebas biaya inspeksi diagnostik (£0 Diagnostic Fee) apabila perbaikan disetujui.
 - Rincian harga flat-rate tertulis sebelum pekerjaan dimulai guna menghilangkan biaya tersembunyi dan tarif lembur.
 
 ### 5. Galeri Hasil Pekerjaan (Before & After Showcase)
@@ -50,24 +50,24 @@ ApexFlow Plumbing dirancang dengan pendekatan konversi tinggi (conversion-first)
 - Fitur Fullscreen Lightbox interaktif: pengguna dapat mengklik foto untuk melihat resolusi penuh di layar lebar lengkap dengan navigasi tombol panah keyboard.
 
 ### 6. Empat Pilar Keunggulan Kontraktor (Why Choose Us)
-- Pemaparan keunggulan armada teknisi berlisensi, kendaraan operasional dengan stok suku cadang lengkap, peralatan sensor akustik/kamera HD, serta garansi kebersihan rumah konsumen.
+- Pemaparan keunggulan armada teknisi terdaftar Gas Safe, kendaraan operasional dengan stok suku cadang boiler lengkap, peralatan sensor akustik/kamera CCTV drain, serta garansi kebersihan rumah konsumen (overshoes & dust sheets).
 
 ### 7. Pengecek Kode Pos Interaktif & Peta Jangkauan (Service Area)
-- Fitur pencarian kode pos 5 digit interaktif untuk memverifikasi ketersediaan armada teknisi di Greater Austin secara instan.
-- Peta cakupan wilayah terintegrasi dan tombol seleksi cepat area populer (Downtown, SoCo, Round Rock, Cedar Park, Lakeway).
+- Fitur pencarian kode pos London interaktif (SW1A, NW1, W1D, dsb.) untuk memverifikasi ketersediaan armada teknisi di Greater London secara instan.
+- Peta interaktif terintegrasi yang dapat ditargetkan langsung ke distrik pos atau hub armada terkait saat diklik.
 
 ### 8. Kalkulator Estimasi & Wizard Pemesanan 4 Langkah (Quote Wizard)
 - Alur pemesanan interaktif tanpa muat ulang halaman:
   1. Pemilihan jenis masalah dan layanan pipa.
   2. Penentuan tingkat urgensi kedatangan teknisi.
-  3. Verifikasi kode pos lokasi pengerjaan.
-  4. Pengisian data kontak dan pembuatan nomor tiket referensi otomatis.
+  3. Verifikasi kode pos lokasi pengerjaan (London Postcode).
+  4. Pengisian data kontak dan pembuatan nomor tiket referensi otomatis dalam mata uang GBP (£).
 
 ### 9. Ulasan Konsumen Terverifikasi (Customer Reviews)
-- Papan skor kepuasan pelanggan dengan diagram distribusi bintang 5 dan testimoni riil warga Austin.
+- Papan skor kepuasan pelanggan dengan diagram distribusi bintang 5 dan testimoni riil warga Greater London (Chelsea, Camden, Richmond).
 
 ### 10. Tanya Jawab Interaktif (FAQ Accordion)
-- Akordion interaktif untuk menjawab pertanyaan umum seputar kebijakan tarif, garansi satu tahun, dan estimasi waktu respons teknisi (di bawah 45 menit).
+- Akordion interaktif untuk menjawab pertanyaan umum seputar kebijakan tarif dalam GBP, garansi satu tahun, kepatuhan Gas Safe, dan estimasi waktu respons teknisi (di bawah 45 menit).
 
 ### 11. Bilah Tindakan Cepat Seluler (Mobile Floating Bar)
 - Bilah navigasi melayang khusus layar ponsel untuk akses satu ketukan ke panggilan darurat telepon dan pembukaan form estimasi.
@@ -151,7 +151,7 @@ Perubahan pada nama bisnis, nomor telepon, alamat email, atau daftar layanan di 
   - Rose Red: Digunakan terbatas untuk status kegagalan pipa/masalah darurat.
 
 ### Prinsip Gerak (Motion)
-- Gerakan bersifat lembut (durasi 300ms hingga 500ms) dengan jarak pergeseran pendek (12px hingga 18px).
+- Gerakan bersifat lembut (durasi 350ms hingga 850ms) dengan kurva deselerasi sutra [0.22, 1, 0.36, 1].
 - Trigger animasi hanya berjalan satu kali saat elemen masuk ke area pandang layar (viewport once).
 - Mendukung fitur sistem operasi `prefers-reduced-motion` untuk kenyamanan aksesibilitas.
 
@@ -224,7 +224,7 @@ Plumber/
 ## Optimasi dan Aksesibilitas
 
 1. Kepatuhan Standar Aksesibilitas WCAG: Seluruh kombinasi warna teks dan latar belakang memenuhi standar kontras WCAG AAA pada teks judul dan WCAG AA pada teks tubuh.
-2. SEO dan Metadata: Dilengkapi metadata canonical, OpenGraph, Twitter Cards, serta structured data Schema.org berformat `PlumbingService` dan `LocalBusiness` lengkap dengan koordinat geolokasi kota Austin.
+2. SEO dan Metadata: Dilengkapi metadata canonical, OpenGraph, Twitter Cards, serta structured data Schema.org berformat `PlumbingService` dan `LocalBusiness` dengan mata uang GBP (£) dan koordinat London, UK.
 3. Nol Pergeseran Tata Letak (Zero Cumulative Layout Shift): Seluruh elemen visual memiliki rasio aspek atau kontainer yang telah ditentukan sebelum gambar selesai dimuat.
 4. Tanpa Server Runtime: Menghasilkan berkas statis murni yang aman dari kerentanan injeksi sisi server dan memiliki latensi respon mendekati instan melalui jaringan CDN.
 

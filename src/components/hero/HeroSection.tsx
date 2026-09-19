@@ -29,8 +29,8 @@ function GoogleLogo({ className = 'w-5 h-5' }: { className?: string }) {
   );
 }
 
-const HERO_SERVICES_ROW_1 = ['Plumbing', 'Drain Cleaning', 'Heating Systems'];
-const HERO_SERVICES_ROW_2 = ['Air Conditioning', 'Water Heaters'];
+const HERO_SERVICES_ROW_1 = ['Plumbing', 'Drain Unblocking', 'Central Heating'];
+const HERO_SERVICES_ROW_2 = ['Boiler Servicing', 'Taps & Toilets'];
 
 export default function HeroSection() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -47,7 +47,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Image
           src="/images/hero-clean-bg.jpg"
-          alt="Austin luxury home residential plumbing and kitchen"
+          alt="London luxury home residential plumbing and kitchen"
           fill
           priority
           sizes="100vw"
@@ -77,11 +77,11 @@ export default function HeroSection() {
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.75rem] font-black text-white tracking-tight leading-[1.08] mb-6 sm:mb-8"
           >
-            Austin&apos;s Trusted
+            London&apos;s Trusted
             <br />
             Plumbing &amp; Heating
             <br />
-            Experts
+            Engineers
           </motion.h1>
 
           {/* Supporting Value Proposition */}
@@ -91,8 +91,8 @@ export default function HeroSection() {
             transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="text-base sm:text-lg lg:text-[1.125rem] text-slate-200/90 leading-relaxed mb-7 sm:mb-8 max-w-lg font-normal"
           >
-            Fast, reliable plumbing, drain cleaning, heating &amp; cooling services available{' '}
-            <strong className="text-white font-semibold">24/7</strong> across Greater Austin.
+            Fast, reliable plumbing, drain unblocking, heating &amp; boiler services available{' '}
+            <strong className="text-white font-semibold">24/7</strong> across Greater London.
           </motion.p>
 
           {/* Service List (Balanced 2-Line Structure — Zero Orphans) */}
@@ -190,7 +190,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <p className="text-[10.5px] text-slate-600 font-medium leading-tight mt-0.5 truncate">
-                500+ Austin Google Reviews
+                500+ London Google Reviews
               </p>
             </div>
           </div>

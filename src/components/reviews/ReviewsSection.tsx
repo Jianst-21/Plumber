@@ -33,17 +33,17 @@ const REVIEW_PILLARS = [
   {
     icon: Clock,
     title: 'Fastest Response',
-    desc: 'Under 45-minute average emergency arrival in Greater Austin',
+    desc: 'Under 45-minute average emergency arrival in Greater London',
   },
   {
     icon: DollarSign,
     title: 'Upfront Rates',
-    desc: '$0 diagnostic fee waived with repair & zero overtime fees',
+    desc: '£0 diagnostic fee waived with repair & zero overtime fees',
   },
   {
     icon: Sparkles,
     title: 'Spotless Cleanup',
-    desc: 'Protective boot covers, runners & sanitized workspace guarantee',
+    desc: 'Protective overshoes, runners & sanitized workspace guarantee',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function ReviewsSection() {
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
-            Verified Austin Customer Reviews &amp; Ratings
+            Verified London Customer Reviews &amp; Ratings
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             Real homeowners sharing their honest experiences with our 24/7 emergency and residential plumbing services.
@@ -143,7 +143,7 @@ export default function ReviewsSection() {
               </div>
 
               <p className="text-sm text-slate-300 font-medium">
-                Based on <strong className="text-white font-bold">350+ verified reviews</strong> across Austin &amp; Central Texas
+                Based on <strong className="text-white font-bold">350+ verified reviews</strong> across Greater London &amp; Home Counties
               </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function ReviewsSection() {
                   <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-amber-400/80 shadow-xs flex-shrink-0 bg-slate-100">
                     <Image
                       src={review.avatar}
-                      alt={`${review.author}, Austin plumbing customer`}
+                      alt={`${review.author}, London plumbing customer`}
                       fill
                       sizes="56px"
                       className="object-cover object-center"
@@ -274,7 +274,7 @@ export default function ReviewsSection() {
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                 <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-                  Austin Homeowner
+                  London Homeowner
                 </span>
                 <span className="text-[11px] text-slate-400 font-mono">
                   Job Completed
@@ -292,10 +292,10 @@ export default function ReviewsSection() {
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-extrabold text-navy-900">
-                Experience Austin&apos;s Highest-Rated Plumbing Care
+                Experience London&apos;s Highest-Rated Plumbing Care
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                Join over 10,000 satisfied Central Texas families. Zero overtime charges and 100% upfront quotes.
+                Join over 10,000 satisfied London families. Zero overtime charges and 100% upfront quotes.
               </p>
             </div>
           </div>
