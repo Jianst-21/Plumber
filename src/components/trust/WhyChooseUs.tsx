@@ -122,16 +122,6 @@ export default function WhyChooseUs() {
       className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Why Choose Apex Plumbing"
     >
-      {/* Background Decorative Gradient Blobs */}
-      <div
-        className="absolute top-1/4 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-1/4 left-0 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
@@ -232,102 +222,73 @@ export default function WhyChooseUs() {
 
           {/* Right Column: Side Visual / Stats Card */}
           <ScrollReveal delay={0.12} className="lg:col-span-5 xl:col-span-4 flex flex-col">
-            <div className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white rounded-2xl sm:rounded-3xl border-2 border-navy-800 p-5 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between h-full">
-              {/* Subtle ambient lighting inside card */}
-              <div
-                className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
-                aria-hidden="true"
-              />
-              <div
-                className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
-                aria-hidden="true"
-              />
-
+            <div className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white rounded-2xl sm:rounded-3xl border-2 border-navy-800 p-5 sm:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
               <div className="relative z-10">
-                {/* Header Badge */}
-                <div className="flex items-center justify-between gap-2 mb-5">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider">
-                    <ShieldCheck className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
-                    <span>Contractor Credibility</span>
-                  </div>
+                {/* Header Star Rating */}
+                <div className="flex items-center justify-end mb-4">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-200">
                     <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
                     <span>4.9 / 5.0 Rating</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-6">
+                <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight leading-snug mb-5">
                   London&apos;s Top-Rated Emergency Plumbing Fleet
                 </h3>
 
-                {/* 3 Core Stats */}
-                <div className="space-y-4 mb-7">
-                  {/* Stat 1: 10,000+ Homes */}
-                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-2xl p-4 flex items-start gap-3.5 transition-colors">
-                    <div className="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0 font-bold">
-                      <Award className="w-5 h-5" aria-hidden="true" />
+                {/* 3 Core Stats (Responsive 3-Col Metric Bar on Mobile) */}
+                <div className="grid grid-cols-3 gap-2 sm:gap-3.5 mb-5 sm:mb-6">
+                  {/* Stat 1 */}
+                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-center sm:text-left flex flex-col justify-center transition-colors">
+                    <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+                      10+ Yrs
                     </div>
-                    <div>
-                      <div className="text-2xl font-black text-white tracking-tight">
-                        10,000+
-                      </div>
-                      <div className="text-sm font-bold text-orange-400">
-                        London Properties Restored
-                      </div>
-                      <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                        Trusted locally across Central, North, South &amp; West London.
-                      </p>
+                    <div className="text-[11px] sm:text-xs font-bold text-orange-400 mt-0.5">
+                      Experience
                     </div>
+                    <p className="hidden sm:block text-xs text-slate-300 mt-1 leading-relaxed">
+                      Trusted across Greater London.
+                    </p>
                   </div>
 
-                  {/* Stat 2: 45 Minutes Emergency Response */}
-                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-2xl p-4 flex items-start gap-3.5 transition-colors">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 font-bold">
-                      <Clock className="w-5 h-5" aria-hidden="true" />
+                  {/* Stat 2 */}
+                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-center sm:text-left flex flex-col justify-center transition-colors">
+                    <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+                      &lt;45 Min
                     </div>
-                    <div>
-                      <div className="text-2xl font-black text-white tracking-tight">
-                        45 Minutes
-                      </div>
-                      <div className="text-sm font-bold text-emerald-400">
-                        Rapid Emergency Response
-                      </div>
-                      <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                        Zoned mobile units ready for instant dispatch 24/7/365.
-                      </p>
+                    <div className="text-[11px] sm:text-xs font-bold text-emerald-400 mt-0.5">
+                      Arrival Time
                     </div>
+                    <p className="hidden sm:block text-xs text-slate-300 mt-1 leading-relaxed">
+                      Zoned rapid mobile units.
+                    </p>
                   </div>
 
-                  {/* Stat 3: 100% Satisfaction Guarantee */}
-                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-2xl p-4 flex items-start gap-3.5 transition-colors">
-                    <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0 font-bold">
-                      <ShieldCheck className="w-5 h-5" aria-hidden="true" />
+                  {/* Stat 3 */}
+                  <div className="bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700/60 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-center sm:text-left flex flex-col justify-center transition-colors">
+                    <div className="text-lg sm:text-2xl font-black text-white tracking-tight">
+                      100%
                     </div>
-                    <div>
-                      <div className="text-2xl font-black text-white tracking-tight">
-                        100%
-                      </div>
-                      <div className="text-sm font-bold text-blue-400">
-                        Satisfaction Guarantee
-                      </div>
-                      <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                        Backed by our 1-Year Workmanship Warranty &amp; OEM parts guarantee.
-                      </p>
+                    <div className="text-[11px] sm:text-xs font-bold text-blue-400 mt-0.5">
+                      Guaranteed
                     </div>
+                    <p className="hidden sm:block text-xs text-slate-300 mt-1 leading-relaxed">
+                      1-Year Workmanship Warranty.
+                    </p>
                   </div>
                 </div>
 
                 {/* State Licensing & Insurance Badges */}
-                <div className="rounded-xl bg-slate-900/90 border border-slate-800 p-3.5 mb-6 space-y-2 text-xs text-slate-300">
+                <div className="rounded-xl bg-slate-900/90 border border-slate-800 p-3 mb-5 space-y-1.5 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span className="font-semibold text-slate-200">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                    <span className="font-semibold text-slate-200 truncate">
                       {SITE_CONFIG.business.licenseNumber}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Lock className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span className="text-slate-300">
+                    <Lock className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                    <span className="text-slate-300 truncate">
                       {SITE_CONFIG.business.insuranceAmount}
                     </span>
                   </div>

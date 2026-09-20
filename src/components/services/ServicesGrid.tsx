@@ -57,68 +57,61 @@ export default function ServicesGrid() {
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
 
-                  {/* Gradient overlay for text contrast */}
+                  {/* Gradient overlay for photo depth */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none"
+                    className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"
                     aria-hidden="true"
                   />
 
-                  {/* Category Badge (Top Left) */}
-                  <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="bg-slate-900 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm border border-slate-700">
-                      {service.category}
-                    </span>
-                  </div>
-
-                  {/* Highlight Badge (Top Right) */}
+                  {/* Single Clean Highlight Badge */}
                   {service.badge && (
-                    <div className="absolute top-3.5 right-3.5 z-10">
-                      <span className="bg-orange-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-sm">
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="bg-slate-950/90 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm border border-slate-700/80">
                         {service.badge}
                       </span>
                     </div>
                   )}
-
-                  {/* Starting Price Badge (Bottom Right) */}
-                  <div className="absolute bottom-3.5 right-3.5 z-10 bg-white border border-slate-200/90 rounded-xl px-3 py-1.5 shadow-md">
-                    <span className="text-[9px] uppercase font-bold text-slate-500 block leading-none">
-                      Starting at
-                    </span>
-                    <span className="text-base font-extrabold text-slate-900 leading-tight">
-                      £{service.startingPrice}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
+                  {/* Category & Upfront Price Header */}
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="text-[11px] font-bold text-orange-700 uppercase tracking-wider bg-orange-50 px-2.5 py-0.5 rounded-md border border-orange-200/80">
+                      {service.category}
+                    </span>
+                    <span className="text-xs font-extrabold text-slate-900 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200/60">
+                      From £{service.startingPrice}
+                    </span>
+                  </div>
+
                   {/* Service Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-orange-600 transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Short Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 mb-5 line-clamp-3 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2 leading-relaxed font-normal">
                     {service.shortDesc}
                   </p>
 
-                  {/* 3 Feature Checkmarks with Lucide icons */}
-                  <ul className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+                  {/* 3 Feature Checkmarks */}
+                  <ul className="space-y-2 mb-5 text-xs text-slate-700">
                     {topFeatures.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                         <span className="leading-tight text-slate-700 font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Action Buttons */}
-                  <div className="mt-auto pt-5 border-t border-slate-100 flex flex-col gap-2.5">
+                  {/* Action Button & Subtle Secondary Call Link */}
+                  <div className="mt-auto pt-4 border-t border-slate-100 flex flex-col items-center gap-2">
                     {/* Primary Button: Book This Service */}
                     <a
                       href={`#wizard?service=${service.id}`}
                       onClick={(e) => handleSelectService(e, service.id)}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all min-h-[44px] text-center"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-slate-900 hover:bg-orange-500 active:bg-orange-600 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[44px] text-center"
                       aria-label={`Book ${service.title} in quote wizard`}
                     >
                       <Calendar className="w-4 h-4 text-orange-400 group-hover:text-white transition-colors" aria-hidden="true" />
@@ -128,11 +121,11 @@ export default function ServicesGrid() {
                     {/* Secondary Link: Direct Call */}
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-slate-100 hover:bg-orange-50 hover:border-orange-300 hover:text-orange-900 text-slate-700 font-bold text-xs border border-slate-200 transition-colors min-h-[40px] text-center"
+                      className="text-xs font-semibold text-slate-600 hover:text-orange-600 transition-colors inline-flex items-center gap-1.5 py-1"
                       aria-label={`Call ${SITE_CONFIG.business.phone} for ${service.title}`}
                     >
-                      <Phone className="w-3.5 h-3.5 text-orange-600 flex-shrink-0" aria-hidden="true" />
-                      <span>Call {SITE_CONFIG.business.phone}</span>
+                      <Phone className="w-3 h-3 text-orange-500" aria-hidden="true" />
+                      <span>Or call {SITE_CONFIG.business.displayPhone}</span>
                     </a>
                   </div>
                 </div>
@@ -151,7 +144,7 @@ export default function ServicesGrid() {
               <p className="text-base sm:text-lg font-extrabold text-slate-900">
                 100% Upfront Pricing Guarantee on Every Service Call
               </p>
-              <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5">
+              <p className="text-xs sm:text-sm text-slate-600 font-normal mt-0.5">
                 No hidden dispatch travel fees, no surprises, and zero overtime surcharges on nights or weekends.
               </p>
             </div>

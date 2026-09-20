@@ -133,13 +133,13 @@ export default function HeroSection() {
               <span>Schedule an Appointment</span>
             </motion.a>
 
-            {/* Secondary Action Button: Have an Emergency? (Visually lighter glassmorphic button) */}
+            {/* Secondary Action Button: Have an Emergency? */}
             <motion.a
               whileHover={{ scale: 1.025 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 active:bg-white/20 text-white border border-white/20 hover:border-white/35 font-bold text-sm sm:text-base backdrop-blur-sm transition-colors duration-300 min-h-[48px] text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-slate-900/75 hover:bg-slate-900/90 active:bg-slate-950 text-white border border-white/25 hover:border-white/40 font-bold text-sm sm:text-base transition-colors duration-200 min-h-[48px] text-center"
               aria-label={`Call emergency team at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
@@ -159,7 +159,7 @@ export default function HeroSection() {
         <a
           href="#reviews"
           onClick={(e) => handleScrollTo(e, 'reviews')}
-          className="group block bg-white/90 hover:bg-white backdrop-blur-md rounded-xl p-2.5 px-3.5 shadow-xl border border-white/40 hover:border-white hover:-translate-y-0.5 transition-all duration-200 max-w-[260px]"
+          className="group block bg-white hover:bg-slate-50 rounded-xl p-2.5 px-3.5 shadow-xl border border-slate-200/80 hover:-translate-y-0.5 transition-all duration-200 max-w-[260px]"
           aria-label="View Google customer reviews"
         >
           <div className="flex items-center gap-2.5">

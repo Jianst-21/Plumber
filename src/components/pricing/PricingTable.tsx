@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   ShieldCheck,
-  BadgeCheck,
   CheckCircle2,
   Phone,
 } from 'lucide-react';
@@ -79,12 +78,6 @@ export default function PricingTable() {
       className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Transparent Plumbing Pricing"
     >
-      {/* Subtle Background Lighting Accent */}
-      <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-100/20 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
@@ -97,20 +90,10 @@ export default function PricingTable() {
         </ScrollReveal>
 
         {/* Diagnostic Fee Waiver Callout Banner (Styled matching Image 2) */}
-        <ScrollReveal delay={0.08} className="mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
-          {/* Subtle Decorative Background Glow */}
-          <div
-            className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
-            aria-hidden="true"
-          />
-
+        <ScrollReveal delay={0.08} className="mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6 relative z-10">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">
-                <BadgeCheck className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
-                <span>Special Homeowner Policy</span>
-              </div>
-              <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug mb-2.5">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug mb-2.5">
                 Diagnostic Fee: £0 <span className="text-orange-400 font-black">(100% Waived with Any Approved Repair)</span>
               </h3>
               <p className="text-xs sm:text-base text-slate-300 leading-relaxed font-normal mb-4 sm:mb-5">
@@ -197,7 +180,7 @@ export default function PricingTable() {
                             Waived with Repair
                           </span>
                         </div>
-                        <p className="text-xs text-slate-500 mt-1 font-medium">
+                        <p className="text-xs text-slate-600 mt-1 font-medium">
                           (£49 stand-alone inspection if no repair is authorized)
                         </p>
                       </div>
@@ -236,11 +219,11 @@ export default function PricingTable() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="mt-auto pt-5 border-t border-slate-100 space-y-2">
+                  <div className="mt-auto pt-4 border-t border-slate-100 flex flex-col items-center gap-1.5">
                     <a
                       href={`#wizard?service=${serviceId}`}
                       onClick={(e) => handleClaimQuote(e, serviceId)}
-                      className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full font-bold text-xs sm:text-sm shadow-2xs hover:shadow transition-all min-h-[44px] text-center ${
+                      className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[44px] text-center ${
                         isDiagnostic
                           ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white shadow-md shadow-orange-500/20'
                           : 'bg-navy-950 hover:bg-orange-500 active:bg-orange-600 text-white'
@@ -251,11 +234,11 @@ export default function PricingTable() {
                     </a>
                     <a
                       href={`tel:${SITE_CONFIG.business.phone}`}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 text-xs text-slate-500 hover:text-orange-600 transition-colors font-medium text-center"
+                      className="text-xs text-slate-600 hover:text-orange-600 transition-colors font-medium text-center py-1 inline-flex items-center gap-1"
                       aria-label={`Call ${SITE_CONFIG.business.displayPhone} for pricing on ${item.service}`}
                     >
                       <Phone className="w-3 h-3 text-orange-500" aria-hidden="true" />
-                      <span>Or Call {SITE_CONFIG.business.phone}</span>
+                      <span>Or Call {SITE_CONFIG.business.displayPhone}</span>
                     </a>
                   </div>
                 </div>

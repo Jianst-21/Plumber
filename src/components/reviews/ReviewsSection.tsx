@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import {
   Star,
   CheckCircle2,
@@ -66,16 +67,6 @@ export default function ReviewsSection() {
       className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Verified Customer Reviews"
     >
-      {/* Background Decorative Gradient Blobs */}
-      <div
-        className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
@@ -88,22 +79,12 @@ export default function ReviewsSection() {
         </ScrollReveal>
 
         {/* Overall Score Showcase Banner */}
-        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
-          {/* Subtle Ambient Light Glows */}
-          <div
-            className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Left Column: Big Overall Score */}
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-navy-800 pb-8 lg:pb-0 lg:pr-8">
+            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-navy-800 pb-5 lg:pb-0 lg:pr-8">
               {/* Google Verified Seal */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill="#4285F4"
@@ -125,39 +106,44 @@ export default function ReviewsSection() {
                 <span>Google Verified Reviews</span>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">4.9</span>
-                <span className="text-xl font-bold text-slate-400">/ 5.0</span>
+              <div className="flex items-baseline gap-2 mb-1.5">
+                <span className="text-4xl sm:text-6xl font-black text-white tracking-tight">4.9</span>
+                <span className="text-lg sm:text-xl font-bold text-slate-400">/ 5.0</span>
               </div>
 
               {/* 5 Stars */}
-              <div className="flex items-center gap-1.5 mb-2.5">
+              <div className="flex items-center gap-1.5 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-6 h-6 fill-amber-400 text-amber-400"
+                    className="w-5 h-5 sm:w-6 sm:h-6 fill-amber-400 text-amber-400"
                     aria-hidden="true"
                   />
                 ))}
               </div>
 
-              <p className="text-sm text-slate-300 font-medium">
-                Based on <strong className="text-white font-bold">350+ verified reviews</strong> across Greater London &amp; Home Counties
+              <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                Based on <strong className="text-white font-bold">350+ verified reviews</strong> across Greater London
               </p>
             </div>
 
             {/* Middle Column: Star Breakdown Bar Graph */}
-            <div className="lg:col-span-4 space-y-2.5 border-b lg:border-b-0 lg:border-r border-navy-800 pb-8 lg:pb-0 lg:pr-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
+            <div className="lg:col-span-4 space-y-2 border-b lg:border-b-0 lg:border-r border-navy-800 pb-5 lg:pb-0 lg:pr-8">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
                 Rating Distribution
               </span>
               {RATING_BREAKDOWN.map((row) => (
-                <div key={row.stars} className="flex items-center gap-3 text-xs">
+                <div
+                  key={row.stars}
+                  className={`items-center gap-3 text-xs ${
+                    row.percentage === 0 ? 'hidden sm:flex' : 'flex'
+                  }`}
+                >
                   <span className="w-12 font-bold text-slate-300 flex items-center gap-1">
                     <span>{row.stars}</span>
                     <Star className="w-3 h-3 fill-amber-400 text-amber-400" aria-hidden="true" />
                   </span>
-                  <div className="flex-1 h-2.5 rounded-full bg-navy-800 overflow-hidden">
+                  <div className="flex-1 h-2 rounded-full bg-navy-800 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500"
                       style={{ width: `${row.percentage}%` }}
@@ -170,11 +156,11 @@ export default function ReviewsSection() {
               ))}
             </div>
 
-              {/* Right Column: 3 Trust Pillars */}
-              <div className="lg:col-span-4 space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
-                  Our 3 Ironclad Trust Pillars
-                </span>
+            {/* Right Column: 3 Trust Pillars */}
+            <div className="lg:col-span-4 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
+                Our 3 Trust Pillars
+              </span>
                 {REVIEW_PILLARS.map((pillar) => {
                   const IconComponent = pillar.icon;
                   return (
@@ -211,15 +197,27 @@ export default function ReviewsSection() {
               />
 
               <div>
-                {/* Header: Avatar Initials, Name, Verified Badge & Location */}
+                {/* Header: Customer Photo Avatar, Name, Verified Badge & Location */}
                 <div className="flex items-center gap-3.5 mb-4 relative z-10">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-slate-800 bg-amber-100 border-2 border-amber-300 text-sm shadow-xs flex-shrink-0">
-                    {review.author
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')
-                      .toUpperCase()}
-                  </div>
+                  {review.avatar ? (
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400/90 shadow-xs flex-shrink-0 bg-slate-100">
+                      <Image
+                        src={review.avatar}
+                        alt={`${review.author}, London homeowner`}
+                        fill
+                        sizes="48px"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-slate-800 bg-amber-100 border-2 border-amber-300 text-sm shadow-xs flex-shrink-0">
+                      {review.author
+                        .split(' ')
+                        .map((n) => n[0])
+                        .join('')
+                        .toUpperCase()}
+                    </div>
+                  )}
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <h3 className="font-extrabold text-navy-900 text-base leading-snug">
@@ -230,7 +228,7 @@ export default function ReviewsSection() {
                         <span>Verified</span>
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 text-slate-500 text-xs mt-0.5">
+                    <div className="flex items-center gap-1 text-slate-600 text-xs mt-0.5">
                       <MapPin className="w-3 h-3 text-blue-600 flex-shrink-0" aria-hidden="true" />
                       <span className="truncate">{review.neighborhood}</span>
                     </div>
@@ -268,7 +266,7 @@ export default function ReviewsSection() {
               </div>
 
               {/* Bottom Card Footer: 100% Verified Customer Guarantee */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
                 <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
                   London Homeowner

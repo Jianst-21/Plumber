@@ -72,23 +72,10 @@ export default function Footer() {
         className="bg-amber-500 text-slate-950 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t-4 border-amber-600 shadow-inner"
         aria-label="Urgent Emergency Plumbing Dispatch Callout"
       >
-        {/* Subtle patterned background circles */}
-        <div
-          className="absolute -top-24 -right-24 w-96 h-96 bg-amber-400/50 rounded-full blur-2xl pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-600/30 rounded-full blur-2xl pointer-events-none"
-          aria-hidden="true"
-        />
-
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Urgent Dispatch Beacon */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-black uppercase tracking-wider mb-3.5 shadow-sm">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 flex-shrink-0" aria-hidden="true" />
             <span>Active Rapid Emergency Dispatch Across Greater London</span>
           </div>
 

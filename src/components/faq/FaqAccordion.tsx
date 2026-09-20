@@ -8,7 +8,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Clock,
-  MessageCircleQuestion,
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
@@ -40,16 +39,6 @@ export default function FaqAccordion() {
       className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Frequently Asked Questions"
     >
-      {/* Background Decorative Gradient Blobs */}
-      <div
-        className="absolute top-1/3 -right-20 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 -left-20 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
@@ -139,19 +128,9 @@ export default function FaqAccordion() {
         </ScrollReveal>
 
         {/* Still Have Questions Box (Aligned to Image 2) */}
-        <ScrollReveal delay={0.12} className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
-          {/* Subtle Glow Accent */}
-          <div
-            className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
-            aria-hidden="true"
-          />
-
+        <ScrollReveal delay={0.12} className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-3.5">
-                <MessageCircleQuestion className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
-                <span>Immediate Expert Help</span>
-              </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2">
                 Can&apos;t find the answer you&apos;re looking for?
               </h3>

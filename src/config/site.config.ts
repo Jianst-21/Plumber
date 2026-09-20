@@ -281,7 +281,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Emergency Burst Pipe Repair',
       quote:
         "Burst pipe behind the bathroom wall at 10 PM on a Saturday. Apex arrived in 35 minutes, isolated the leak, soldered the joint, and didn't charge ridiculous out-of-hours fees. Lifesavers!",
-      avatar: '',
+      avatar: '/images/avatar-sarah.jpg',
     },
     {
       id: 'test-2',
@@ -292,7 +292,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Drain Unblocking & CCTV Survey',
       quote:
         'Our main sewer line backed up right before hosting family. They brought out the high-pressure jetter, cleared tree roots, and showed us camera footage of the clean pipe. True professionals.',
-      avatar: '',
+      avatar: '/images/avatar-marcus.jpg',
     },
     {
       id: 'test-3',
@@ -303,7 +303,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Emergency Combi Boiler Installation',
       quote:
         'Our boiler broke down and started leaking water into the utility room. Called Apex at 7 AM; by 1 PM we had a new high-efficiency Worcester Bosch combi boiler running. Fixed price, zero surprises.',
-      avatar: '',
+      avatar: '/images/avatar-elena.jpg',
     },
   ],
   faq: [

@@ -211,6 +211,7 @@ export default function ServiceArea() {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<string | null>(null);
   const [selectedHubId, setSelectedHubId] = useState<string | null>(null);
   const [isMapTargeting, setIsMapTargeting] = useState(false);
+  const [showAllNeighborhoods, setShowAllNeighborhoods] = useState(false);
 
   const coveredZipList = SITE_CONFIG.serviceArea.zipCodes;
 
@@ -341,16 +342,6 @@ export default function ServiceArea() {
       className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden border-b border-slate-200/80"
       aria-label="Greater London Plumbing Service Area & Coverage"
     >
-      {/* Background Decorative Accents */}
-      <div
-        className="absolute top-1/3 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
@@ -375,7 +366,7 @@ export default function ServiceArea() {
                   <h3 className="text-lg sm:text-xl font-extrabold text-navy-900">
                     Live Emergency Response Postcode Checker
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 font-normal">
                     Check your London address or postcode for instant coverage and arrival time.
                   </p>
                 </div>
@@ -520,15 +511,15 @@ export default function ServiceArea() {
             {/* Popular Covered London Postcode Pills */}
             <div>
               <div className="flex items-center justify-between mb-2.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
                   Quick Select Common London Postcodes:
                 </span>
-                <span className="text-[11px] text-slate-400 font-medium">
+                <span className="text-[11px] text-slate-500 font-medium">
                   Click to test instantly
                 </span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {POPULAR_ZIPS.map((item) => {
+                {POPULAR_ZIPS.map((item, idx) => {
                   const isCurrent = lastCheckedZip === item.zip;
                   return (
                     <button
@@ -536,6 +527,8 @@ export default function ServiceArea() {
                       type="button"
                       onClick={() => handleQuickZipClick(item.zip)}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                        idx >= 6 ? 'hidden sm:inline-flex' : ''
+                      } ${
                         isCurrent
                           ? 'bg-blue-600 text-white shadow-xs'
                           : 'bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-800 border border-slate-200/80 hover:border-blue-200'
@@ -565,7 +558,7 @@ export default function ServiceArea() {
                     Live GPS Coverage: Greater London Metro
                   </span>
                 </div>
-                <span className="text-xs font-mono font-semibold text-slate-500">
+                <span className="text-xs font-mono font-semibold text-slate-600">
                   Inner • West • North • South London
                 </span>
               </div>
@@ -645,8 +638,8 @@ export default function ServiceArea() {
               </div>
             </div>
 
-            {/* 4 Zoned Dispatch Hubs (Interactive Selection Buttons) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* 4 Zoned Dispatch Hubs (2x2 Grid on Mobile & Tablet) */}
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
               {DISPATCH_HUBS.map((hub) => {
                 const isActive = selectedHubId === hub.id;
 
@@ -655,15 +648,15 @@ export default function ServiceArea() {
                     key={hub.id}
                     type="button"
                     onClick={() => handleHubClick(hub.id)}
-                    className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer group ${
+                    className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 cursor-pointer group ${
                       isActive
                         ? 'border-orange-500 bg-orange-50/30 shadow-md ring-2 ring-orange-500/20'
                         : 'bg-white border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300'
                     }`}
                   >
-                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-1.5">
                       <span
-                        className={`text-[11px] font-mono font-extrabold uppercase px-2 py-0.5 rounded-md border transition-colors ${
+                        className={`text-[10px] sm:text-[11px] font-mono font-extrabold uppercase px-1.5 sm:px-2 py-0.5 rounded-md border w-fit transition-colors ${
                           isActive
                             ? 'bg-orange-100 text-orange-900 border-orange-200'
                             : 'bg-blue-50 text-blue-800 border-blue-200/80'
@@ -671,14 +664,14 @@ export default function ServiceArea() {
                       >
                         {hub.badge}
                       </span>
-                      <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                      <span className="text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-1.5 sm:px-2 py-0.5 rounded-md border border-emerald-200 w-fit">
                         ETA: {hub.eta}
                       </span>
                     </div>
-                    <h4 className="text-sm font-extrabold text-navy-900 leading-snug group-hover:text-orange-600 transition-colors">
+                    <h4 className="text-xs sm:text-sm font-extrabold text-navy-900 leading-snug group-hover:text-orange-600 transition-colors line-clamp-1">
                       {hub.name}
                     </h4>
-                    <p className="text-xs text-slate-500 mt-1 font-normal leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5 font-normal leading-tight line-clamp-2">
                       {hub.area}
                     </p>
                   </button>
@@ -696,7 +689,7 @@ export default function ServiceArea() {
                   <h3 className="text-lg font-extrabold text-navy-900">
                     Serviced Neighborhoods &amp; Cities
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-600 mt-0.5">
                     Click any neighborhood to test instant availability &amp; focus map.
                   </p>
                 </div>
@@ -706,10 +699,11 @@ export default function ServiceArea() {
                 </span>
               </div>
 
-              {/* Neighborhoods Tags Grid */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {SITE_CONFIG.serviceArea.neighborhoods.map((neighborhood) => {
+              {/* Neighborhoods Tags Grid (Responsive Progressive Disclosure on Mobile) */}
+              <div className="flex flex-wrap gap-2 mb-3">
+                {SITE_CONFIG.serviceArea.neighborhoods.map((neighborhood, idx) => {
                   const isSelected = selectedNeighborhood === neighborhood;
+                  const isHiddenOnMobile = !showAllNeighborhoods && idx >= 8;
 
                   return (
                     <button
@@ -717,6 +711,8 @@ export default function ServiceArea() {
                       type="button"
                       onClick={() => handleNeighborhoodClick(neighborhood)}
                       className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all text-left ${
+                        isHiddenOnMobile ? 'hidden sm:inline-flex' : ''
+                      } ${
                         isSelected
                           ? 'bg-orange-500 text-white shadow-sm ring-2 ring-orange-400 border-orange-500'
                           : 'bg-slate-50 hover:bg-orange-50/80 text-slate-700 hover:text-orange-950 border border-slate-200/80 hover:border-orange-200'
@@ -735,6 +731,21 @@ export default function ServiceArea() {
                 })}
               </div>
 
+              {/* Mobile View All / View Less Toggle Button */}
+              <div className="sm:hidden mb-4">
+                <button
+                  type="button"
+                  onClick={() => setShowAllNeighborhoods(!showAllNeighborhoods)}
+                  className="text-xs font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1 py-1"
+                >
+                  <span>
+                    {showAllNeighborhoods
+                      ? '− Show fewer areas'
+                      : `+ View all ${SITE_CONFIG.serviceArea.neighborhoods.length} serviced areas`}
+                  </span>
+                </button>
+              </div>
+
               {/* Service Commitments Box */}
               <div className="mt-auto pt-5 border-t border-slate-100 space-y-3">
                 <div className="flex items-start gap-3">
@@ -743,7 +754,7 @@ export default function ServiceArea() {
                     <h5 className="text-xs font-bold text-navy-900">
                       Zero Travel Surcharge in Primary Zones
                     </h5>
-                    <p className="text-[11px] text-slate-500 leading-normal">
+                    <p className="text-[11px] text-slate-600 leading-normal">
                       We never tack on hidden fuel or mileage fees anywhere in our primary coverage area.
                     </p>
                   </div>
@@ -755,7 +766,7 @@ export default function ServiceArea() {
                     <h5 className="text-xs font-bold text-navy-900">
                       Even Faster With Real-Time Dispatch
                     </h5>
-                    <p className="text-[11px] text-slate-500 leading-normal">
+                    <p className="text-[11px] text-slate-600 leading-normal">
                       Automated nearest-van routing ensures our Gas Safe registered engineers reach you quickly.
                     </p>
                   </div>
@@ -768,7 +779,7 @@ export default function ServiceArea() {
                   <p className="text-xs font-extrabold text-navy-900">
                     Not seeing your London borough?
                   </p>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-[11px] text-slate-600">
                     Our team covers extended Greater London &amp; M25 perimeter.
                   </p>
                 </div>

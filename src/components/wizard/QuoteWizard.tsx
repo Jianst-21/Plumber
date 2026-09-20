@@ -96,16 +96,6 @@ export default function QuoteWizard() {
       className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100/70 relative overflow-hidden border-b border-slate-200"
       aria-label="Instant Online Quote & Service Dispatch"
     >
-      {/* Background Decorative Blobs */}
-      <div
-        className="absolute top-10 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-10 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
@@ -264,7 +254,7 @@ export default function QuoteWizard() {
                                   <Check className="w-3.5 h-3.5 stroke-[3] text-orange-600" /> Selected
                                 </span>
                               ) : (
-                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                                <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
                                   {svc.category}
                                 </span>
                               )}
@@ -278,7 +268,7 @@ export default function QuoteWizard() {
                           </div>
 
                           <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <span className="text-slate-500 font-medium">Standard rate:</span>
+                            <span className="text-slate-600 font-medium">Standard rate:</span>
                             <span
                               className={`font-extrabold text-sm transition-colors ${
                                 isSelected ? 'text-orange-600' : 'text-navy-900'
@@ -361,7 +351,7 @@ export default function QuoteWizard() {
                             <h4 className="font-extrabold text-navy-900 text-base">
                               Emergency (Under 45 mins)
                             </h4>
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white animate-pulse">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white shadow-2xs">
                               Immediate Priority
                             </span>
                           </div>
@@ -567,7 +557,7 @@ export default function QuoteWizard() {
 
                   {/* Quick Select Popular London Postcodes */}
                   <div>
-                    <span className="text-xs font-semibold text-slate-500 block mb-2">
+                    <span className="text-xs font-semibold text-slate-600 block mb-2">
                       Quick London Area Selection:
                     </span>
                     <div className="flex flex-wrap gap-2">
@@ -867,7 +857,7 @@ export default function QuoteWizard() {
                   {/* Cost Range Breakdown Box */}
                   <div className="max-w-md mx-auto bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 sm:p-6 text-left space-y-3">
                     <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Estimated Transparent Cost
                       </span>
                       <span className="text-xs font-bold bg-navy-100 text-navy-800 px-2.5 py-0.5 rounded-full">
@@ -919,7 +909,7 @@ export default function QuoteWizard() {
                         Call {SITE_CONFIG.business.phone} to Expedite Arrival (Ref: {ticketId})
                       </span>
                     </a>
-                    <p className="text-xs text-slate-500 font-medium">
+                    <p className="text-xs text-slate-600 font-medium">
                       Mention Reference <strong className="text-navy-900">{ticketId}</strong> to skip the queue and dispatch engineer immediately.
                     </p>
                   </div>
@@ -929,7 +919,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={resetForm}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-navy-900 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-navy-900 transition-colors"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>Submit Another Request</span>

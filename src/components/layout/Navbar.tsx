@@ -46,7 +46,7 @@ export default function Navbar() {
             </a>
 
             {/* Subtle State License Credential (Quiet secondary metadata) */}
-            <div className="hidden lg:inline-flex items-center gap-1.5 pl-3.5 border-l border-slate-200 text-xs text-slate-500 font-medium">
+            <div className="hidden lg:inline-flex items-center gap-1.5 pl-3.5 border-l border-slate-200 text-xs text-slate-600 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" aria-hidden="true" />
               <span>{SITE_CONFIG.business.licenseNumber}</span>
             </div>
