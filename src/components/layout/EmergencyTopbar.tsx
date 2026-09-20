@@ -7,18 +7,20 @@ export default function EmergencyTopbar() {
     <div className="bg-slate-950 text-slate-200 text-xs py-1.5 px-4 border-b border-slate-800/80 relative z-40">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         {/* Left: Live Emerald Beacon */}
-        <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center gap-2 min-w-0 flex-shrink-0">
           <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <p className="font-bold tracking-wider text-[11px] sm:text-xs text-slate-200 truncate uppercase">
-            24/7 Emergency Dispatch Active in Greater London
+          <p className="font-bold tracking-wider text-[11px] sm:text-xs text-slate-200 whitespace-nowrap uppercase">
+            <span>24/7 Emergency Dispatch</span>
+            <span className="hidden sm:inline"> Active</span>
+            <span className="hidden xl:inline"> in Greater London</span>
           </p>
         </div>
 
-        {/* Center: Single Guaranteed Arrival Cue */}
-        <div className="hidden md:flex items-center gap-1.5 text-xs text-slate-400">
+        {/* Center: Single Guaranteed Arrival Cue (Visible on desktop only to avoid tablet crowding) */}
+        <div className="hidden lg:flex items-center gap-1.5 text-xs text-slate-400 whitespace-nowrap flex-shrink-0">
           <Clock className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" aria-hidden="true" />
           <span>
             Arrival time: <strong className="text-slate-200 font-semibold">Under 45 minutes</strong>
@@ -26,7 +28,7 @@ export default function EmergencyTopbar() {
         </div>
 
         {/* Right: Direct Call Link */}
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
           <a
             href={`tel:${SITE_CONFIG.business.phone}`}
             className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-xs text-orange-400 hover:text-orange-300 transition-colors group"

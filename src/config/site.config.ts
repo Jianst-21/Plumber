@@ -187,7 +187,7 @@ export const SITE_CONFIG: SiteConfig = {
       title: 'Clean Home Guarantee',
       description:
         'Protective overshoes, heavy floor runners, and spotless workspace cleanup guaranteed on every single residential dispatch.',
-      iconName: 'Sparkles',
+      iconName: 'Home',
     },
   ],
   pillars: [
@@ -217,7 +217,7 @@ export const SITE_CONFIG: SiteConfig = {
       title: 'Clean Home Guarantee',
       description:
         'Protective overshoes, heavy floor runners, and spotless workspace cleanup guaranteed on every single residential dispatch.',
-      iconName: 'Sparkles',
+      iconName: 'Home',
     },
   ],
   serviceArea: {
@@ -281,8 +281,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Emergency Burst Pipe Repair',
       quote:
         "Burst pipe behind the bathroom wall at 10 PM on a Saturday. Apex arrived in 35 minutes, isolated the leak, soldered the joint, and didn't charge ridiculous out-of-hours fees. Lifesavers!",
-      avatar:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200&q=80',
+      avatar: '',
     },
     {
       id: 'test-2',
@@ -293,8 +292,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Drain Unblocking & CCTV Survey',
       quote:
         'Our main sewer line backed up right before hosting family. They brought out the high-pressure jetter, cleared tree roots, and showed us camera footage of the clean pipe. True professionals.',
-      avatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80',
+      avatar: '',
     },
     {
       id: 'test-3',
@@ -305,8 +303,7 @@ export const SITE_CONFIG: SiteConfig = {
       serviceRendered: 'Emergency Combi Boiler Installation',
       quote:
         'Our boiler broke down and started leaking water into the utility room. Called Apex at 7 AM; by 1 PM we had a new high-efficiency Worcester Bosch combi boiler running. Fixed price, zero surprises.',
-      avatar:
-        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80',
+      avatar: '',
     },
   ],
   faq: [

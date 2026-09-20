@@ -68,14 +68,14 @@ export default function HeroSection() {
       </div>
 
       {/* 3. Main Hero Content Landmark */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-10 sm:py-14 lg:py-20">
         <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
           {/* Primary Dominant Headline (H1) */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.75rem] font-black text-white tracking-tight leading-[1.08] mb-6 sm:mb-8"
+            className="text-[2.15rem] sm:text-5xl lg:text-[3.35rem] xl:text-[3.75rem] font-black text-white tracking-tight leading-[1.1] mb-5 sm:mb-8"
           >
             London&apos;s Trusted
             <br />
@@ -89,39 +89,27 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base sm:text-lg lg:text-[1.125rem] text-slate-200/90 leading-relaxed mb-7 sm:mb-8 max-w-lg font-normal"
+            className="text-sm sm:text-lg lg:text-[1.125rem] text-slate-200/90 leading-relaxed mb-6 sm:mb-8 max-w-lg font-normal"
           >
             Fast, reliable plumbing, drain unblocking, heating &amp; boiler services available{' '}
             <strong className="text-white font-semibold">24/7</strong> across Greater London.
           </motion.p>
 
-          {/* Service List (Balanced 2-Line Structure — Zero Orphans) */}
+          {/* Service List (Reflows naturally across mobile and desktop) */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-2.5 mb-8 sm:mb-9 max-w-lg"
+            className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 mb-7 sm:mb-9 max-w-lg"
           >
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {HERO_SERVICES_ROW_1.map((item) => (
-                <div key={item} className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {HERO_SERVICES_ROW_2.map((item) => (
-                <div key={item} className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
+            {[...HERO_SERVICES_ROW_1, ...HERO_SERVICES_ROW_2].map((item) => (
+              <div key={item} className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
+                <span className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide">
+                  {item}
+                </span>
+              </div>
+            ))}
           </motion.div>
 
           {/* Dual Action Buttons (Primary CTA Dominant, Secondary Visually Lighter) */}
@@ -190,7 +178,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <p className="text-[10.5px] text-slate-600 font-medium leading-tight mt-0.5 truncate">
-                500+ London Google Reviews
+                350+ London Google Reviews
               </p>
             </div>
           </div>

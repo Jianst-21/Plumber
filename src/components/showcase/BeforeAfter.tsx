@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   CheckCircle2,
   Phone,
-  Sparkles,
   Maximize2,
   X,
   ChevronLeft,
@@ -23,13 +22,13 @@ import { BeforeAfterItem } from '@/types';
 const SHOWCASE_METADATA = [
   {
     id: 'ba-faucet-replacement',
-    category: 'Fixture & Faucets',
-    displayTitle: 'Broken Kitchen Faucet to Modern High-Arc Fixture',
+    category: 'Taps & Fixtures',
+    displayTitle: 'Broken Kitchen Mixer Tap to Modern High-Arc Fixture',
     problemTitle: 'Active Cartridge Leak',
     beforeDesc:
-      'Cracked internal cartridge and damaged pull-out spray head leaking water over the kitchen counter basin.',
+      'Cracked internal ceramic cartridge and damaged pull-out spray head leaking water over the kitchen counter basin.',
     afterDesc:
-      'Installed commercial-grade high-arc brushed nickel pull-down faucet with ceramic disc valve and watertight braided supply lines.',
+      'Installed commercial-grade high-arc brushed nickel pull-down mixer tap with ceramic disc valve and watertight braided flexible connectors.',
     timeframe: '45 Minutes on-site',
     statusOnArrival: 'Active Spray Head Failure',
     warranty: '1-Year Workmanship Warranty',
@@ -37,13 +36,13 @@ const SHOWCASE_METADATA = [
   },
   {
     id: 'ba-sink-ptrap',
-    category: 'Drainage & P-Trap',
-    displayTitle: 'Leaking Under-Sink P-Trap to Clean Sealed PVC Assembly',
+    category: 'Drainage & Waste Trap',
+    displayTitle: 'Leaking Under-Sink Waste Trap to Clean Sealed PVC Assembly',
     problemTitle: 'Deteriorated Trap Seal',
     beforeDesc:
-      'Severely leaking P-trap joint and deteriorating slip-gaskets causing standing wastewater pooling inside the cabinet.',
+      'Severely leaking waste trap joint and deteriorating slip-gaskets causing standing wastewater pooling inside the cabinet.',
     afterDesc:
-      'Rebuilt complete dual-sink PVC drainage assembly with watertight mechanical slip-joints, clean trap, and dedicated shutoff lines.',
+      'Rebuilt complete dual-sink PVC drainage waste assembly with watertight mechanical joints, clean trap, and dedicated isolating valves.',
     timeframe: '90 Minutes on-site',
     statusOnArrival: 'Cabinet Wastewater Pooling',
     warranty: '1-Year Workmanship Warranty',
@@ -51,15 +50,15 @@ const SHOWCASE_METADATA = [
   },
   {
     id: 'ba-toilet-installation',
-    category: 'Toilet & Sanitation',
-    displayTitle: 'Toilet Rough-In Flange to Precision Installed Commode',
-    problemTitle: 'Unsealed Subfloor Flange',
+    category: 'Toilets & Sanitation',
+    displayTitle: 'Toilet Soil Pipe Rough-In to Precision Installed Toilet',
+    problemTitle: 'Unsealed Soil Pipe Joint',
     beforeDesc:
-      'Cracked leaking commode removed, exposing unsealed floor flange and requiring wax ring replacement, leveling, and water hookup.',
+      'Cracked leaking toilet pan removed, exposing unsealed soil pipe collar and requiring pan connector replacement, leveling, and water hookup.',
     afterDesc:
-      'Installed reinforced anti-leak wax ring seal, secured brass closet bolts, leveled dual-flush commode, and connected braided water line.',
+      'Installed reinforced flexible pan connector seal, secured floor anchor bolts, leveled dual-flush toilet, and connected braided water line.',
     timeframe: '1 Hour on-site',
-    statusOnArrival: 'Broken Flange / Unsealed Waste',
+    statusOnArrival: 'Unsealed Waste Pipe / Flange Leak',
     warranty: '1-Year Workmanship Warranty',
     serviceId: 'fixture-pipe',
   },
@@ -167,22 +166,22 @@ export default function BeforeAfter() {
   return (
     <section
       id="showcase"
-      className="py-16 sm:py-20 lg:py-24 bg-slate-50/50 relative overflow-hidden border-b border-slate-200/80"
+      className="py-14 sm:py-20 lg:py-24 bg-slate-50/50 relative overflow-hidden border-b border-slate-200/80"
       aria-label="Real Plumbing Before and After Showcase"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
             Real Results: Before &amp; After Showcase
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Real photographic proof from certified Gas Safe registered plumbing &amp; heating engineers dispatched across Greater London homes. Click any image to view in fullscreen.
           </p>
         </ScrollReveal>
 
         {/* Real Before-and-After Case Studies */}
-        <div className="space-y-10 lg:space-y-12">
+        <div className="space-y-8 sm:space-y-10 lg:space-y-12">
           {SITE_CONFIG.beforeAfter.map((item: BeforeAfterItem, index: number) => {
             const meta = SHOWCASE_METADATA[index] || {
               category: 'Plumbing Repair',
@@ -201,10 +200,10 @@ export default function BeforeAfter() {
             return (
               <ScrollReveal key={item.id} delay={index * 0.08}>
                 <article
-                  className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden p-6 sm:p-8"
+                  className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden p-4 sm:p-6 lg:p-8"
                 >
                 {/* 1. Header with Title & Functional View Control */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 sm:pb-6 border-b border-slate-100">
                   <div>
                     {/* Eyebrow: Category & Timeframe */}
                     <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
@@ -217,21 +216,21 @@ export default function BeforeAfter() {
                     </div>
 
                     {/* Primary Title */}
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                    <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
                       {meta.displayTitle}
                     </h3>
                   </div>
 
                   {/* Segmented View Controls */}
                   <div
-                    className="inline-flex items-center p-1 rounded-xl bg-slate-100/90 border border-slate-200 text-xs font-semibold text-slate-600 self-start sm:self-center shrink-0"
+                    className="inline-flex items-center p-1 rounded-xl bg-slate-100/90 border border-slate-200 text-xs font-semibold text-slate-600 w-full sm:w-auto justify-between sm:justify-start shrink-0"
                     role="group"
                     aria-label={`View mode for ${meta.displayTitle}`}
                   >
                     <button
                       type="button"
                       onClick={() => handleSetView(item.id, 'both')}
-                      className={`px-3 py-1.5 rounded-lg transition-all ${
+                      className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg transition-all ${
                         currentView === 'both'
                           ? 'bg-white text-slate-900 font-bold shadow-2xs'
                           : 'text-slate-500 hover:text-slate-800'
@@ -243,7 +242,7 @@ export default function BeforeAfter() {
                     <button
                       type="button"
                       onClick={() => handleSetView(item.id, 'before')}
-                      className={`px-3 py-1.5 rounded-lg transition-all ${
+                      className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg transition-all ${
                         currentView === 'before'
                           ? 'bg-white text-rose-700 font-bold shadow-2xs'
                           : 'text-slate-500 hover:text-slate-800'
@@ -255,7 +254,7 @@ export default function BeforeAfter() {
                     <button
                       type="button"
                       onClick={() => handleSetView(item.id, 'after')}
-                      className={`px-3 py-1.5 rounded-lg transition-all ${
+                      className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg transition-all ${
                         currentView === 'after'
                           ? 'bg-white text-emerald-700 font-bold shadow-2xs'
                           : 'text-slate-500 hover:text-slate-800'
@@ -454,7 +453,7 @@ export default function BeforeAfter() {
       </div>
 
       {/* Bottom Craftsmanship Guarantee Banner */}
-      <ScrollReveal delay={0.1} className="mt-14 rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6">
+      <ScrollReveal delay={0.1} className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6">
         {/* Ambient Glow */}
         <div
           className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -463,14 +462,14 @@ export default function BeforeAfter() {
 
         <div className="flex items-center gap-4 relative z-10">
           <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center shrink-0">
-            <Sparkles className="w-6 h-6" aria-hidden="true" />
+            <ShieldCheck className="w-6 h-6" aria-hidden="true" />
           </div>
             <div>
               <h3 className="text-lg sm:text-xl font-bold text-white">
                 Every Job Backed by Our Clean Home &amp; 1-Year Workmanship Guarantee
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-normal mt-1">
-                Authentic photographic records of master-grade plumbing craftsmanship across London.
+                Authentic photographic records of certified plumbing craftsmanship across London.
               </p>
             </div>
         </div>
@@ -604,7 +603,7 @@ export default function BeforeAfter() {
                       }`}
                       aria-hidden="true"
                     />
-                    {lightbox.type === 'before' ? 'BEFORE (The Problem)' : 'AFTER (ApexFlow Solution)'}
+                    {lightbox.type === 'before' ? 'BEFORE (The Problem)' : 'AFTER (Apex Plumbing Solution)'}
                   </span>
                 </div>
 

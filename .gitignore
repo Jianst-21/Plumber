@@ -23,6 +23,9 @@ docs/
 .impeccable/
 .opencode/
 .antigravity/
+anti-slop/
+AGENTS.md
+CLAUDE.md
 
 # IDE / Editors
 .vscode/

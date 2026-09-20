@@ -11,7 +11,6 @@ import {
   Phone,
   ArrowRight,
   ShieldCheck,
-  Sparkles,
   RotateCcw,
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -339,7 +338,7 @@ export default function ServiceArea() {
   return (
     <section
       id="areas"
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden border-b border-slate-200/80"
+      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden border-b border-slate-200/80"
       aria-label="Greater London Plumbing Service Area & Coverage"
     >
       {/* Background Decorative Accents */}
@@ -354,20 +353,20 @@ export default function ServiceArea() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3 sm:mb-4">
             Greater London Service Area &amp; Emergency Coverage
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Prompt 24/7 emergency dispatch across Central, North, South, and West London boroughs.
           </p>
         </ScrollReveal>
 
         {/* Top Interactive Postcode Checker Card */}
-        <ScrollReveal delay={0.08} className="w-full mb-10 sm:mb-12">
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 lg:p-10 relative overflow-hidden">
+        <ScrollReveal delay={0.08} className="w-full mb-8 sm:mb-12">
+          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-4 sm:p-8 lg:p-10 relative overflow-hidden">
             {/* Header Bar */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 sm:pb-6 mb-5 sm:mb-6 border-b border-slate-100">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center flex-shrink-0 shadow-xs">
                   <MapPin className="w-6 h-6" aria-hidden="true" />
@@ -751,13 +750,13 @@ export default function ServiceArea() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Sparkles className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <div>
                     <h5 className="text-xs font-bold text-navy-900">
                       Even Faster With Real-Time Dispatch
                     </h5>
                     <p className="text-[11px] text-slate-500 leading-normal">
-                      Automated nearest-van routing ensures our master technicians reach you quickly.
+                      Automated nearest-van routing ensures our Gas Safe registered engineers reach you quickly.
                     </p>
                   </div>
                 </div>

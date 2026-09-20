@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: `${SITE_CONFIG.business.name} | Emergency Plumber London - 24/7 Rapid Dispatch`,
   description:
     "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
-  metadataBase: new URL("https://apexflowplumbing.co.uk"),
+  metadataBase: new URL("https://apexplumbing.co.uk"),
   alternates: {
     canonical: "/",
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://apexflowplumbing.co.uk",
+    url: "https://apexplumbing.co.uk",
     siteName: SITE_CONFIG.business.name,
     title: `${SITE_CONFIG.business.name} | Emergency Plumber London - 24/7 Rapid Dispatch`,
     description:
@@ -84,7 +84,7 @@ const plumbingServiceJsonLd = {
   legalName: SITE_CONFIG.business.name,
   description:
     "London's premier 24/7 emergency & residential plumbing and heating engineers. Burst pipes, blocked drains, boiler repairs. 45-minute response, Gas Safe registered & insured.",
-  url: "https://apexflowplumbing.co.uk",
+  url: "https://apexplumbing.co.uk",
   telephone: SITE_CONFIG.business.phone,
   email: SITE_CONFIG.business.email,
   license: SITE_CONFIG.business.licenseNumber,

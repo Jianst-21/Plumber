@@ -69,7 +69,7 @@ export default function Footer() {
     <footer className="w-full" aria-label="Site Footer">
       {/* 1. Urgent Emergency Callout Strip (Section 14 in page hierarchy) */}
       <section
-        className="bg-amber-500 text-slate-950 py-10 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t-4 border-amber-600 shadow-inner"
+        className="bg-amber-500 text-slate-950 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t-4 border-amber-600 shadow-inner"
         aria-label="Urgent Emergency Plumbing Dispatch Callout"
       >
         {/* Subtle patterned background circles */}
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Urgent Dispatch Beacon */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-black uppercase tracking-wider mb-3.5 shadow-sm">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
@@ -92,32 +92,32 @@ export default function Footer() {
             <span>Active Rapid Emergency Dispatch Across Greater London</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-3">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-2.5 sm:mb-3">
             Plumbing Emergency? Don&apos;t Wait For Water Damage To Spread!
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-semibold leading-relaxed mb-8">
+          <p className="text-sm sm:text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-semibold leading-relaxed mb-6 sm:mb-8">
             Our certified engineers are in their mobile units right now across London. Call immediately for 45-minute dispatch.
           </p>
 
           {/* Big CTA Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-base sm:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-150 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-sm sm:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-150 text-center"
               aria-label={`Call emergency dispatch now at ${SITE_CONFIG.business.phone}`}
             >
-              <Phone className="w-5 h-5 fill-amber-400 text-amber-400 flex-shrink-0" aria-hidden="true" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 flex-shrink-0" aria-hidden="true" />
               <span>Call {SITE_CONFIG.business.phone} Now</span>
             </a>
 
             <a
               href="#wizard"
               onClick={(e) => handleScrollTo(e, '#wizard')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-amber-600/30 hover:bg-amber-600/40 active:bg-amber-600/50 border-2 border-slate-950 text-slate-950 font-black text-base sm:text-lg transition-colors text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-amber-600/30 hover:bg-amber-600/40 active:bg-amber-600/50 border-2 border-slate-950 text-slate-950 font-black text-sm sm:text-lg transition-colors text-center"
               aria-label="Get instant online quote"
             >
-              <Zap className="w-5 h-5 fill-slate-950 text-slate-950 flex-shrink-0" aria-hidden="true" />
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-slate-950 text-slate-950 flex-shrink-0" aria-hidden="true" />
               <span>Get Instant Online Quote</span>
             </a>
           </div>

@@ -8,7 +8,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Clock,
-  Sparkles,
   MessageCircleQuestion,
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -38,7 +37,7 @@ export default function FaqAccordion() {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
+      className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Frequently Asked Questions"
     >
       {/* Background Decorative Gradient Blobs */}
@@ -53,17 +52,17 @@ export default function FaqAccordion() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3 sm:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Clear, upfront answers about our plumbing pricing, emergency dispatch times, warranties, and procedures.
           </p>
         </ScrollReveal>
 
         {/* 6 FAQ Accordion Items */}
-        <ScrollReveal delay={0.08} className="space-y-4 mb-14 w-full">
+        <ScrollReveal delay={0.08} className="space-y-3 sm:space-y-4 mb-10 sm:mb-14 w-full">
           {faqs.map((item: FaqItem, index: number) => {
             const isOpen = openId === item.id;
             const questionNumber = String(index + 1).padStart(2, '0');
@@ -84,12 +83,12 @@ export default function FaqAccordion() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${item.id}`}
                   onClick={() => toggleItem(item.id)}
-                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 sm:px-8 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="w-full flex items-center justify-between gap-3 sm:gap-4 p-4 sm:p-6 sm:px-8 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                 >
-                  <div className="flex items-center gap-3.5 sm:gap-4 flex-1">
+                  <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
                     {/* Number Badge */}
                     <span
-                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center font-mono text-xs sm:text-sm font-bold flex-shrink-0 transition-colors ${
+                      className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-mono text-xs sm:text-sm font-bold flex-shrink-0 transition-colors ${
                         isOpen
                           ? 'bg-blue-600 text-white shadow-xs'
                           : 'bg-slate-200/80 text-slate-600 group-hover:bg-blue-100'
@@ -98,20 +97,20 @@ export default function FaqAccordion() {
                       {questionNumber}
                     </span>
 
-                    <span className="text-base sm:text-lg font-bold text-navy-900 leading-snug">
+                    <span className="text-sm sm:text-lg font-bold text-navy-900 leading-snug">
                       {item.question}
                     </span>
                   </div>
 
                   {/* Animated Chevron Indicator */}
                   <div
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
+                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
                       isOpen
                         ? 'bg-blue-50 text-blue-700 rotate-180'
                         : 'bg-white text-slate-400 border border-slate-200'
                     }`}
                   >
-                    <ChevronDown className="w-5 h-5" aria-hidden="true" />
+                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
                   </div>
                 </button>
 
@@ -128,7 +127,7 @@ export default function FaqAccordion() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 sm:px-8 sm:pb-6 pt-1 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100/90">
+                      <div className="px-4 pb-4 sm:px-8 sm:pb-6 pt-1 text-xs sm:text-base text-slate-600 leading-relaxed border-t border-slate-100/90">
                         <p className="font-normal">{item.answer}</p>
                       </div>
                     </motion.div>
@@ -140,7 +139,7 @@ export default function FaqAccordion() {
         </ScrollReveal>
 
         {/* Still Have Questions Box (Aligned to Image 2) */}
-        <ScrollReveal delay={0.12} className="rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
+        <ScrollReveal delay={0.12} className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle Glow Accent */}
           <div
             className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -149,7 +148,7 @@ export default function FaqAccordion() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-3.5 backdrop-blur-xs">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider mb-3.5">
                 <MessageCircleQuestion className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                 <span>Immediate Expert Help</span>
               </div>

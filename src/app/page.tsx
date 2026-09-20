@@ -15,7 +15,7 @@ import MobileFloatingBar from '@/components/layout/MobileFloatingBar';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-clip pb-20 md:pb-0">
+    <div className="relative min-h-screen w-full overflow-x-clip pb-24 md:pb-0">
       {/* 1. Top 24/7 emergency notification warning bar */}
       <EmergencyTopbar />
 
@@ -42,7 +42,7 @@ export default function Home() {
         {/* 4 Pillars of Contractor Advantage */}
         <WhyChooseUs />
 
-        {/* Service Area Metro Coverage Map & Live ZIP Checker */}
+        {/* Service Area Metro Coverage Map & Live Postcode Checker */}
         <ServiceArea />
 
         {/* Interactive 4-Step Instant Lead Quote Wizard */}

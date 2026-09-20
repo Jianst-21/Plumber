@@ -1,14 +1,13 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import {
   Star,
   CheckCircle2,
   BadgeCheck,
   Clock,
-  DollarSign,
-  Sparkles,
+  PoundSterling,
+  ShieldCheck,
   ArrowRight,
   Phone,
   Quote,
@@ -36,12 +35,12 @@ const REVIEW_PILLARS = [
     desc: 'Under 45-minute average emergency arrival in Greater London',
   },
   {
-    icon: DollarSign,
+    icon: PoundSterling,
     title: 'Upfront Rates',
     desc: '£0 diagnostic fee waived with repair & zero overtime fees',
   },
   {
-    icon: Sparkles,
+    icon: ShieldCheck,
     title: 'Spotless Cleanup',
     desc: 'Protective overshoes, runners & sanitized workspace guarantee',
   },
@@ -64,7 +63,7 @@ export default function ReviewsSection() {
   return (
     <section
       id="reviews"
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-b border-slate-200/80"
+      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-b border-slate-200/80"
       aria-label="Verified Customer Reviews"
     >
       {/* Background Decorative Gradient Blobs */}
@@ -79,17 +78,17 @@ export default function ReviewsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-4">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3 sm:mb-4">
             Verified London Customer Reviews &amp; Ratings
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Real homeowners sharing their honest experiences with our 24/7 emergency and residential plumbing services.
           </p>
         </ScrollReveal>
 
         {/* Overall Score Showcase Banner */}
-        <ScrollReveal delay={0.08} className="mb-14 rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-6 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
+        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle Ambient Light Glows */}
           <div
             className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -104,7 +103,7 @@ export default function ReviewsSection() {
             {/* Left Column: Big Overall Score */}
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-navy-800 pb-8 lg:pb-0 lg:pr-8">
               {/* Google Verified Seal */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-4 backdrop-blur-xs">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill="#4285F4"
@@ -212,16 +211,14 @@ export default function ReviewsSection() {
               />
 
               <div>
-                {/* Header: Avatar, Name, Verified Badge & Location */}
+                {/* Header: Avatar Initials, Name, Verified Badge & Location */}
                 <div className="flex items-center gap-3.5 mb-4 relative z-10">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-amber-400/80 shadow-xs flex-shrink-0 bg-slate-100">
-                    <Image
-                      src={review.avatar}
-                      alt={`${review.author}, London plumbing customer`}
-                      fill
-                      sizes="56px"
-                      className="object-cover object-center"
-                    />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-slate-800 bg-amber-100 border-2 border-amber-300 text-sm shadow-xs flex-shrink-0">
+                    {review.author
+                      .split(' ')
+                      .map((n) => n[0])
+                      .join('')
+                      .toUpperCase()}
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">

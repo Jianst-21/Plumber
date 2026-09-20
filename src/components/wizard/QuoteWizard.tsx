@@ -21,7 +21,6 @@ import {
   RotateCcw,
   Tag,
   Lock,
-  Sparkles,
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site.config';
 import { useQuoteWizard, UrgencyType } from '@/hooks/useQuoteWizard';
@@ -94,7 +93,7 @@ export default function QuoteWizard() {
   return (
     <section
       id="wizard"
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100/70 relative overflow-hidden border-b border-slate-200"
+      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-100/70 relative overflow-hidden border-b border-slate-200"
       aria-label="Instant Online Quote & Service Dispatch"
     >
       {/* Background Decorative Blobs */}
@@ -109,11 +108,11 @@ export default function QuoteWizard() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight mb-2 sm:mb-3">
             Instant Online Quote &amp; Service Dispatch
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Get an accurate transparent estimate in under 60 seconds with zero obligation. Or call{' '}
             <a
               href={`tel:${SITE_CONFIG.business.phone.replace(/\D/g, '')}`}
@@ -129,7 +128,7 @@ export default function QuoteWizard() {
         <ScrollReveal delay={0.08} className="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200/90 overflow-hidden">
           {/* Top Progress Bar: Only visible during steps 1 - 4 */}
           {step <= 4 && (
-            <div className="bg-slate-50/80 border-b border-slate-200 px-4 sm:px-8 py-5">
+            <div className="bg-slate-50/80 border-b border-slate-200 px-3 sm:px-8 py-3.5 sm:py-5">
               <div className="grid grid-cols-4 gap-2 sm:gap-4 relative">
                 {STEP_TITLES.map((st) => {
                   const isCompleted = step > st.id;
@@ -195,7 +194,7 @@ export default function QuoteWizard() {
           )}
 
           {/* Form Step Body */}
-          <div className="p-6 sm:p-8 lg:p-10">
+          <div className="p-4 sm:p-8 lg:p-10">
             <AnimatePresence mode="wait">
               {/* STEP 1: Select Service */}
               {step === 1 && (
@@ -232,7 +231,7 @@ export default function QuoteWizard() {
                         <div
                           key={svc.id}
                           onClick={() => selectService(svc.id)}
-                          className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                          className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-300 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                             isSelected
                               ? 'border-orange-500 bg-orange-50/40 shadow-md ring-2 ring-orange-500/20'
                               : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 bg-white'
@@ -338,7 +337,7 @@ export default function QuoteWizard() {
                     {/* Emergency Option */}
                     <div
                       onClick={() => selectUrgency('emergency')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 ${
+                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
                         urgency === 'emergency'
                           ? 'border-red-500 bg-red-50/40 ring-2 ring-red-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -392,7 +391,7 @@ export default function QuoteWizard() {
                     {/* Today Option */}
                     <div
                       onClick={() => selectUrgency('today')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 ${
+                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                         urgency === 'today'
                           ? 'border-orange-500 bg-orange-50/40 ring-2 ring-orange-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -443,7 +442,7 @@ export default function QuoteWizard() {
                     {/* Scheduled Option */}
                     <div
                       onClick={() => selectUrgency('scheduled')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 ${
+                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                         urgency === 'scheduled'
                           ? 'border-orange-500 bg-orange-50/40 ring-2 ring-orange-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -529,7 +528,7 @@ export default function QuoteWizard() {
                       Step 3: Verify Engineer Coverage in Your Postcode
                     </h3>
                     <p className="text-sm text-slate-600">
-                      ApexFlow operates zoned mobile service units across Greater London for rapid under-45-minute dispatch.
+                      Apex Plumbing operates zoned mobile service units across Greater London for rapid under-45-minute dispatch.
                     </p>
                   </div>
 
@@ -799,7 +798,7 @@ export default function QuoteWizard() {
                       onClick={() => submitQuote()}
                       className="inline-flex items-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-black text-sm sm:text-base active:scale-[0.99] transition-all shadow-lg shadow-orange-500/25"
                     >
-                      <Sparkles className="w-4 h-4" />
+                      <Zap className="w-4 h-4 fill-white" />
                       <span>Calculate Instant Estimate &amp; Dispatch Ticket</span>
                     </button>
                   </div>

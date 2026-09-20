@@ -5,7 +5,7 @@ import {
   BadgeCheck,
   Truck,
   Video,
-  Sparkles,
+  Home,
   ShieldCheck,
   Clock,
   Award,
@@ -94,8 +94,9 @@ const renderPillarIcon = (iconName: string) => {
     case 'Video':
     case 'SearchCheck':
       return <Video className="w-7 h-7" aria-hidden="true" />;
-    case 'Sparkles':
-      return <Sparkles className="w-7 h-7" aria-hidden="true" />;
+    case 'Home':
+    case 'Clean':
+      return <Home className="w-7 h-7" aria-hidden="true" />;
     default:
       return <ShieldCheck className="w-7 h-7" aria-hidden="true" />;
   }
@@ -118,8 +119,8 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
-      aria-label="Why Choose ApexFlow Plumbing"
+      className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-slate-200/80"
+      aria-label="Why Choose Apex Plumbing"
     >
       {/* Background Decorative Gradient Blobs */}
       <div
@@ -133,20 +134,20 @@ export default function WhyChooseUs() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
             Why London Homeowners Trust Apex Plumbing
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Over a decade of dependable emergency service, Gas Safe certified engineering, and transparent pricing.
           </p>
         </ScrollReveal>
 
         {/* Main 2-Column Content Layout: 4 Pillars (Left) + Stats/Credibility Card (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
           {/* Left Column: 4 Value Pillars (2x2 Grid) */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-6 sm:space-y-8">
-            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-5 sm:space-y-8">
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {pillars.map((pillar, idx) => {
                 const theme =
                   PILLAR_THEMES[pillar.id] ||
@@ -156,7 +157,7 @@ export default function WhyChooseUs() {
                 return (
                   <StaggerItem
                     key={pillar.id || idx}
-                    className="bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                    className="bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-7 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                   >
                     {/* Top Pill & Icon */}
                     <div>
@@ -205,14 +206,14 @@ export default function WhyChooseUs() {
             </StaggerContainer>
 
             {/* Micro Trust Guarantee Bar below pillars */}
-            <div className="rounded-2xl bg-blue-50/60 border border-blue-200/80 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="rounded-2xl bg-blue-50/60 border border-blue-200/80 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
               <div className="flex items-center gap-3 text-left">
                 <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center flex-shrink-0 shadow-xs">
                   <ShieldCheck className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-navy-900">
-                    No Hidden Fees Guarantee &amp; $0 Overtime Charges
+                    No Hidden Fees Guarantee &amp; £0 Overtime Charges
                   </p>
                   <p className="text-xs text-slate-600">
                     Every repair price is quoted in writing before work starts. Same rates nights, weekends &amp; holidays.
@@ -231,7 +232,7 @@ export default function WhyChooseUs() {
 
           {/* Right Column: Side Visual / Stats Card */}
           <ScrollReveal delay={0.12} className="lg:col-span-5 xl:col-span-4 flex flex-col">
-            <div className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white rounded-3xl border-2 border-navy-800 p-6 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between h-full">
+            <div className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white rounded-2xl sm:rounded-3xl border-2 border-navy-800 p-5 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between h-full">
               {/* Subtle ambient lighting inside card */}
               <div
                 className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
@@ -245,7 +246,7 @@ export default function WhyChooseUs() {
               <div className="relative z-10">
                 {/* Header Badge */}
                 <div className="flex items-center justify-between gap-2 mb-5">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-bold uppercase tracking-wider">
                     <ShieldCheck className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
                     <span>Contractor Credibility</span>
                   </div>
