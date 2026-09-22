@@ -7,6 +7,7 @@ import { SITE_CONFIG } from '@/config/site.config';
 import ApexLogo from '@/components/ui/ApexLogo';
 
 const NAV_LINKS = [
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Service Area', href: '#areas' },
@@ -39,7 +40,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3.5">
             <a
               href="#"
-              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-lg"
+              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-sm"
               aria-label={`${SITE_CONFIG.business.name} Home`}
             >
               <ApexLogo size="md" variant="dark" />
@@ -61,7 +62,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 xl:px-3.5 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-orange-600 hover:bg-orange-50/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-1 whitespace-nowrap transition-colors"
+                className="px-3 xl:px-3.5 py-2 rounded-sm text-sm font-semibold text-slate-600 hover:text-orange-600 hover:bg-orange-50/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-1 whitespace-nowrap transition-colors"
               >
                 {link.label}
               </a>
@@ -72,7 +73,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="group hidden sm:inline-flex items-center justify-center gap-2.5 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-4 sm:px-5 lg:px-6 py-2.5 rounded-full shadow-sm hover:shadow hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-xs sm:text-sm"
+              className="group hidden sm:inline-flex items-center justify-center gap-2.5 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-4 sm:px-5 lg:px-6 py-2.5 rounded-sm shadow-xs hover:shadow hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 text-xs sm:text-sm"
               aria-label={`Call ${SITE_CONFIG.business.displayPhone} now`}
             >
               <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0 group-hover:rotate-12 transition-transform duration-200" aria-hidden="true" />
@@ -83,7 +84,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none transition-colors"
+              className="lg:hidden p-2 rounded-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none transition-colors"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -113,7 +114,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2.5 rounded-xl text-base font-semibold text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                  className="block px-3 py-2.5 rounded-sm text-base font-semibold text-slate-800 hover:bg-orange-50 hover:text-orange-600 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -123,7 +124,7 @@ export default function Navbar() {
                 <a
                   href={`tel:${SITE_CONFIG.business.phone}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-extrabold rounded-full shadow-md text-base transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-extrabold rounded-sm shadow-md text-base transition-colors"
                 >
                   <Phone className="w-5 h-5 fill-white text-white" aria-hidden="true" />
                   <span>Call Dispatch: {SITE_CONFIG.business.displayPhone}</span>

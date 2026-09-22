@@ -126,7 +126,7 @@ export default function HeroSection() {
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
               href="#wizard"
               onClick={(e) => handleScrollTo(e, 'wizard')}
-              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-shadow duration-300 min-h-[48px] text-center"
+              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-shadow duration-300 min-h-[48px] text-center"
               aria-label="Schedule an appointment in quote wizard"
             >
               <Calendar className="w-4 h-4 text-white" aria-hidden="true" />
@@ -139,7 +139,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-slate-900/75 hover:bg-slate-900/90 active:bg-slate-950 text-white border border-white/25 hover:border-white/40 font-bold text-sm sm:text-base transition-colors duration-200 min-h-[48px] text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-sm bg-slate-900/75 hover:bg-slate-900/90 active:bg-slate-950 text-white border border-white/25 hover:border-white/40 font-bold text-sm sm:text-base transition-colors duration-200 min-h-[48px] text-center"
               aria-label={`Call emergency team at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
@@ -149,7 +149,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* 4. Subtle Floating Google Review Badge (Quiet Social Proof in Bottom Right) */}
+      {/* 4. Subtle Floating Google Review Badge (Sharp architectural box in Bottom Right) */}
       <motion.div
         initial={{ opacity: 0, y: 16, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -159,11 +159,11 @@ export default function HeroSection() {
         <a
           href="#reviews"
           onClick={(e) => handleScrollTo(e, 'reviews')}
-          className="group block bg-white hover:bg-slate-50 rounded-xl p-2.5 px-3.5 shadow-xl border border-slate-200/80 hover:-translate-y-0.5 transition-all duration-200 max-w-[260px]"
+          className="group block bg-white hover:bg-slate-50 rounded-none p-2.5 px-3.5 shadow-xl border border-slate-200/80 hover:-translate-y-0.5 transition-all duration-200 max-w-[260px]"
           aria-label="View Google customer reviews"
         >
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-none bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <GoogleLogo className="w-4.5 h-4.5" />
             </div>
             <div className="min-w-0 text-left">

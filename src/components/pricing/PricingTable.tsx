@@ -89,8 +89,8 @@ export default function PricingTable() {
           </p>
         </ScrollReveal>
 
-        {/* Diagnostic Fee Waiver Callout Banner (Styled matching Image 2) */}
-        <ScrollReveal delay={0.08} className="mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-7 md:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
+        {/* Diagnostic Fee Waiver Callout Banner (Styled matching Image 2, sharp architectural corners) */}
+        <ScrollReveal delay={0.08} className="mb-8 sm:mb-12 rounded-none bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-7 md:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8 xl:gap-10 relative z-10">
             <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl min-w-0">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug mb-2.5">
@@ -104,15 +104,15 @@ export default function PricingTable() {
               </p>
               {/* Feature Pills */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-semibold text-slate-200">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-navy-900 border border-navy-800 text-slate-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
                   Written quote before touching tools
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-navy-900 border border-navy-800 text-slate-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
                   £0 call-out fee with repair
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-slate-200">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-navy-900 border border-navy-800 text-slate-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-orange-400 shrink-0" aria-hidden="true" />
                   Zero overtime night/weekend fees
                 </span>
@@ -123,14 +123,14 @@ export default function PricingTable() {
               <a
                 href="#wizard"
                 onClick={(e) => handleClaimQuote(e, 'leak-repair')}
-                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 text-center min-h-[44px] whitespace-nowrap"
+                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 text-center min-h-[44px] whitespace-nowrap"
                 aria-label="Claim flat-rate quote with waived diagnostic fee"
               >
                 <span>Claim Flat-Rate Quote</span>
               </a>
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center min-h-[44px] whitespace-nowrap"
+                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center min-h-[44px] whitespace-nowrap"
                 aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
               >
                 <Phone className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" aria-hidden="true" />
@@ -140,7 +140,7 @@ export default function PricingTable() {
           </div>
         </ScrollReveal>
 
-        {/* 4 Pricing Benchmark Cards Grid */}
+        {/* 4 Pricing Benchmark Cards Grid (Sharp / rounded-none cards) */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
           {SITE_CONFIG.pricing.map((item: PricingItem, index: number) => {
             const isDiagnostic = index === 0;
@@ -151,7 +151,7 @@ export default function PricingTable() {
             return (
               <StaggerItem
                 key={item.service}
-                className={`bg-white rounded-2xl border flex flex-col overflow-hidden transition-all duration-300 relative group hover:-translate-y-1 ${
+                className={`bg-white rounded-none border flex flex-col overflow-hidden transition-all duration-300 relative group hover:-translate-y-1 ${
                   isDiagnostic
                     ? 'border-slate-300 shadow-md ring-1 ring-orange-500/20'
                     : 'border-slate-200/90 shadow-sm hover:shadow-xl'
@@ -226,7 +226,7 @@ export default function PricingTable() {
                     <a
                       href={`#wizard?service=${serviceId}`}
                       onClick={(e) => handleClaimQuote(e, serviceId)}
-                      className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[44px] text-center whitespace-nowrap ${
+                      className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-sm font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[44px] text-center whitespace-nowrap ${
                         isDiagnostic
                           ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white shadow-md shadow-orange-500/20'
                           : 'bg-navy-950 hover:bg-orange-500 active:bg-orange-600 text-white'

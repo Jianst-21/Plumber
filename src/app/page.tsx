@@ -30,6 +30,9 @@ export default function Home() {
         {/* Credibility Trust Strip */}
         <TrustStrip />
 
+        {/* About Us Company Profile & Standards (Positioned above Services) */}
+        <WhyChooseUs />
+
         {/* Core Services Grid with Real Work Photos */}
         <ServicesGrid />
 
@@ -38,9 +41,6 @@ export default function Home() {
 
         {/* Real Work Before & After Comparisons */}
         <BeforeAfter />
-
-        {/* 4 Pillars of Contractor Advantage */}
-        <WhyChooseUs />
 
         {/* Service Area Metro Coverage Map & Live Postcode Checker */}
         <ServiceArea />

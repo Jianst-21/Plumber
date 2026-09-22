@@ -94,7 +94,7 @@ export default function ServicesGrid() {
           {CORE_SERVICES.map((service: CoreService) => (
             <StaggerItem
               key={service.id}
-              className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 flex flex-col overflow-hidden group"
+              className="bg-white rounded-none border border-slate-200/90 flex flex-col overflow-hidden group shadow-xs"
             >
               {/* Service Photo with 16/10 aspect */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
@@ -146,9 +146,9 @@ export default function ServicesGrid() {
         </StaggerContainer>
 
         {/* Bottom Guarantee Banner */}
-        <ScrollReveal delay={0.1} className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 shadow-sm">
+        <ScrollReveal delay={0.1} className="mt-12 sm:mt-16 rounded-none bg-white border border-slate-200/90 p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 shadow-xs">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
+            <div className="w-12 h-12 rounded-none bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
               <ShieldCheck className="w-6 h-6 text-emerald-600" aria-hidden="true" />
             </div>
             <div>
@@ -162,7 +162,7 @@ export default function ServicesGrid() {
           </div>
           <a
             href={`tel:${SITE_CONFIG.business.phone}`}
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-colors min-h-[44px]"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-sm bg-slate-900 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-colors min-h-[44px]"
           >
             <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
             <span>Speak With a Gas Safe Engineer</span>

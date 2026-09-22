@@ -19,6 +19,7 @@ import { SITE_CONFIG } from '@/config/site.config';
 import ApexLogo from '@/components/ui/ApexLogo';
 
 const NAV_LINKS = [
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Service Area', href: '#areas' },
@@ -74,8 +75,8 @@ export default function Footer() {
       >
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Urgent Dispatch Beacon */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-black uppercase tracking-wider mb-3.5 shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 flex-shrink-0" aria-hidden="true" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-slate-950 text-amber-400 text-xs font-black uppercase tracking-wider mb-3.5 shadow-xs">
+            <span className="w-2.5 h-2.5 rounded-none bg-emerald-400 flex-shrink-0" aria-hidden="true" />
             <span>Active Rapid Emergency Dispatch Across Greater London</span>
           </div>
 
@@ -91,7 +92,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-sm sm:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-150 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-sm bg-slate-950 hover:bg-slate-900 active:bg-black text-amber-400 hover:text-amber-300 font-black text-sm sm:text-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-150 text-center"
               aria-label={`Call emergency dispatch now at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 flex-shrink-0" aria-hidden="true" />
@@ -101,7 +102,7 @@ export default function Footer() {
             <a
               href="#wizard"
               onClick={(e) => handleScrollTo(e, '#wizard')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-amber-600/30 hover:bg-amber-600/40 active:bg-amber-600/50 border-2 border-slate-950 text-slate-950 font-black text-sm sm:text-lg transition-colors text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 rounded-sm bg-amber-600/30 hover:bg-amber-600/40 active:bg-amber-600/50 border-2 border-slate-950 text-slate-950 font-black text-sm sm:text-lg transition-colors text-center"
               aria-label="Get instant online quote"
             >
               <Zap className="w-4 h-4 sm:w-5 sm:h-5 fill-slate-950 text-slate-950 flex-shrink-0" aria-hidden="true" />

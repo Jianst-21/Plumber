@@ -79,12 +79,12 @@ export default function ReviewsSection() {
         </ScrollReveal>
 
         {/* Overall Score Showcase Banner */}
-        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
+        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-none bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Left Column: Big Overall Score */}
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-navy-800 pb-5 lg:pb-0 lg:pr-8">
               {/* Google Verified Seal */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill="#4285F4"
@@ -165,7 +165,7 @@ export default function ReviewsSection() {
                   const IconComponent = pillar.icon;
                   return (
                     <div key={pillar.title} className="flex items-start gap-3 text-left">
-                      <div className="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-400/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-9 h-9 rounded-none bg-amber-400/20 border border-amber-400/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <IconComponent className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <div>
@@ -183,12 +183,12 @@ export default function ReviewsSection() {
             </div>
         </ScrollReveal>
 
-        {/* 3 Authentic Testimonial Cards Grid */}
+        {/* 3 Authentic Testimonial Cards Grid (Sharp rounded-none) */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14">
           {testimonials.map((review: Testimonial) => (
             <StaggerItem
               key={review.id}
-              className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative"
+              className="bg-white rounded-none border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative"
             >
               {/* Quote mark watermark */}
               <Quote
@@ -280,9 +280,9 @@ export default function ReviewsSection() {
         </StaggerContainer>
 
         {/* Section Action Banner */}
-        <ScrollReveal delay={0.1} className="rounded-2xl bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+        <ScrollReveal delay={0.1} className="rounded-none bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 rounded-none bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0 shadow-xs">
               <Star className="w-6 h-6 fill-amber-400 text-amber-500" aria-hidden="true" />
             </div>
             <div>
@@ -299,7 +299,7 @@ export default function ReviewsSection() {
             <a
               href="#wizard"
               onClick={handleScrollToWizard}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm shadow-md hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-sm bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm shadow-xs hover:shadow-md transition-all"
               aria-label="Book your 5-star service in online quote wizard"
             >
               <span>Book Your 5-Star Service</span>
@@ -308,7 +308,7 @@ export default function ReviewsSection() {
 
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-xs sm:text-sm border border-slate-300 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-sm bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-xs sm:text-sm border border-slate-300 transition-colors"
               aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />

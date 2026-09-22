@@ -114,8 +114,8 @@ export default function QuoteWizard() {
           </p>
         </ScrollReveal>
 
-        {/* Wizard Main Container Card */}
-        <ScrollReveal delay={0.08} className="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-200/90 overflow-hidden">
+        {/* Wizard Main Container Card (Sharp architectural box) */}
+        <ScrollReveal delay={0.08} className="bg-white rounded-none shadow-xl shadow-slate-200/70 border border-slate-200/90 overflow-hidden">
           {/* Top Progress Bar: Only visible during steps 1 - 4 */}
           {step <= 4 && (
             <div className="bg-slate-50/80 border-b border-slate-200 px-3 sm:px-8 py-3.5 sm:py-5">
@@ -221,7 +221,7 @@ export default function QuoteWizard() {
                         <div
                           key={svc.id}
                           onClick={() => selectService(svc.id)}
-                          className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-300 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
+                          className={`p-5 rounded-none border-2 text-left cursor-pointer transition-all duration-300 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                             isSelected
                               ? 'border-orange-500 bg-orange-50/40 shadow-md ring-2 ring-orange-500/20'
                               : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 bg-white'
@@ -239,7 +239,7 @@ export default function QuoteWizard() {
                           <div>
                             <div className="flex items-center justify-between mb-3.5">
                               <div
-                                className={`p-2.5 rounded-xl shadow-xs border transition-colors bg-white ${
+                                className={`p-2.5 rounded-none shadow-xs border transition-colors bg-white ${
                                   isSelected
                                     ? 'border-orange-200/90 shadow-sm'
                                     : 'border-slate-100'
@@ -250,11 +250,11 @@ export default function QuoteWizard() {
                                 )}
                               </div>
                               {isSelected ? (
-                                <span className="inline-flex items-center gap-1 text-xs font-bold text-orange-800 bg-orange-100/90 px-2 py-0.5 rounded-md border border-orange-200/90">
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-orange-800 bg-orange-100/90 px-2 py-0.5 rounded-none border border-orange-200/90">
                                   <Check className="w-3.5 h-3.5 stroke-[3] text-orange-600" /> Selected
                                 </span>
                               ) : (
-                                <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
+                                <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-none">
                                   {svc.category}
                                 </span>
                               )}
@@ -287,7 +287,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={() => nextStep()}
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-md shadow-orange-500/20 active:scale-[0.99] transition-all"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-xs hover:shadow transition-all"
                     >
                       <span>Continue to Urgency</span>
                       <ArrowRight className="w-4 h-4" />
@@ -322,12 +322,12 @@ export default function QuoteWizard() {
                     </div>
                   )}
 
-                  {/* 3 Urgency Cards */}
+                  {/* 3 Urgency Cards (Sharp architectural cards) */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* Emergency Option */}
                     <div
                       onClick={() => selectUrgency('emergency')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
+                      className={`p-5 rounded-none border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
                         urgency === 'emergency'
                           ? 'border-red-500 bg-red-50/40 ring-2 ring-red-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -343,7 +343,7 @@ export default function QuoteWizard() {
                       }}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-red-100 text-red-700 shrink-0 mt-0.5">
+                        <div className="p-3 rounded-none bg-red-100 text-red-700 shrink-0 mt-0.5">
                           <Zap className="w-6 h-6" />
                         </div>
                         <div>
@@ -351,7 +351,7 @@ export default function QuoteWizard() {
                             <h4 className="font-extrabold text-navy-900 text-base">
                               Emergency (Under 45 mins)
                             </h4>
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-red-600 text-white shadow-2xs">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-[11px] font-extrabold bg-red-600 text-white shadow-2xs">
                               Immediate Priority
                             </span>
                           </div>
@@ -381,7 +381,7 @@ export default function QuoteWizard() {
                     {/* Today Option */}
                     <div
                       onClick={() => selectUrgency('today')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
+                      className={`p-5 rounded-none border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                         urgency === 'today'
                           ? 'border-orange-500 bg-orange-50/40 ring-2 ring-orange-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -397,7 +397,7 @@ export default function QuoteWizard() {
                       }}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-amber-100 text-amber-700 shrink-0 mt-0.5">
+                        <div className="p-3 rounded-none bg-amber-100 text-amber-700 shrink-0 mt-0.5">
                           <Clock className="w-6 h-6" />
                         </div>
                         <div>
@@ -405,7 +405,7 @@ export default function QuoteWizard() {
                             <h4 className="font-extrabold text-navy-900 text-base">
                               Today (Flexible Same-Day Window)
                             </h4>
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-[11px] font-bold bg-amber-100 text-amber-900">
                               Same-Day Arrival
                             </span>
                           </div>
@@ -432,7 +432,7 @@ export default function QuoteWizard() {
                     {/* Scheduled Option */}
                     <div
                       onClick={() => selectUrgency('scheduled')}
-                      className={`p-5 rounded-2xl border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
+                      className={`p-5 rounded-none border-2 text-left cursor-pointer transition-all duration-200 flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                         urgency === 'scheduled'
                           ? 'border-orange-500 bg-orange-50/40 ring-2 ring-orange-500/20 shadow-sm'
                           : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/70 bg-white'
@@ -448,7 +448,7 @@ export default function QuoteWizard() {
                       }}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-slate-100 text-slate-700 shrink-0 mt-0.5">
+                        <div className="p-3 rounded-none bg-slate-100 text-slate-700 shrink-0 mt-0.5">
                           <Calendar className="w-6 h-6" />
                         </div>
                         <div>
@@ -456,7 +456,7 @@ export default function QuoteWizard() {
                             <h4 className="font-extrabold text-navy-900 text-base">
                               Scheduled (Future Date or Renovation)
                             </h4>
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-[11px] font-bold bg-slate-100 text-slate-700">
                               Book in Advance
                             </span>
                           </div>
@@ -486,7 +486,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-sm border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -494,7 +494,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={() => nextStep()}
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-md shadow-orange-500/20 active:scale-[0.99] transition-all"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-xs hover:shadow transition-all"
                     >
                       <span>Continue to Location</span>
                       <ArrowRight className="w-4 h-4" />
@@ -549,7 +549,7 @@ export default function QuoteWizard() {
                         value={zipCode}
                         onChange={(e) => setZipCode(e.target.value)}
                         placeholder="e.g. SW1A, NW1, W1D"
-                        className="w-full pl-12 pr-4 py-3.5 text-lg font-mono font-bold tracking-wider rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-navy-900 placeholder:text-slate-400"
+                        className="w-full pl-12 pr-4 py-3.5 text-lg font-mono font-bold tracking-wider rounded-none border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-navy-900 placeholder:text-slate-400"
                         autoFocus
                       />
                     </div>
@@ -566,7 +566,7 @@ export default function QuoteWizard() {
                           key={code}
                           type="button"
                           onClick={() => setZipCode(code)}
-                          className={`text-xs font-mono font-bold px-3 py-1.5 rounded-lg border transition-all ${
+                          className={`text-xs font-mono font-bold px-3 py-1.5 rounded-none border transition-all ${
                             zipCode === code
                               ? 'bg-orange-500 text-white border-orange-500 shadow-xs'
                               : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
@@ -582,7 +582,7 @@ export default function QuoteWizard() {
                   {zipCode.length >= 2 && (
                     <div>
                       {isZipValid ? (
-                        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-start gap-3 shadow-xs">
+                        <div className="p-4 rounded-none bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-start gap-3 shadow-xs">
                           <CheckCircle2
                             className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"
                             aria-hidden="true"
@@ -597,7 +597,7 @@ export default function QuoteWizard() {
                           </div>
                         </div>
                       ) : (
-                        <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start gap-3 shadow-xs">
+                        <div className="p-4 rounded-none bg-amber-50 border border-amber-300 text-amber-950 flex items-start gap-3 shadow-xs">
                           <AlertCircle
                             className="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
                             aria-hidden="true"
@@ -627,7 +627,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-sm border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -635,7 +635,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={() => nextStep()}
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-md shadow-orange-500/20 active:scale-[0.99] transition-all"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-xs hover:shadow transition-all"
                     >
                       <span>Continue to Contact</span>
                       <ArrowRight className="w-4 h-4" />
@@ -664,7 +664,7 @@ export default function QuoteWizard() {
                   </div>
 
                   {/* Dynamic Live Estimate Summary Card */}
-                  <div className="p-5 rounded-2xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border border-navy-800 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-md">
+                  <div className="p-5 rounded-none bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border border-navy-800 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-md">
                     <div>
                       <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 block">
                         Estimated Transparent Cost Range
@@ -680,7 +680,7 @@ export default function QuoteWizard() {
                       </p>
                     </div>
                     <div className="text-left sm:text-right">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold bg-white/10 text-slate-200 border border-white/20 px-3 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold bg-white/10 text-slate-200 border border-white/20 px-3 py-1 rounded-none">
                         <Check className="w-3.5 h-3.5 text-orange-400" /> No Overtime Surcharge
                       </span>
                     </div>
@@ -701,7 +701,7 @@ export default function QuoteWizard() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. John Doe"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-navy-900 ${
+                        className={`w-full px-4 py-3 rounded-none border text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-navy-900 ${
                           errors.name
                             ? 'border-red-400 bg-red-50/20'
                             : 'border-slate-300'
@@ -733,7 +733,7 @@ export default function QuoteWizard() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="020 7946 0992"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-navy-900 ${
+                          className={`w-full pl-10 pr-4 py-3 rounded-none border text-sm font-mono focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-navy-900 ${
                             errors.phone
                               ? 'border-red-400 bg-red-50/20'
                               : 'border-slate-300'
@@ -761,12 +761,12 @@ export default function QuoteWizard() {
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="e.g. Water dripping under kitchen sink, main sewer line backing up into master bath..."
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm text-navy-900 placeholder:text-slate-400"
+                      className="w-full px-4 py-2.5 rounded-none border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm text-navy-900 placeholder:text-slate-400"
                     />
                   </div>
 
                   {/* Privacy Notice */}
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-center gap-2">
+                  <div className="p-3 rounded-none bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-center gap-2">
                     <Lock className="w-4 h-4 text-slate-500 shrink-0" aria-hidden="true" />
                     <span>
                       We will never sell or spam your phone number. Used solely for technician dispatch confirmation.
@@ -778,7 +778,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-sm border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -786,7 +786,7 @@ export default function QuoteWizard() {
                     <button
                       type="button"
                       onClick={() => submitQuote()}
-                      className="inline-flex items-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-black text-sm sm:text-base active:scale-[0.99] transition-all shadow-lg shadow-orange-500/25"
+                      className="inline-flex items-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-black text-sm sm:text-base active:scale-[0.99] transition-all shadow-xs hover:shadow"
                     >
                       <Zap className="w-4 h-4 fill-white" />
                       <span>Calculate Instant Estimate &amp; Dispatch Ticket</span>
@@ -822,7 +822,7 @@ export default function QuoteWizard() {
                   </div>
 
                   {/* Dispatch Reference Ticket Box */}
-                  <div className="max-w-md mx-auto bg-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden text-center">
+                  <div className="max-w-md mx-auto bg-slate-900 text-white rounded-none p-5 sm:p-6 shadow-xl relative overflow-hidden text-center">
                     <div className="text-xs uppercase font-bold tracking-widest text-amber-400 mb-1">
                       Priority Dispatch Reference Ticket
                     </div>
@@ -836,7 +836,7 @@ export default function QuoteWizard() {
                       <button
                         type="button"
                         onClick={handleCopyTicket}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold tracking-wide transition-colors border border-white/20 text-white"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/10 hover:bg-white/20 text-xs font-bold tracking-wide transition-colors border border-white/20 text-white"
                         aria-label="Copy ticket reference code"
                       >
                         {ticketCopied ? (
@@ -855,12 +855,12 @@ export default function QuoteWizard() {
                   </div>
 
                   {/* Cost Range Breakdown Box */}
-                  <div className="max-w-md mx-auto bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 sm:p-6 text-left space-y-3">
+                  <div className="max-w-md mx-auto bg-slate-50 border-2 border-slate-200 rounded-none p-5 sm:p-6 text-left space-y-3">
                     <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                       <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Estimated Transparent Cost
                       </span>
-                      <span className="text-xs font-bold bg-navy-100 text-navy-800 px-2.5 py-0.5 rounded-full">
+                      <span className="text-xs font-bold bg-navy-100 text-navy-800 px-2.5 py-0.5 rounded-none">
                         Upfront Flat Rate
                       </span>
                     </div>
@@ -889,7 +889,7 @@ export default function QuoteWizard() {
                         </div>
                       )}
                       {estimate.couponBonus && (
-                        <div className="p-2.5 rounded-lg bg-amber-100/60 border border-amber-200 text-amber-950 font-bold text-[11px] mt-2">
+                        <div className="p-2.5 rounded-none bg-amber-100/60 border border-amber-200 text-amber-950 font-bold text-[11px] mt-2">
                           {estimate.couponBonus}
                         </div>
                       )}
@@ -900,9 +900,9 @@ export default function QuoteWizard() {
                   <div className="max-w-md mx-auto space-y-3 pt-2">
                     <a
                       href={`tel:${SITE_CONFIG.business.phone.replace(/\D/g, '')}`}
-                      className="group w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-extrabold text-base sm:text-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 tracking-tight text-center"
+                      className="group w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-sm bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-extrabold text-base sm:text-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 tracking-tight text-center"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-slate-950/10 flex items-center justify-center group-hover:rotate-12 transition-transform duration-200 shrink-0">
+                      <div className="w-8 h-8 rounded-none bg-slate-950/10 flex items-center justify-center group-hover:rotate-12 transition-transform duration-200 shrink-0">
                         <Phone className="w-4 h-4 fill-slate-950 text-slate-950" />
                       </div>
                       <span>
