@@ -2,320 +2,132 @@
 
 import React from 'react';
 import Image from 'next/image';
-import {
-  Star,
-  CheckCircle2,
-  BadgeCheck,
-  Clock,
-  PoundSterling,
-  ShieldCheck,
-  ArrowRight,
-  Phone,
-  Quote,
-  MapPin,
-  Calendar,
-} from 'lucide-react';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
+import { Star, Quote } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
 import { Testimonial } from '@/types';
-
-// Star rating distribution breakdown
-const RATING_BREAKDOWN = [
-  { stars: 5, percentage: 97, count: 341 },
-  { stars: 4, percentage: 3, count: 11 },
-  { stars: 3, percentage: 0, count: 0 },
-  { stars: 2, percentage: 0, count: 0 },
-  { stars: 1, percentage: 0, count: 0 },
-];
-
-// Review showcase trust pillars
-const REVIEW_PILLARS = [
-  {
-    icon: Clock,
-    title: 'Fastest Response',
-    desc: 'Under 45-minute average emergency arrival in Greater London',
-  },
-  {
-    icon: PoundSterling,
-    title: 'Upfront Rates',
-    desc: '£0 diagnostic fee waived with repair & zero overtime fees',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Spotless Cleanup',
-    desc: 'Protective overshoes, runners & sanitized workspace guarantee',
-  },
-];
 
 export default function ReviewsSection() {
   const testimonials: Testimonial[] = SITE_CONFIG.testimonials || [];
 
-  const handleScrollToWizard = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (typeof window !== 'undefined') {
-      const wizardEl = document.getElementById('wizard');
-      if (wizardEl) {
-        e.preventDefault();
-        window.history.pushState(null, '', '#wizard');
-        wizardEl.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
+  // 2 sets of testimonials for seamless infinite marquee scroll
+  const marqueeItems = [...testimonials, ...testimonials];
 
   return (
     <section
       id="reviews"
-      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-b border-slate-200/80"
-      aria-label="Verified Customer Reviews"
+      className="py-14 sm:py-20 lg:py-28 bg-slate-50/60 relative overflow-hidden border-b border-slate-200/80"
+      aria-label="What Our Clients Say About Us"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3 sm:mb-4">
-            Verified London Customer Reviews &amp; Ratings
-          </h2>
-          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Real homeowners sharing their honest experiences with our 24/7 emergency and residential plumbing services.
-          </p>
-        </ScrollReveal>
+      {/* Direct CSS Keyframe definition to guarantee immediate execution in all environments */}
+      <style>{`
+        @keyframes marqueeInfiniteScroll {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-reviews-marquee {
+          display: flex;
+          width: max-content;
+          animation: marqueeInfiniteScroll 30s linear infinite;
+          will-change: transform;
+        }
+        .animate-reviews-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
-        {/* Overall Score Showcase Banner */}
-        <ScrollReveal delay={0.08} className="mb-10 sm:mb-14 rounded-none bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-            {/* Left Column: Big Overall Score */}
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-navy-800 pb-5 lg:pb-0 lg:pr-8">
-              {/* Google Verified Seal */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 mb-3">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fill="#4285F4"
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  />
-                  <path
-                    fill="#FBBC05"
-                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                  />
-                </svg>
-                <span>Google Verified Reviews</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Authentic Plumber & Client Handshake Photo with Floating Brand Quote Badge */}
+          <ScrollReveal delay={0.06} className="lg:col-span-5 xl:col-span-5 relative">
+            <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none overflow-hidden bg-slate-100 shadow-md border border-slate-200/90 rounded-none">
+              <Image
+                src="/images/review-client.jpg"
+                alt="Apex Plumbing Gas Safe engineer with a happy London client"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover object-top"
+                priority
+              />
+
+              {/* Floating Brand Orange Quote Badge (Matching site palette) */}
+              <div
+                className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 w-14 h-14 sm:w-16 sm:h-16 bg-white shadow-xl border border-slate-100 flex items-center justify-center p-3 rounded-none"
+                aria-hidden="true"
+              >
+                <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-orange-500 fill-orange-500 rotate-180 shrink-0" />
               </div>
+            </div>
+          </ScrollReveal>
 
-              <div className="flex items-baseline gap-2 mb-1.5">
-                <span className="text-4xl sm:text-6xl font-black text-white tracking-tight">4.9</span>
-                <span className="text-lg sm:text-xl font-bold text-slate-400">/ 5.0</span>
-              </div>
-
-              {/* 5 Stars */}
-              <div className="flex items-center gap-1.5 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 sm:w-6 sm:h-6 fill-amber-400 text-amber-400"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-300 font-medium">
-                Based on <strong className="text-white font-bold">350+ verified reviews</strong> across Greater London
+          {/* Right Column: Title, Subtitle & Auto-Scrolling Marquee Carousel */}
+          <ScrollReveal delay={0.12} className="lg:col-span-7 xl:col-span-7 flex flex-col min-w-0">
+            {/* Header: Clean Title & Subtitle without badge */}
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-3 sm:mb-4">
+                What Our Clients Say About Us
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-xl">
+                Real feedback and verified ratings from homeowners across London who trust our certified 24/7 plumbing and emergency dispatch.
               </p>
             </div>
 
-            {/* Middle Column: Star Breakdown Bar Graph */}
-            <div className="lg:col-span-4 space-y-2 border-b lg:border-b-0 lg:border-r border-navy-800 pb-5 lg:pb-0 lg:pr-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
-                Rating Distribution
-              </span>
-              {RATING_BREAKDOWN.map((row) => (
-                <div
-                  key={row.stars}
-                  className={`items-center gap-3 text-xs ${
-                    row.percentage === 0 ? 'hidden sm:flex' : 'flex'
-                  }`}
-                >
-                  <span className="w-12 font-bold text-slate-300 flex items-center gap-1">
-                    <span>{row.stars}</span>
-                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" aria-hidden="true" />
-                  </span>
-                  <div className="flex-1 h-2 rounded-full bg-navy-800 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500"
-                      style={{ width: `${row.percentage}%` }}
-                    />
-                  </div>
-                  <span className="w-10 text-right text-slate-400 font-mono text-[11px]">
-                    {row.percentage}%
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Right Column: 3 Trust Pillars */}
-            <div className="lg:col-span-4 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
-                Our 3 Trust Pillars
-              </span>
-                {REVIEW_PILLARS.map((pillar) => {
-                  const IconComponent = pillar.icon;
-                  return (
-                    <div key={pillar.title} className="flex items-start gap-3 text-left">
-                      <div className="w-9 h-9 rounded-none bg-amber-400/20 border border-amber-400/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <IconComponent className="w-4 h-4" aria-hidden="true" />
+            {/* Auto-Scrolling Carousel Container (Continuous Right to Left Flow) */}
+            <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)] py-2">
+              <div className="animate-reviews-marquee gap-4 sm:gap-5">
+                {marqueeItems.map((item, idx) => (
+                  <div
+                    key={`${item.id}-${idx}`}
+                    className="w-[280px] sm:w-[320px] bg-white border border-slate-200/90 shadow-sm p-6 flex flex-col justify-between shrink-0 select-none rounded-none transition-all hover:shadow-md hover:border-orange-200"
+                  >
+                    <div>
+                      {/* 5 Amber/Gold Stars (Matching site color palette) */}
+                      <div className="flex items-center gap-1 mb-4 text-amber-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0"
+                            aria-hidden="true"
+                          />
+                        ))}
                       </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-white leading-tight">
-                          {pillar.title}
+
+                      {/* Review Quote Text */}
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6 line-clamp-4">
+                        &ldquo;{item.quote}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* Reviewer Profile Row (Avatar, Name, Location) */}
+                    <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-slate-100 border border-slate-200 shadow-2xs">
+                        <Image
+                          src={item.avatar}
+                          alt={item.author}
+                          fill
+                          className="object-cover"
+                          sizes="48px"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 truncate">
+                          {item.author}
                         </h4>
-                        <p className="text-xs text-slate-300 mt-0.5 leading-relaxed font-normal">
-                          {pillar.desc}
+                        <p className="text-xs text-slate-500 truncate">
+                          {item.neighborhood}
                         </p>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-        </ScrollReveal>
-
-        {/* 3 Authentic Testimonial Cards Grid (Sharp rounded-none) */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14">
-          {testimonials.map((review: Testimonial) => (
-            <StaggerItem
-              key={review.id}
-              className="bg-white rounded-none border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative"
-            >
-              {/* Quote mark watermark */}
-              <Quote
-                className="absolute top-6 right-6 w-10 h-10 text-slate-100 group-hover:text-amber-100/60 transition-colors pointer-events-none"
-                aria-hidden="true"
-              />
-
-              <div>
-                {/* Header: Customer Photo Avatar, Name, Verified Badge & Location */}
-                <div className="flex items-center gap-3.5 mb-4 relative z-10">
-                  {review.avatar ? (
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400/90 shadow-xs flex-shrink-0 bg-slate-100">
-                      <Image
-                        src={review.avatar}
-                        alt={`${review.author}, London homeowner`}
-                        fill
-                        sizes="48px"
-                        className="object-cover object-center"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-slate-800 bg-amber-100 border-2 border-amber-300 text-sm shadow-xs flex-shrink-0">
-                      {review.author
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')
-                        .toUpperCase()}
-                    </div>
-                  )}
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <h3 className="font-extrabold text-navy-900 text-base leading-snug">
-                        {review.author}
-                      </h3>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold">
-                        <BadgeCheck className="w-3 h-3 text-emerald-600 flex-shrink-0" aria-hidden="true" />
-                        <span>Verified</span>
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 text-slate-600 text-xs mt-0.5">
-                      <MapPin className="w-3 h-3 text-blue-600 flex-shrink-0" aria-hidden="true" />
-                      <span className="truncate">{review.neighborhood}</span>
-                    </div>
                   </div>
-                </div>
-
-                {/* Star Rating & Date */}
-                <div className="flex items-center justify-between gap-2 mb-3.5 pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-1">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-amber-400 text-amber-400"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-slate-400" aria-hidden="true" />
-                    <span>{review.date}</span>
-                  </span>
-                </div>
-
-                {/* Service Rendered Badge */}
-                <div className="mb-4">
-                  <span className="inline-block bg-blue-50 text-blue-800 border border-blue-200/80 rounded-lg px-2.5 py-1 text-xs font-bold">
-                    {review.serviceRendered}
-                  </span>
-                </div>
-
-                {/* Customer Review Quote */}
-                <p className="text-slate-700 text-sm leading-relaxed italic mb-6 font-normal">
-                  &ldquo;{review.quote}&rdquo;
-                </p>
+                ))}
               </div>
-
-              {/* Bottom Card Footer: 100% Verified Customer Guarantee */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-                  London Homeowner
-                </span>
-                <span className="text-[11px] text-slate-400 font-mono">
-                  Job Completed
-                </span>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Section Action Banner */}
-        <ScrollReveal delay={0.1} className="rounded-none bg-white border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-none bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0 shadow-xs">
-              <Star className="w-6 h-6 fill-amber-400 text-amber-500" aria-hidden="true" />
             </div>
-            <div>
-              <h3 className="text-base sm:text-lg font-extrabold text-navy-900">
-                Experience London&apos;s Highest-Rated Plumbing Care
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                Join over 10,000 satisfied London families. Zero overtime charges and 100% upfront quotes.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
-            <a
-              href="#wizard"
-              onClick={handleScrollToWizard}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-sm bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-navy-950 font-black text-sm shadow-xs hover:shadow-md transition-all"
-              aria-label="Book your 5-star service in online quote wizard"
-            >
-              <span>Book Your 5-Star Service</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </a>
-
-            <a
-              href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-sm bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-xs sm:text-sm border border-slate-300 transition-colors"
-              aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
-            >
-              <Phone className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-              <span>Call {SITE_CONFIG.business.displayPhone}</span>
-            </a>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

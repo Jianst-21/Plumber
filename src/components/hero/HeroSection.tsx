@@ -168,7 +168,7 @@ export default function HeroSection() {
             </div>
             <div className="min-w-0 text-left">
               <div className="flex items-center gap-1 leading-none">
-                <span className="text-sm font-extrabold text-slate-950">4.9</span>
+                <span className="text-sm font-extrabold text-slate-950">4.95</span>
                 <div className="flex items-center text-amber-400">
                   <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
                   <Star className="w-3.5 h-3.5 fill-amber-400" aria-hidden="true" />
@@ -178,7 +178,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <p className="text-[10.5px] text-slate-600 font-medium leading-tight mt-0.5 truncate">
-                350+ London Google Reviews
+                280+ London Google Reviews
               </p>
             </div>
           </div>

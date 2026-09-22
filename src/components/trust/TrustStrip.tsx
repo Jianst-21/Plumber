@@ -18,7 +18,7 @@ export default function TrustStrip() {
             </div>
             <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1">
-                <span className="text-xs sm:text-base font-extrabold text-slate-900">4.9</span>
+                <span className="text-xs sm:text-base font-extrabold text-slate-900">4.95</span>
                 <div className="flex items-center" aria-label="5 out of 5 stars">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -30,7 +30,7 @@ export default function TrustStrip() {
                 </div>
               </div>
               <span className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-tight mt-0.5">
-                350+ Reviews
+                280+ Reviews
               </span>
             </div>
           </StaggerItem>
@@ -71,10 +71,10 @@ export default function TrustStrip() {
               <Lock className="w-4 h-4 sm:w-6 sm:h-6 text-slate-700" aria-hidden="true" />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-xs sm:text-base font-extrabold text-slate-900 leading-snug">
-                {SITE_CONFIG.business.insuranceAmount}
+              <span className="text-xs sm:text-base font-extrabold text-slate-900 leading-snug whitespace-nowrap">
+                £5,000,000 Insured
               </span>
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-tight mt-0.5">
+              <span className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-tight mt-0.5 whitespace-nowrap">
                 Public Liability
               </span>
             </div>

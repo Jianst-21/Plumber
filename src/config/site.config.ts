@@ -305,6 +305,39 @@ export const SITE_CONFIG: SiteConfig = {
         'Our boiler broke down and started leaking water into the utility room. Called Apex at 7 AM; by 1 PM we had a new high-efficiency Worcester Bosch combi boiler running. Fixed price, zero surprises.',
       avatar: '/images/avatar-elena.jpg',
     },
+    {
+      id: 'test-4',
+      author: 'David H.',
+      neighborhood: 'Westminster',
+      rating: 5,
+      date: '3 weeks ago',
+      serviceRendered: 'Kitchen Mixer Tap Replacement',
+      quote:
+        'Fast and thorough service. The engineer arrived on time, replaced our leaking kitchen tap cleanly, and checked all isolating valves. High quality workmanship.',
+      avatar: '/images/avatar-marcus.jpg',
+    },
+    {
+      id: 'test-5',
+      author: 'Claire T.',
+      neighborhood: 'Wimbledon',
+      rating: 5,
+      date: '1 month ago',
+      serviceRendered: 'Thermostatic Shower Valve Fitting',
+      quote:
+        'Had issues with water temperature fluctuations. Apex diagnosed the thermostatic cartridge problem quickly and fitted a new unit. Professional and courteous.',
+      avatar: '/images/avatar-sarah.jpg',
+    },
+    {
+      id: 'test-6',
+      author: 'Robert K.',
+      neighborhood: 'Islington',
+      rating: 5,
+      date: '1 month ago',
+      serviceRendered: 'Radiator Valve & Heating Balance',
+      quote:
+        'Extremely knowledgeable heating engineer. Restored heat to three cold radiators and balanced the whole system in under an hour. Highly recommended.',
+      avatar: '/images/avatar-elena.jpg',
+    },
   ],
   faq: [
     {

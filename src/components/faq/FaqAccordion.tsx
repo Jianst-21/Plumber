@@ -127,7 +127,7 @@ export default function FaqAccordion() {
           })}
         </ScrollReveal>
 
-        {/* Still Have Questions Box (Aligned to Image 2) */}
+        {/* Still Have Questions Box (Side-by-Side on Desktop & iPad Pro, Centered Stack on iPad Mini & Mobile) */}
         <ScrollReveal delay={0.12} className="rounded-none bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 border-2 border-navy-800 p-5 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
             <div className="text-center lg:text-left">
@@ -139,10 +139,10 @@ export default function FaqAccordion() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto flex-shrink-0">
+            <div className="flex flex-col sm:flex-row lg:flex-col items-center justify-center lg:items-stretch gap-3 w-full lg:w-auto flex-shrink-0">
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all text-center min-h-[44px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all text-center min-h-[44px] whitespace-nowrap"
                 aria-label={`Speak directly to a Gas Safe registered engineer at ${SITE_CONFIG.business.phone}`}
               >
                 <Phone className="w-4 h-4 fill-white text-white flex-shrink-0" aria-hidden="true" />
@@ -152,7 +152,7 @@ export default function FaqAccordion() {
               <a
                 href="#wizard"
                 onClick={handleScrollToWizard}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center min-h-[44px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-sm bg-white/10 hover:bg-white/15 text-slate-100 hover:text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors text-center min-h-[44px] whitespace-nowrap"
                 aria-label="Launch 60-second online quote wizard"
               >
                 <span>Launch 60-Second Quote Wizard</span>

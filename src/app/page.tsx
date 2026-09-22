@@ -11,11 +11,10 @@ import ServiceArea from '@/components/coverage/ServiceArea';
 import ReviewsSection from '@/components/reviews/ReviewsSection';
 import FaqAccordion from '@/components/faq/FaqAccordion';
 import Footer from '@/components/layout/Footer';
-import MobileFloatingBar from '@/components/layout/MobileFloatingBar';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-clip pb-24 md:pb-0">
+    <div className="relative min-h-screen w-full overflow-x-clip">
       {/* 1. Top 24/7 emergency notification warning bar */}
       <EmergencyTopbar />
 
@@ -57,9 +56,6 @@ export default function Home() {
 
       {/* 4. Emergency Callout Strip & Comprehensive Footer */}
       <Footer />
-
-      {/* 5. Mobile Floating Action Bar */}
-      <MobileFloatingBar />
     </div>
   );
 }

@@ -6,8 +6,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
-  CheckCircle2,
-  AlertTriangle,
   Clock,
   Phone,
   ArrowRight,
@@ -80,25 +78,23 @@ export default function BeforeAfter() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [canHoverSlide, setCanHoverSlide] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isHoverLocked, setIsHoverLocked] = useState(false);
+  const [isDesktopHoverSupported, setIsDesktopHoverSupported] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Detect true desktop mouse pointer and lock/disable hover auto-slide on iPad Pro, iPad Mini, and mobile
+  // Hover animation strictly for desktop mouse users only (disabled on mobile, tablet, iPad)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      const isTouchDevice =
-        'ontouchstart' in window ||
-        navigator.maxTouchPoints > 0 ||
-        window.matchMedia('(pointer: coarse)').matches;
+    const checkDesktop = () => {
+      if (typeof window === 'undefined') return;
+      const hasFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const isDesktopWidth = window.innerWidth >= 1024;
+      setIsDesktopHoverSupported(hasFineHover && isDesktopWidth);
+    };
 
-      // Only enable hover-slide on true desktop without primary touch
-      if (hasFinePointer && !isTouchDevice) {
-        setCanHoverSlide(true);
-      }
-    }
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
   // Touch swipe coordinates for mobile & tablet project navigation
@@ -160,30 +156,29 @@ export default function BeforeAfter() {
     setSliderPosition(percentage);
   }, []);
 
-  // Desktop Hover Handlers (automatically slides towards before/after when not locked)
+  // Desktop Hover Handlers (smooth inverse dynamic gliding strictly on desktop)
   const handleMouseEnter = () => {
-    if (canHoverSlide && !isHoverLocked && !isDragging) {
-      setIsHovering(true);
-    }
+    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
+    setIsHovering(true);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (canHoverSlide && !isHoverLocked && !isDragging && containerRef.current) {
+    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
+    if (containerRef.current) {
+      setIsHovering(true);
       const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const cursorRatio = Math.max(0.05, Math.min(0.95, x / rect.width));
-      // Inverse direction: when cursor is on the right (After area), slider slides to the left (revealing After).
-      // When cursor is on the left (Before area), slider slides to the right (revealing Before).
+      // Inverse dynamic: cursor at right -> line smoothly glides left; cursor at left -> line smoothly glides right
       const inversePercentage = (1 - cursorRatio) * 100;
       setSliderPosition(inversePercentage);
     }
   };
 
   const handleMouseLeave = () => {
-    if (canHoverSlide && !isHoverLocked && !isDragging) {
-      setIsHovering(false);
-      setSliderPosition(50); // Smoothly return to center
-    }
+    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
+    setIsHovering(false);
+    setSliderPosition(50); // Smoothly return to center
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -218,7 +213,7 @@ export default function BeforeAfter() {
         {/* Section Header */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
-            Real Results: Before &amp; After Showcase
+            Before &amp; After Showcase
           </h2>
           <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-normal">
             Real photographic proof from certified Gas Safe registered plumbing &amp; heating engineers across London. Drag the slider to compare results.
@@ -240,24 +235,27 @@ export default function BeforeAfter() {
               {currentProject.title}
             </h3>
           </div>
-          <div className="flex items-center gap-3 self-start sm:self-auto shrink-0 pb-1">
-            {/* Desktop Lock/Unlock Toggle for Hover Auto-Slide Animation */}
-            {canHoverSlide && (
+          <div className="flex items-center gap-2.5 sm:gap-3 self-start sm:self-auto shrink-0 pb-1">
+            {/* Lock / Unlock Toggle Button (Desktop only) */}
+            {isDesktopHoverSupported && (
               <button
                 type="button"
                 onClick={() => {
                   setIsHoverLocked((prev) => !prev);
-                  if (!isHoverLocked) setSliderPosition(50);
+                  if (!isHoverLocked) {
+                    setIsHovering(false);
+                    setSliderPosition(50);
+                  }
                 }}
-                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-sm text-xs font-bold transition-all border ${
+                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-bold transition-all border cursor-pointer ${
                   isHoverLocked
-                    ? 'bg-amber-500 hover:bg-amber-600 text-white border-amber-600 shadow-xs'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200/90'
+                    ? 'bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white border-amber-600 shadow-xs'
+                    : 'bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 border-slate-200/90'
                 }`}
                 title={
                   isHoverLocked
-                    ? 'Hover auto-slide is locked (manual drag only). Click to unlock.'
-                    : 'Hover auto-slide is active. Click to lock.'
+                    ? 'Hover slide is locked (manual drag only). Click to enable hover slide.'
+                    : 'Hover slide is active. Click to lock.'
                 }
                 aria-pressed={isHoverLocked}
               >
@@ -269,7 +267,7 @@ export default function BeforeAfter() {
                 ) : (
                   <>
                     <Unlock className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
-                    <span>Hover Active</span>
+                    <span>Lock Hover</span>
                   </>
                 )}
               </button>
@@ -303,7 +301,7 @@ export default function BeforeAfter() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             className={`relative aspect-[16/10] max-h-[560px] lg:max-h-[640px] w-full rounded-none overflow-hidden select-none touch-none shadow-md border border-slate-200/80 ${
-              canHoverSlide && !isHoverLocked ? 'cursor-pointer' : 'cursor-ew-resize'
+              isDesktopHoverSupported && !isHoverLocked ? 'cursor-pointer' : 'cursor-ew-resize'
             } bg-slate-100 group`}
             role="slider"
             aria-label={`Comparison slider for ${currentProject.title}`}
@@ -333,9 +331,9 @@ export default function BeforeAfter() {
             {/* BEFORE IMAGE (Clipped Top Layer) */}
             <div
               className={`absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden ${
-                !isDragging
-                  ? 'transition-[clip-path] duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
-                  : ''
+                isDragging
+                  ? ''
+                  : 'transition-[clip-path] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
               }`}
               style={{
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
@@ -357,23 +355,23 @@ export default function BeforeAfter() {
             {/* DIVIDER LINE */}
             <div
               className={`absolute top-0 bottom-0 z-20 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.6)] pointer-events-none ${
-                !isDragging
-                  ? 'transition-[left] duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
-                  : ''
+                isDragging
+                  ? ''
+                  : 'transition-[left] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
               }`}
               style={{ left: `${sliderPosition}%` }}
             />
 
-            {/* DRAGGABLE CIRCLE HANDLE (Matching Image 2) */}
+            {/* DRAGGABLE CIRCLE HANDLE */}
             <div
               className={`absolute z-30 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none ${
-                !isDragging
-                  ? 'transition-[left] duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
-                  : ''
+                isDragging
+                  ? ''
+                  : 'transition-[left] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]'
               }`}
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy-950/90 text-white border-2 border-white shadow-2xl flex items-center justify-center backdrop-blur-xs group-hover:scale-105 transition-transform duration-200">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy-950/90 text-white border-2 border-white shadow-2xl flex items-center justify-center backdrop-blur-xs group-hover:scale-110 group-hover:border-orange-400 group-hover:shadow-orange-500/30 transition-all duration-200">
                 <div className="flex items-center -space-x-1 text-white">
                   <ChevronLeft className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
                   <ChevronRight className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
@@ -434,18 +432,18 @@ export default function BeforeAfter() {
           </p>
         </div>
 
-        {/* Bottom Guarantee & CTA Strip (Clean & Unboxed, sharp button) */}
-        <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600">
+        {/* Bottom Guarantee & CTA Strip (Clean 1 single line on tablet & desktop) */}
+        <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 whitespace-nowrap">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
-            <span>Gas Safe Registered Engineer • {currentProject.warranty}</span>
+            <span>Gas Safe Registered • 1-Year Guarantee</span>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             <a
               href={`#wizard?service=${currentProject.serviceId}`}
               onClick={(e) => handleSelectService(e, currentProject.serviceId)}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[44px] text-center"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-sm bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all min-h-[40px] text-center whitespace-nowrap"
               aria-label={`Fix similar issue for ${currentProject.title}`}
             >
               <span>Fix Similar Issue</span>
@@ -453,11 +451,11 @@ export default function BeforeAfter() {
             </a>
             <a
               href={`tel:${SITE_CONFIG.business.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-colors min-h-[44px]"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-colors min-h-[40px] whitespace-nowrap"
               aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
             >
               <Phone className="w-3.5 h-3.5 text-orange-500" aria-hidden="true" />
-              <span className="hidden sm:inline">Call Dispatch</span>
+              <span>Call Dispatch</span>
             </a>
           </div>
         </div>

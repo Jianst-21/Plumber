@@ -2,9 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Phone, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/ScrollReveal';
-import { SITE_CONFIG } from '@/config/site.config';
 
 interface CoreService {
   id: string;
@@ -112,7 +111,7 @@ export default function ServicesGrid() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-7 text-center flex flex-col flex-1">
+              <div className="p-6 sm:p-7 text-left flex flex-col flex-1">
                 {/* Service Title */}
                 <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-2.5 group-hover:text-orange-600 transition-colors tracking-tight">
                   {service.title}
@@ -123,12 +122,12 @@ export default function ServicesGrid() {
                   {service.description}
                 </p>
 
-                {/* Interactive Animated Arrow (Clean icon only, smoothly opens More Info -> on hover) */}
-                <div className="mt-auto flex justify-center pt-2">
+                {/* Interactive Animated Action (Aligned flush with content) */}
+                <div className="mt-auto flex justify-start pt-2">
                   <a
                     href={`#wizard?service=${service.serviceKey}`}
                     onClick={(e) => handleSelectService(e, service.serviceKey)}
-                    className="inline-flex items-center justify-center gap-1.5 py-2 px-3 text-slate-700 group-hover:text-orange-600 font-bold text-sm min-h-[44px] transition-colors duration-300"
+                    className="inline-flex items-center gap-1.5 py-2 px-0 text-slate-700 group-hover:text-orange-600 font-bold text-sm min-h-[44px] transition-colors duration-300"
                     aria-label={`More Info about ${service.title} service`}
                   >
                     <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap transition-all duration-300 ease-out group-hover:max-w-[90px] group-hover:opacity-100">
@@ -144,30 +143,6 @@ export default function ServicesGrid() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        {/* Bottom Guarantee Banner */}
-        <ScrollReveal delay={0.1} className="mt-12 sm:mt-16 rounded-none bg-white border border-slate-200/90 p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 shadow-xs">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-none bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
-              <ShieldCheck className="w-6 h-6 text-emerald-600" aria-hidden="true" />
-            </div>
-            <div>
-              <p className="text-base sm:text-lg font-extrabold text-slate-900">
-                100% Upfront Pricing Guarantee on Every Service Call
-              </p>
-              <p className="text-xs sm:text-sm text-slate-600 font-normal mt-0.5">
-                No hidden dispatch travel fees, no surprises, and zero overtime surcharges on nights or weekends.
-              </p>
-            </div>
-          </div>
-          <a
-            href={`tel:${SITE_CONFIG.business.phone}`}
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-sm bg-slate-900 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-colors min-h-[44px]"
-          >
-            <Phone className="w-4 h-4 text-orange-400" aria-hidden="true" />
-            <span>Speak With a Gas Safe Engineer</span>
-          </a>
-        </ScrollReveal>
       </div>
     </section>
   );

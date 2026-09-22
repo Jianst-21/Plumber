@@ -29,22 +29,22 @@ export default function WhyChooseUs() {
           {/* Left Column: Overlapping Photos & Client Review Floating Badge (Matching Image 1) */}
           <ScrollReveal delay={0.05} className="lg:col-span-6 relative">
             <div className="relative w-full max-w-lg mx-auto lg:max-w-none pb-12 sm:pb-16 pr-8 sm:pr-14">
-              {/* Back Photo (Workshop / Engineer with Fixtures) */}
+              {/* Back Photo (Plumbing Wrench & Fixtures) */}
               <div className="relative w-[78%] aspect-[4/5] overflow-hidden border border-slate-200/90 shadow-md bg-slate-100">
                 <Image
-                  src="/images/about-workshop.jpg"
-                  alt="Apex Plumbing Gas Safe workshop and professional fixtures"
+                  src="/images/about-wrench-valve.jpg"
+                  alt="Apex Plumbing professional plumbing equipment, valves, and precision tools"
                   fill
                   sizes="(max-width: 768px) 80vw, 40vw"
                   className="object-cover object-center"
                 />
               </div>
 
-              {/* Front Overlapping Photo (Engineer at work) */}
+              {/* Front Overlapping Photo (Plumber repairing kitchen sink) */}
               <div className="absolute right-0 bottom-4 w-[62%] aspect-[4/5] overflow-hidden border-4 border-white shadow-xl bg-slate-200 z-10">
                 <Image
-                  src="/images/about-engineer.jpg"
-                  alt="Apex Plumbing certified Gas Safe technician repairing appliance"
+                  src="/images/about-repairman-sink.jpg"
+                  alt="Apex Plumbing certified Gas Safe engineer repairing kitchen sink plumbing"
                   fill
                   sizes="(max-width: 768px) 60vw, 30vw"
                   className="object-cover object-center"
@@ -110,15 +110,15 @@ export default function WhyChooseUs() {
               <a
                 href="#wizard"
                 onClick={handleScrollToWizard}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-navy-950 hover:bg-orange-500 active:bg-orange-600 text-white font-extrabold text-sm sm:text-base transition-colors duration-200 text-center min-h-[44px] shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-sm bg-navy-950 hover:bg-orange-500 active:bg-orange-600 text-white font-extrabold text-sm sm:text-base transition-colors duration-200 text-center min-h-[44px] shadow-sm whitespace-nowrap"
                 aria-label="Book a certified plumber with our company"
               >
-                <span>OUR COMPANY &amp; BOOKING</span>
+                <span>Book an Engineer</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href={`tel:${SITE_CONFIG.business.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-colors text-center min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-colors text-center min-h-[44px] whitespace-nowrap"
                 aria-label={`Call emergency dispatch at ${SITE_CONFIG.business.phone}`}
               >
                 <span>Call {SITE_CONFIG.business.displayPhone}</span>

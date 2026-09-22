@@ -36,6 +36,27 @@
   animation: beacon-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Infinite Marquee Scroll for Reviews Carousel */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Perforated Coupon & Voucher Styling */
 /* Custom Modern Scrollbar */
 ::-webkit-scrollbar {

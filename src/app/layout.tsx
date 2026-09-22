@@ -144,7 +144,7 @@ const plumbingServiceJsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.9",
+    ratingValue: "4.95",
     reviewCount: "184",
     bestRating: "5",
     worstRating: "1",
