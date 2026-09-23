@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import {
   ChevronLeft,
@@ -9,8 +9,6 @@ import {
   Clock,
   Phone,
   ArrowRight,
-  Lock,
-  Unlock,
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SITE_CONFIG } from '@/config/site.config';
@@ -78,24 +76,7 @@ export default function BeforeAfter() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isHoverLocked, setIsHoverLocked] = useState(false);
-  const [isDesktopHoverSupported, setIsDesktopHoverSupported] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Hover animation strictly for desktop mouse users only (disabled on mobile, tablet, iPad)
-  useEffect(() => {
-    const checkDesktop = () => {
-      if (typeof window === 'undefined') return;
-      const hasFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      const isDesktopWidth = window.innerWidth >= 1024;
-      setIsDesktopHoverSupported(hasFineHover && isDesktopWidth);
-    };
-
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
 
   // Touch swipe coordinates for mobile & tablet project navigation
   const touchStartX = useRef<number | null>(null);
@@ -156,34 +137,8 @@ export default function BeforeAfter() {
     setSliderPosition(percentage);
   }, []);
 
-  // Desktop Hover Handlers (smooth inverse dynamic gliding strictly on desktop)
-  const handleMouseEnter = () => {
-    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
-    setIsHovering(true);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
-    if (containerRef.current) {
-      setIsHovering(true);
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const cursorRatio = Math.max(0.05, Math.min(0.95, x / rect.width));
-      // Inverse dynamic: cursor at right -> line smoothly glides left; cursor at left -> line smoothly glides right
-      const inversePercentage = (1 - cursorRatio) * 100;
-      setSliderPosition(inversePercentage);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isDesktopHoverSupported || isDragging || isHoverLocked) return;
-    setIsHovering(false);
-    setSliderPosition(50); // Smoothly return to center
-  };
-
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     setIsDragging(true);
-    setIsHovering(false);
     handleMove(e.clientX);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -236,43 +191,6 @@ export default function BeforeAfter() {
             </h3>
           </div>
           <div className="flex items-center gap-2.5 sm:gap-3 self-start sm:self-auto shrink-0 pb-1">
-            {/* Lock / Unlock Toggle Button (Desktop only) */}
-            {isDesktopHoverSupported && (
-              <button
-                type="button"
-                onClick={() => {
-                  setIsHoverLocked((prev) => !prev);
-                  if (!isHoverLocked) {
-                    setIsHovering(false);
-                    setSliderPosition(50);
-                  }
-                }}
-                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-bold transition-all border cursor-pointer ${
-                  isHoverLocked
-                    ? 'bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white border-amber-600 shadow-xs'
-                    : 'bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 border-slate-200/90'
-                }`}
-                title={
-                  isHoverLocked
-                    ? 'Hover slide is locked (manual drag only). Click to enable hover slide.'
-                    : 'Hover slide is active. Click to lock.'
-                }
-                aria-pressed={isHoverLocked}
-              >
-                {isHoverLocked ? (
-                  <>
-                    <Lock className="w-3.5 h-3.5 text-white" aria-hidden="true" />
-                    <span>Hover Locked</span>
-                  </>
-                ) : (
-                  <>
-                    <Unlock className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
-                    <span>Lock Hover</span>
-                  </>
-                )}
-              </button>
-            )}
-
             <div className="text-xs font-mono font-bold text-slate-400">
               0{currentIndex + 1} / 0{SHOWCASE_PROJECTS.length}
             </div>
@@ -297,12 +215,7 @@ export default function BeforeAfter() {
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className={`relative aspect-[16/10] max-h-[560px] lg:max-h-[640px] w-full rounded-none overflow-hidden select-none touch-none shadow-md border border-slate-200/80 ${
-              isDesktopHoverSupported && !isHoverLocked ? 'cursor-pointer' : 'cursor-ew-resize'
-            } bg-slate-100 group`}
+            className="relative aspect-[16/10] max-h-[560px] lg:max-h-[640px] w-full rounded-none overflow-hidden select-none touch-none shadow-md border border-slate-200/80 cursor-pointer bg-slate-100 group"
             role="slider"
             aria-label={`Comparison slider for ${currentProject.title}`}
             aria-valuenow={Math.round(sliderPosition)}
